@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="مكتبة الأحاديث النبوية الشريفة | دار الخلافة - أكثر من 250 حديثًا صحيحًا مصنفًا مع الأسانيد ودرجات الصحة">
+    <title>مكتبة الأحاديث | دار الخلافة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #020617;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --gold-light: #fbbf24;
+            --gold-dark: #b45309;
+            --emerald-light: #34d399;
+            --emerald-dark: #047857;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --font-main: 'Tajawal', system-ui, sans-serif;
+            --font-quran: 'Amiri', serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+        body::before { width: 300px; height: 300px; background: #047857; top: -100px; right: -100px; }
+        body::after { width: 400px; height: 400px; background: #b45309; bottom: -150px; left: -150px; }
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .logo-icon {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            border-radius: 8px; color: #000; font-weight: 900; font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .logo-text h1 {
+            font-size: 1.1rem; font-weight: 800;
+            background: linear-gradient(to left, var(--gold-light), var(--emerald-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1.2;
+        }
+        .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+        .back-btn-top {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-primary);
+            text-decoration: none;
+        }
+        .back-btn-top svg { width: 20px; height: 20px; }
+        .wrap { max-width: 780px; margin: 0 auto; padding: 24px 16px 60px; }
+        .hero { text-align: center; padding: 20px 0 20px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            color: var(--emerald-light);
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+        .badge-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--emerald-light);
+            box-shadow: 0 0 10px var(--emerald-light);
+            animation: pulseDot 2s infinite;
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .hero-title { font-size: 2rem; font-weight: 900; line-height: 1.3; margin-bottom: 10px; }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gold-light), var(--emerald-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .search-box { position: relative; margin: 20px 0 16px; }
+        .search-box input {
+            width: 100%;
+            padding: 14px 48px 14px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            backdrop-filter: blur(12px);
+            transition: all var(--transition);
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 0 3px rgba(251,191,36,0.1);
+        }
+        .search-box svg {
+            position: absolute; top: 50%; right: 16px;
+            transform: translateY(-50%);
+            width: 20px; height: 20px;
+            color: var(--gold-light);
+            pointer-events: none;
+        }
+        .categories {
+            display: flex; gap: 8px;
+            overflow-x: auto;
+            padding: 4px 0 12px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .categories::-webkit-scrollbar { display: none; }
+        .cat-btn {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .cat-btn:active { transform: scale(0.95); }
+        .cat-btn.active {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #000; border-color: transparent;
+            box-shadow: 0 0 15px rgba(251,191,36,0.3);
+        }
+        .counter {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .counter b { color: var(--gold-light); }
+
+        .hadith-list { display: flex; flex-direction: column; gap: 14px; }
+        .hadith-card {
+            position: relative;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: all var(--transition);
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hadith-card::before {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251,191,36,0.06), transparent);
+            transition: left 0.8s ease;
+            pointer-events: none;
+        }
+        .hadith-card:hover::before { left: 100%; }
+        .hadith-card::after {
+            content: '';
+            position: absolute; top: 0; right: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--gold-light), var(--emerald-light));
+        }
+        .hadith-header {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+        }
+        .hadith-cat {
+            font-size: 0.7rem; padding: 4px 10px;
+            background: rgba(52,211,153,0.1);
+            border: 1px solid rgba(52,211,153,0.2);
+            border-radius: 50px;
+            color: var(--emerald-light);
+            font-weight: 600;
+        }
+        .hadith-actions { display: flex; gap: 6px; }
+        .icon-action {
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-size: 0.85rem;
+            font-family: inherit;
+            color: var(--text-primary);
+        }
+        .icon-action:active { transform: scale(0.9); }
+        .icon-action.copied {
+            background: rgba(52,211,153,0.15);
+            border-color: var(--emerald-light);
+            color: var(--emerald-light);
+        }
+        .icon-action.fav-on {
+            background: rgba(251,191,36,0.15);
+            border-color: var(--gold-light);
+        }
+        .hadith-text {
+            font-family: var(--font-quran);
+            font-size: 1.08rem;
+            color: var(--text-primary);
+            line-height: 2;
+            padding: 14px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .hadith-meta {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px; font-size: 0.78rem;
+        }
+        .meta-item { display: flex; align-items: center; gap: 6px; color: var(--text-muted); }
+        .meta-item b { color: var(--gold-light); font-weight: 700; }
+        .isnad {
+            grid-column: 1 / -1;
+            padding: 10px 12px;
+            background: var(--bg-glass);
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            border-right: 3px solid var(--emerald-light);
+        }
+        .isnad b { color: var(--emerald-light); }
+        .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+        .empty-state div { font-size: 3rem; margin-bottom: 12px; }
+        .load-more {
+            display: block; width: 100%;
+            padding: 14px;
+            margin-top: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--gold-light);
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .load-more:active { transform: scale(0.98); }
+        .load-more:hover { border-color: var(--gold-light); background: rgba(251,191,36,0.05); }
+        .footer {
+            text-align: center;
+            padding: 30px 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-quran);
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">س</div>
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
+            </div>
+        </a>
+        <a href="index.html" class="back-btn-top" aria-label="رجوع">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+    </header>
+
+    <main class="wrap">
+
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                أحاديث · دار الخلافة
+            </div>
+            <h1 class="hero-title">مكتبة <span class="gradient-text">الأحاديث</span></h1>
+            <p>أكثر من 250 حديثًا صحيحًا مصنفًا، مع المصادر والأسانيد ودرجات الصحة.</p>
+        </section>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="ابحث في الأحاديث أو الرواة أو المصادر...">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+        </div>
+
+        <div class="categories" id="categories"></div>
+
+        <div class="counter">
+            <span>النتائج: <b id="countDisplay">0</b> حديث</span>
+            <span id="favFilter" style="cursor:pointer; color: var(--gold-light);">⭐ المفضلة</span>
+        </div>
+
+        <div class="hadith-list" id="hadithList"></div>
+
+        <button class="load-more" id="loadMore" style="display:none;">عرض المزيد ↓</button>
+
+    </main>
+
+    <div class="footer">
+        ﷲ — من دلّ على خير فله مثل أجر فاعله
+    </div>
+
+    <script>
+        /* ==========================================================
+           قاعدة بيانات الأحاديث — 250+ حديث
+           ==========================================================
+           كل حديث كائن { } يحتوي على:
+           cat: التصنيف | text: النص | rawi: الراوي
+           source: المصدر | grade: الدرجة | isnad: الإسناد
+           ========================================================== */
+
+        const hadithsData = [
+
+        // ═══════════════ 1. العقيدة والتوحيد ═══════════════
+        { cat:"العقيدة", text:"إنَّما الأعمالُ بالنِّيَّاتِ، وإنَّما لكلِّ امرئٍ ما نوى.", rawi:"عمر بن الخطاب", source:"البخاري (1)، مسلم (1907)", grade:"صحيح متفق عليه", isnad:"الحميدي → سفيان → يحيى → محمد بن إبراهيم → علقمة ← عمر" },
+        { cat:"العقيدة", text:"بُنِيَ الإسلامُ على خمسٍ: شهادةِ أنْ لا إلهَ إلا اللهُ، وإقامِ الصلاةِ، وإيتاءِ الزكاةِ، وحجِّ البيتِ، وصومِ رمضان.", rawi:"عبد الله بن عمر", source:"البخاري (8)، مسلم (16)", grade:"صحيح متفق عليه", isnad:"عبيد الله بن موسى → حنظلة → عكرمة ← ابن عمر" },
+        { cat:"العقيدة", text:"الإيمانُ أنْ تؤمنَ باللهِ وملائكتِه وكتبِه ورسلِه واليومِ الآخِرِ، وتؤمنَ بالقدرِ خيرِه وشرِّه.", rawi:"عمر بن الخطاب", source:"مسلم (8)", grade:"صحيح", isnad:"يحيى بن يعمر ← ابن عمر ← جبريل ← النبي ﷺ" },
+        { cat:"العقيدة", text:"الإحسانُ أنْ تعبدَ اللهَ كأنكَ تراه، فإنْ لم تكُنْ تراه فإنه يراك.", rawi:"عمر بن الخطاب", source:"مسلم (8)", grade:"صحيح", isnad:"حديث جبريل الطويل ← عمر" },
+        { cat:"العقيدة", text:"أفضلُ الذكرِ: لا إلهَ إلا اللهُ، وأفضلُ الدعاءِ: الحمدُ لله.", rawi:"جابر", source:"الترمذي (3383)", grade:"حسن", isnad:"محمد بن بشار → عبد الرحمن → سفيان ← جابر" },
+        { cat:"العقيدة", text:"إنَّ اللهَ لا ينظرُ إلى صُوَرِكم وأموالِكم، ولكن ينظرُ إلى قلوبِكم وأعمالِكم.", rawi:"أبو هريرة", source:"مسلم (2564)", grade:"صحيح", isnad:"عمرو بن محمد → أبو معاوية ← أبو هريرة" },
+        { cat:"العقيدة", text:"أحبُّ الأعمالِ إلى اللهِ أدومُها وإنْ قَلَّ.", rawi:"عائشة", source:"البخاري (6464)، مسلم (783)", grade:"صحيح متفق عليه", isnad:"عبدان → شعبة ← عائشة" },
+        { cat:"العقيدة", text:"الطُّهورُ شطرُ الإيمانِ، والحمدُ للهِ تملأُ الميزانَ.", rawi:"أبو مالك الأشعري", source:"مسلم (223)", grade:"صحيح", isnad:"إسحاق → حبان ← أبو مالك" },
+        { cat:"العقيدة", text:"كلمتانِ خفيفتانِ على اللسانِ، ثقيلتانِ في الميزانِ: سبحانَ اللهِ وبحمدِه، سبحانَ اللهِ العظيمِ.", rawi:"أبو هريرة", source:"البخاري (6682)، مسلم (2694)", grade:"صحيح متفق عليه", isnad:"أحمد بن أبي رجاء ← أبو هريرة" },
+        { cat:"العقيدة", text:"مَن قال: لا إلهَ إلا اللهُ مخلِصًا من قلبِه دخلَ الجنةَ.", rawi:"معاذ بن جبل", source:"أحمد (22030)", grade:"صحيح لغيره", isnad:"عفان → شعبة ← معاذ" },
+        { cat:"العقيدة", text:"ما مِن أحدٍ يشهدُ أنْ لا إلهَ إلا اللهُ وأنَّ محمدًا رسولُ اللهِ، إلا حَرَّمَه اللهُ على النارِ.", rawi:"عبادة بن الصامت", source:"مسلم (32)", grade:"صحيح", isnad:"زهير → عفان ← عبادة" },
+        { cat:"العقيدة", text:"إنَّ اللهَ يُدني المؤمنَ فيضعُ عليه كَنَفَه ويُقرِّرُه بذنوبِه.", rawi:"ابن عمر", source:"البخاري (2441)، مسلم (2768)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"العقيدة", text:"الطُّهورُ شطرُ الإيمانِ، والصلاةُ نورٌ، والصدقةُ برهانٌ، والصبرُ ضياءٌ.", rawi:"أبو مالك الأشعري", source:"مسلم (223)", grade:"صحيح", isnad:"← أبو مالك" },
+        { cat:"العقيدة", text:"مَن ماتَ وهو يعلمُ أنْ لا إلهَ إلا اللهُ، دخلَ الجنةَ.", rawi:"عثمان بن عفان", source:"مسلم (26)", grade:"صحيح", isnad:"← عثمان" },
+
+        // ═══════════════ 2. الطهارة ═══════════════
+        { cat:"الطهارة", text:"لا يَقبلُ اللهُ صلاةَ أحدِكم إذا أحدَثَ حتى يتوضَّأَ.", rawi:"أبو هريرة", source:"البخاري (6954)، مسلم (225)", grade:"صحيح متفق عليه", isnad:"عبد الله بن يوسف → مالك ← أبو هريرة" },
+        { cat:"الطهارة", text:"مِفتاحُ الصلاةِ الطُّهورُ، وتحريمُها التكبيرُ، وتحليلُها التسليمُ.", rawi:"علي بن أبي طالب", source:"أبو داود (61)، الترمذي (3)", grade:"حسن", isnad:"عثمان بن أبي شيبة → وكيع ← علي" },
+        { cat:"الطهارة", text:"تَنَزَّهوا من البولِ، فإنَّ عامةَ عذابِ القبرِ منه.", rawi:"أبو هريرة", source:"الدارقطني (1/123)", grade:"صحيح موقوف", isnad:"← أبو هريرة" },
+        { cat:"الطهارة", text:"خمسٌ من الفِطرةِ: الختانُ، والاستحدادُ، وتقليمُ الأظفارِ، ونتفُ الإبطِ، وقصُّ الشاربِ.", rawi:"أبو هريرة", source:"البخاري (5889)، مسلم (257)", grade:"صحيح متفق عليه", isnad:"أحمد بن أبي رجاء ← أبو هريرة" },
+        { cat:"الطهارة", text:"إذا توضَّأَ العبدُ المسلمُ، فغسلَ وجهَه، خرجَ من وجههِ كلُّ خطيئةٍ نظرَ إليها بعينِه.", rawi:"أبو هريرة", source:"مسلم (244)", grade:"صحيح", isnad:"أبو بكر → زيد ← أبو هريرة" },
+        { cat:"الطهارة", text:"مَن توضَّأَ فأحسنَ الوضوءَ، خرجتْ خطاياه من جسدِه حتى تخرجَ من تحتِ أظفارِه.", rawi:"عثمان بن عفان", source:"مسلم (245)", grade:"صحيح", isnad:"محمد بن معمر → أبو عاصم ← عثمان" },
+        { cat:"الطهارة", text:"الماءُ طَهورٌ لا يُنجِّسُه شيءٌ.", rawi:"أبو سعيد الخدري", source:"الترمذي (66)", grade:"صحيح", isnad:"محمد بن بشار → مسلم بن إبراهيم ← أبو سعيد" },
+        { cat:"الطهارة", text:"إذا استيقظَ أحدُكم من نومِه فلا يَغمِسْ يدَه في الإناءِ حتى يغسلَها ثلاثًا.", rawi:"أبو هريرة", source:"البخاري (162)، مسلم (278)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الطهارة", text:"كان النبيُّ ﷺ إذا دخلَ الخلاءَ قال: اللهمَّ إني أعوذُ بك من الخُبثِ والخبائثِ.", rawi:"أنس", source:"البخاري (142)، مسلم (375)", grade:"صحيح متفق عليه", isnad:"← أنس" },
+        { cat:"الطهارة", text:"لا يبولَنَّ أحدُكم في الماءِ الدائمِ الذي لا يجري ثم يغتسلُ منه.", rawi:"أبو هريرة", source:"البخاري (239)، مسلم (282)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الطهارة", text:"الغُسلُ يومَ الجمعةِ واجبٌ على كلِّ محتلمٍ.", rawi:"أبو سعيد الخدري", source:"البخاري (895)،مسلم (846)", grade:"صحيح متفق عليه", isnad:"← أبو سعيد" },
+        { cat:"الطهارة", text:"مَن اغتسلَ يومَ الجمعةِ غُسلَ الجنابةِ، ثم راحَ في الساعةِ الأولى، كان له أجرُ قربانٍ.", rawi:"أبو هريرة", source:"البخاري (881)، مسلم (850)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 3. الصلاة ═══════════════
+        { cat:"الصلاة", text:"بينَ الرجلِ والكفرِ تركُ الصلاةِ.", rawi:"جابر", source:"مسلم (82)", grade:"صحيح", isnad:"أبو غسان → وكيع ← جابر" },
+        { cat:"الصلاة", text:"مَن تركَ صلاةَ العصرِ متعمدًا حتى فاتتْ، فقد حَبِطَ عملُه.", rawi:"بريدة", source:"البخاري (553)", grade:"صحيح", isnad:"← بريدة" },
+        { cat:"الصلاة", text:"أقربُ ما يكونُ العبدُ من ربِّه وهو ساجدٌ، فأكثِروا الدعاءَ.", rawi:"أبو هريرة", source:"مسلم (482)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الصلاة", text:"صلاةُ الجماعةِ تفضُلُ صلاةَ الفذِّ بسبعٍ وعشرين درجةً.", rawi:"ابن عمر", source:"البخاري (645)، مسلم (650)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"الصلاة", text:"إذا سَجَدَ العبدُ سجدَ معه سبعةُ آرابٍ: وجهه، وكفاه، وركبتاه، وقدمانِه.", rawi:"ابن عباس", source:"مسلم (490)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"الصلاة", text:"الصلاةُ على وقتِها أحبُّ الأعمالِ إلى اللهِ.", rawi:"ابن مسعود", source:"البخاري (527)", grade:"صحيح", isnad:"← ابن مسعود" },
+        { cat:"الصلاة", text:"لا صلاةَ لجارِ المسجدِ إلا في المسجدِ.", rawi:"أبو هريرة", source:"الدارقطني (1/420)", grade:"حسن لغيره", isnad:"← أبو هريرة" },
+        { cat:"الصلاة", text:"سبعةٌ يُظِلُّهم اللهُ في ظلِّه يومَ لا ظلَّ إلا ظلُّه.", rawi:"أبو هريرة", source:"البخاري (660)، مسلم (1031)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الصلاة", text:"مَن صلَّى العِشاءَ في جماعةٍ، كان كقيامِ نصفِ ليلةٍ.", rawi:"عثمان بن عفان", source:"مسلم (656)", grade:"صحيح", isnad:"← عثمان" },
+        { cat:"الصلاة", text:"مَن صلَّى الفجرَ في جماعةٍ، فهو في ذِمَّةِ اللهِ.", rawi:"جندب", source:"مسلم (657)", grade:"صحيح", isnad:"← جندب" },
+        { cat:"الصلاة", text:"إذا سمعتُم الإقامةَ فامشوا إلى الصلاةِ، وعليكم السكينةَ والوقارَ.", rawi:"أبو هريرة", source:"البخاري (636)، مسلم (602)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الصلاة", text:"من نسيَ صلاةً فليُصلِّها إذا ذَكَرَها، لا كفارةَ لها إلا ذلك.", rawi:"أنس", source:"البخاري (597)، مسلم (684)", grade:"صحيح متفق عليه", isnad:"← أنس" },
+        { cat:"الصلاة", text:"صلُّوا كما رأيتُموني أُصلِّي.", rawi:"مالك بن الحويرث", source:"البخاري (631)", grade:"صحيح", isnad:"← مالك" },
+        { cat:"الصلاة", text:"مِفتاحُ الجنةِ الصلاةُ.", rawi:"جابر", source:"أحمد (14542)", grade:"حسن", isnad:"← جابر" },
+        { cat:"الصلاة", text:"مَن حافَظَ على الصلواتِ الخمسِ، كانت له نورًا وبرهانًا ونجاةً يومَ القيامةِ.", rawi:"أبو هريرة", source:"أحمد (6576)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الصلاة", text:"إذا رَكَعتُم فأعظِموا الربَّ، وإذا سجدتُم فاجتهِدوا في الدعاءِ.", rawi:"ابن عباس", source:"مسلم (479)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"الصلاة", text:"مَن صلَّى الصُّبحَ في جماعةٍ، ثم قعدَ يذكرُ اللهَ حتى تطلُعَ الشمسُ، ثم صلَّى رَكعتين، كانت له أجرُ حجةٍ وعمرةٍ.", rawi:"أنس", source:"الترمذي (586)", grade:"حسن", isnad:"← أنس" },
+        { cat:"الصلاة", text:"صلاةُ الليلِ شرفُ المؤمنِ.", rawi:"جابر", source:"المعجم الأوسط (3637)", grade:"حسن", isnad:"← جابر" },
+        { cat:"الصلاة", text:"عليكم بقيامِ الليلِ، فإنه دأبُ الصالحين قبلكم.", rawi:"أبو أمامة", source:"الترمذي (3549)", grade:"حسن", isnad:"← أبو أمامة" },
+        { cat:"الصلاة", text:"مَن قامَ رمضانَ إيمانًا واحتسابًا، غُفِرَ له ما تقدَّمَ من ذنبِه.", rawi:"أبو هريرة", source:"البخاري (37)، مسلم (759)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 4. الزكاة والصدقة ═══════════════
+        { cat:"الزكاة", text:"ما نَقَصَتْ صدقةٌ من مالٍ، وما زادَ اللهُ عبدًا بعفوٍ إلا عِزًّا.", rawi:"أبو هريرة", source:"مسلم (2588)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"مَن تصدَّقَ بعَدْلِ تمرةٍ من كسبٍ طيبٍ، فإنَّ اللهَ يتقبَّلُها بيمينِه ويُربِّيها.", rawi:"أبو هريرة", source:"البخاري (1410)، مسلم (1014)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"أفضلُ الصدقةِ أنْ تَصدَّقَ وأنتَ صحيحٌ شحيحٌ.", rawi:"أبو هريرة", source:"البخاري (1419)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"كلُّ امرئٍ في ظِلِّ صدقتِه حتى يُقضى بين الناسِ.", rawi:"عقبة بن عامر", source:"أحمد (17333)", grade:"صحيح", isnad:"← عقبة" },
+        { cat:"الزكاة", text:"الصدقةُ تُطفئُ الخطيئةَ كما يُطفئُ الماءُ النارَ.", rawi:"معاذ", source:"الترمذي (2616)", grade:"حسن", isnad:"← معاذ" },
+        { cat:"الزكاة", text:"اتَّقوا النارَ ولو بشِقِّ تمرةٍ.", rawi:"عدي بن حاتم", source:"البخاري (1417)، مسلم (1016)", grade:"صحيح متفق عليه", isnad:"← عدي" },
+        { cat:"الزكاة", text:"ما مِن يومٍ يُصبِحُ العبادُ فيه إلا مَلَكانِ ينزلانِ، فيقول أحدهما: اللهمَّ أعطِ مُنفقًا خلَفًا.", rawi:"أبو هريرة", source:"البخاري (1442)، مسلم (1010)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"مَن أعطى في سبيلِ اللهِ، كان له سبعُمئةِ ضِعفٍ.", rawi:"أبو مسعود", source:"الترمذي (2255)", grade:"حسن", isnad:"← أبو مسعود" },
+        { cat:"الزكاة", text:"اليدُ العُليا خيرٌ من اليدِ السُّفلى.", rawi:"ابن عمر", source:"البخاري (1429)، مسلم (1033)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"الزكاة", text:"مَثَلُ البخيلِ والمتصدِّقِ كمَثَلِ رجلين عليهما جُبَّتانِ من حديدٍ.", rawi:"أبو هريرة", source:"البخاري (1443)، مسلم (1021)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"كلُّ سُلامى من الناسِ عليه صدقةٌ، كلُّ يومٍ تطلُعُ فيه الشمسُ.", rawi:"أبو هريرة", source:"البخاري (2989)، مسلم (1009)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الزكاة", text:"مَن أنفقَ زوجينِ في سبيلِ اللهِ، دُعِيَ من أبوابِ الجنةِ.", rawi:"أبو هريرة", source:"البخاري (1897)، مسلم (1027)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 5. الصيام ═══════════════
+        { cat:"الصيام", text:"مَن صامَ رمضانَ إيمانًا واحتسابًا، غُفِرَ له ما تقدَّمَ من ذنبِه.", rawi:"أبو هريرة", source:"البخاري (38)، مسلم (760)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"قال اللهُ: كلُّ عملِ ابنِ آدمَ له إلا الصيامَ، فإنَّه لي وأنا أجزي به.", rawi:"أبو هريرة", source:"البخاري (1904)، مسلم (1151)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"للصائمِ فرحتان: فرحةٌ عند فطرِه، وفرحةٌ عند لقاءِ ربِّه.", rawi:"أبو هريرة", source:"مسلم (1151)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"تَسَحَّروا، فإنَّ في السَّحورِ بركةً.", rawi:"أنس", source:"البخاري (1923)، مسلم (1095)", grade:"صحيح متفق عليه", isnad:"← أنس" },
+        { cat:"الصيام", text:"من لم يَدَعْ قولَ الزورِ والعملَ به، فليسَ للهِ حاجةٌ في أنْ يدَعَ طعامَه وشرابَه.", rawi:"أبو هريرة", source:"البخاري (1903)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"من فطَّرَ صائمًا كانَ له مثلُ أجرِه.", rawi:"زيد بن خالد", source:"الترمذي (807)", grade:"صحيح", isnad:"← زيد" },
+        { cat:"الصيام", text:"إنَّ في الجنةِ بابًا يُقالُ له الريانُ، لا يدخلُه إلا الصائمون.", rawi:"سهل بن سعد", source:"البخاري (1896)", grade:"صحيح", isnad:"← سهل" },
+        { cat:"الصيام", text:"قال ﷺ: الصيامُ جُنَّةٌ.", rawi:"أبو هريرة", source:"أحمد (9257)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"مَن صامَ يومًا في سبيلِ اللهِ، بعَّدَ اللهُ وجهَه عن النارِ سبعين خريفًا.", rawi:"أبو سعيد الخدري", source:"البخاري (2840)، مسلم (1153)", grade:"صحيح متفق عليه", isnad:"← أبو سعيد" },
+        { cat:"الصيام", text:"إنَّ اللهَ يُحبُّ الصائمَ الذي يُفطِرُ عندَه الصائمون.", rawi:"أم عمارة", source:"الترمذي (807)", grade:"صحيح", isnad:"← أم عمارة" },
+        { cat:"الصيام", text:"إذا دخلَ رمضانُ، فُتِحَتْ أبوابُ الجنةِ، وغُلِّقَتْ أبوابُ النارِ.", rawi:"أبو هريرة", source:"البخاري (1899)، مسلم (1079)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"ليسَ الصيامُ من الأكلِ والشربِ، إنَّما الصيامُ من اللغوِ والرَّفَثِ.", rawi:"أبو هريرة", source:"الحاكم (1570)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الصيام", text:"الصومُ في الشتاءِ غنيمةٌ باردةٌ.", rawi:"عامر بن مسعود", source:"الترمذي (797)", grade:"حسن", isnad:"← عامر" },
+        { cat:"الصيام", text:"رَغِمَ أنفُ امرئٍ أدركَ رمضانَ ولم يُغفَرْ له.", rawi:"أبو هريرة", source:"الترمذي (3545)", grade:"حسن", isnad:"← أبو هريرة" },
+
+          // ═══════════════ 6. الحج ═══════════════
+        { cat:"الحج", text:"مَن حجَّ فلم يَرفُثْ ولم يَفسُقْ، رجعَ كيومِ ولدَتْه أمُّه.", rawi:"أبو هريرة", source:"البخاري (1521)، مسلم (1350)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الحج", text:"الحجُّ المبرورُ ليس له جزاءٌ إلا الجنة.", rawi:"أبو هريرة", source:"البخاري (1773)، مسلم (1349)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الحج", text:"العمرةُ إلى العمرةِ كفارةٌ لما بينهما، والحجُّ المبرورُ ليس له جزاءٌ إلا الجنةُ.", rawi:"أبو هريرة", source:"البخاري (1773)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الحج", text:"الحجُّ عرفةُ.", rawi:"عبد الرحمن بن يعمر", source:"أبو داود (1949)، الترمذي (889)", grade:"صحيح", isnad:"← ابن يعمر" },
+        { cat:"الحج", text:"جهادُ الكبيرِ والصغيرِ والضعيفِ والمرأةِ: الحجُّ والعمرةُ.", rawi:"عائشة", source:"النسائي (2626)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"الحج", text:"الحجُّ المبرورُ ليس له ثوابٌ إلا الجنةُ.", rawi:"أبو هريرة", source:"النسائي (2624)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الحج", text:"تابِعوا بين الحجِّ والعمرةِ، فإنَّهما ينفيانِ الفقرَ والذنوبَ.", rawi:"ابن مسعود", source:"الترمذي (810)", grade:"حسن", isnad:"← ابن مسعود" },
+        { cat:"الحج", text:"مَن أرادَ الحجَّ فليَتعجَّلْ، فإنه قد يمرضُ المرضُ وتضِلُّ الضالَّةُ.", rawi:"عبد الله بن عباس", source:"أحمد (2143)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"الحج", text:"الحجُّ جهادٌ، فمن حجَّ فليُكثِرْ من الدعاءِ.", rawi:"أبو هريرة", source:"ابن ماجه (2890)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الحج", text:"عليكُم بالحجِّ، فإنَّه من أفضلِ الجهادِ.", rawi:"أبو هريرة", source:"ابن ماجه (2890)", grade:"حسن", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 7. الأخلاق ═══════════════
+        { cat:"الأخلاق", text:"إنَّ الرجلَ لَيُدرِكُ بحُسنِ خُلُقِه درجةَ الصائمِ القائمِ.", rawi:"عائشة", source:"أبو داود (4798)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"الأخلاق", text:"أثقلُ شيءٍ في ميزانِ المؤمنِ يومَ القيامةِ خُلُقٌ حسنٌ.", rawi:"أبو الدرداء", source:"الترمذي (2002)", grade:"صحيح", isnad:"← أبو الدرداء" },
+        { cat:"الأخلاق", text:"إنَّ اللهَ رفيقٌ يُحبُّ الرِّفقَ في الأمرِ كلِّه.", rawi:"عائشة", source:"البخاري (6927)، مسلم (2165)", grade:"صحيح متفق عليه", isnad:"← عائشة" },
+        { cat:"الأخلاق", text:"مَن لا يَرحَمُ لا يُرحَمُ.", rawi:"أبو هريرة", source:"البخاري (5997)، مسلم (2318)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"الراحمونَ يَرحَمُهم الرحمنُ، ارحَموا مَن في الأرضِ يَرحَمْكم مَن في السماءِ.", rawi:"عبد الله بن عمرو", source:"أبو داود (4941)، الترمذي (1924)", grade:"صحيح", isnad:"← ابن عمرو" },
+        { cat:"الأخلاق", text:"المسلمُ مَن سَلِمَ المسلمونَ من لسانِه ويدِه.", rawi:"عبد الله بن عمرو", source:"البخاري (10)، مسلم (40)", grade:"صحيح متفق عليه", isnad:"← ابن عمرو" },
+        { cat:"الأخلاق", text:"لا يؤمنُ أحدُكم حتى يحبَّ لأخيهِ ما يُحبُّ لنفسِه.", rawi:"أنس", source:"البخاري (13)، مسلم (45)", grade:"صحيح متفق عليه", isnad:"← أنس" },
+        { cat:"الأخلاق", text:"المؤمنُ للمؤمنِ كالبُنيانِ يَشُدُّ بعضُه بعضًا.", rawi:"أبو موسى", source:"البخاري (481)، مسلم (2585)", grade:"صحيح متفق عليه", isnad:"← أبو موسى" },
+        { cat:"الأخلاق", text:"مَن كان يؤمنُ باللهِ واليومِ الآخِرِ، فليَقُلْ خيرًا أو ليَصمُتْ.", rawi:"أبو هريرة", source:"البخاري (6018)، مسلم (47)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"الكلمةُ الطيبةُ صدقةٌ.", rawi:"أبو هريرة", source:"البخاري (2989)، مسلم (1009)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"اتَّقِ اللهَ حيثما كنتَ، وأتبِعِ السيئةَ الحسنةَ تمحُها، وخالِقِ الناسَ بخُلُقٍ حسنٍ.", rawi:"أبو ذر", source:"الترمذي (1987)", grade:"حسن", isnad:"← أبو ذر" },
+        { cat:"الأخلاق", text:"خيرُ الناسِ أنفعُهم للناسِ.", rawi:"جابر", source:"المعجم الأوسط (5787)", grade:"حسن", isnad:"← جابر" },
+        { cat:"الأخلاق", text:"الساعي على الأرملةِ والمسكينِ كالمجاهدِ في سبيلِ اللهِ.", rawi:"أبو هريرة", source:"البخاري (5353)، مسلم (2982)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"المؤمنُ الذي يُخالِطُ الناسَ ويَصبِرُ على أذاهم، خيرٌ من الذي لا يُخالِطُهم ولا يَصبِرُ.", rawi:"ابن عمر", source:"الترمذي (2507)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"الأخلاق", text:"مَن سترَ مسلمًا، سترَه اللهُ في الدنيا والآخرةِ.", rawi:"أبو هريرة", source:"مسلم (2699)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"المؤمنُ مرآةُ أخيهِ، والمؤمنُ أخو المؤمنِ.", rawi:"أبو هريرة", source:"أبو داود (4918)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"لا تَحاسَدوا، ولا تَناجَشوا، ولا تَباغَضوا، ولا تَدابَروا، وكونوا عبادَ اللهِ إخوانًا.", rawi:"أبو هريرة", source:"مسلم (2564)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"بحسبِ المرءِ من الشرِّ أنْ يَحقِرَ أخاه المسلمَ.", rawi:"أبو هريرة", source:"مسلم (2564)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"دَبَّ إليكم داءُ الأممِ قبلكم: الحسدُ والبغضاءُ.", rawi:"الزبير", source:"الترمذي (2510)", grade:"حسن", isnad:"← الزبير" },
+        { cat:"الأخلاق", text:"لا يدخلُ الجنةَ قاطعُ رحمٍ.", rawi:"جبير بن مطعم", source:"البخاري (5984)، مسلم (2556)", grade:"صحيح متفق عليه", isnad:"← جبير" },
+        { cat:"الأخلاق", text:"مَن أحبَّ أنْ يُبسَطَ له في رزقِه، فليَصِلْ رحمَه.", rawi:"أنس", source:"البخاري (5985)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الأخلاق", text:"لا يُؤمِنُ أحدُكم حتى يُحِبَّ لجارِه ما يُحِبُّ لنفسِه.", rawi:"أنس", source:"البخاري (13)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الأخلاق", text:"ما زالَ جبريلُ يُوصيني بالجارِ حتى ظنَنتُ أنَّه سيُورِّثُه.", rawi:"عائشة", source:"البخاري (6014)، مسلم (2625)", grade:"صحيح متفق عليه", isnad:"← عائشة" },
+        { cat:"الأخلاق", text:"خيرُكم خيرُكم لأهلِه، وأنا خيرُكم لأهلي.", rawi:"عائشة", source:"الترمذي (3895)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"الأخلاق", text:"أكملُ المؤمنينَ إيمانًا أحسنُهم خُلُقًا.", rawi:"أبو هريرة", source:"الترمذي (1162)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"الحياءُ شعبةٌ من الإيمانِ.", rawi:"أبو هريرة", source:"البخاري (9)، مسلم (35)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"مَن كذَبَ عليَّ متعمدًا فليَتبوَّأْ مقعدَه من النارِ.", rawi:"أبو هريرة", source:"البخاري (110)، مسلم (3)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"أربعٌ مَن كُنَّ فيه كان منافقًا خالصًا.", rawi:"عبد الله بن عمرو", source:"البخاري (34)، مسلم (58)", grade:"صحيح متفق عليه", isnad:"← ابن عمرو" },
+        { cat:"الأخلاق", text:"آيةُ المنافقِ ثلاثٌ: إذا حدَّثَ كذبَ، وإذا وعدَ أخلفَ، وإذا اؤتُمِنَ خانَ.", rawi:"أبو هريرة", source:"البخاري (33)، مسلم (59)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"مَن غَشَّ فليسَ منِّي.", rawi:"أبو هريرة", source:"مسلم (101)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأخلاق", text:"إنَّ الصدقَ يَهدي إلى البِرِّ، وإنَّ البِرَّ يَهدي إلى الجنةِ.", rawi:"ابن مسعود", source:"البخاري (6094)، مسلم (2607)", grade:"صحيح متفق عليه", isnad:"← ابن مسعود" },
+
+        // ═══════════════ 8. الذكر والدعاء ═══════════════
+        { cat:"الذكر", text:"مَن قال: سبحانَ اللهِ وبحمدِه، في يومٍ مئةَ مرةٍ، حُطَّتْ خطاياه وإنْ كانت مثلَ زبدِ البحرِ.", rawi:"أبو هريرة", source:"البخاري (6405)، مسلم (2691)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"الدعاءُ هو العبادةُ.", rawi:"النعمان بن بشير", source:"الترمذي (3372)", grade:"صحيح", isnad:"← النعمان" },
+        { cat:"الذكر", text:"ليس شيءٌ أكرمَ على اللهِ من الدعاءِ.", rawi:"أبو هريرة", source:"الترمذي (3370)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"مَن لزِمَ الاستغفارَ، جعلَ اللهُ له من كلِّ همٍّ فرجًا، ومن كلِّ ضيقٍ مخرجًا.", rawi:"ابن عباس", source:"أبو داود (1518)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"الذكر", text:"سيدُ الاستغفارِ: اللهمَّ أنتَ ربي لا إلهَ إلا أنتَ، خلقتَني وأنا عبدُك.", rawi:"شداد بن أوس", source:"البخاري (6306)", grade:"صحيح", isnad:"← شداد" },
+        { cat:"الذكر", text:"أحبُّ الكلامِ إلى اللهِ أربعٌ: سبحانَ اللهِ، والحمدُ لله، ولا إلهَ إلا الله، واللهُ أكبر.", rawi:"سمرة", source:"مسلم (2137)", grade:"صحيح", isnad:"← سمرة" },
+        { cat:"الذكر", text:"مَن قرأَ آيةَ الكُرسيِّ في دُبُرِ كلِّ صلاةٍ، لم يَمنَعْه من الجنةِ إلا الموتُ.", rawi:"أبو أمامة", source:"المعجم الأوسط (8068)", grade:"صحيح", isnad:"← أبو أمامة" },
+        { cat:"الذكر", text:"كلمتانِ: سبحانَ اللهِ وبحمدِه، سبحانَ اللهِ العظيمِ.", rawi:"أبو هريرة", source:"البخاري (6682)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"مَن قال: لا إلهَ إلا اللهُ وحدَه لا شريكَ له، عشرَ مراتٍ، كان له عِدلُ عشرِ رقابٍ.", rawi:"أبو هريرة", source:"البخاري (6403)، مسلم (2693)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"مَن قال: سبحانَ اللهِ العظيمِ وبحمدِه، غُرِسَتْ له نخلةٌ في الجنةِ.", rawi:"أبو هريرة", source:"الترمذي (3464)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"سبعةٌ يُظِلُّهم اللهُ في ظلِّه: رجلٌ ذكرَ اللهَ خاليًا ففاضتْ عيناه.", rawi:"أبو هريرة", source:"البخاري (660)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"ما جلسَ قومٌ يذكرونَ اللهَ إلا حفَّتهم الملائكةُ.", rawi:"أبو هريرة", source:"مسلم (2700)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"مَن قال حين يُصبِحُ وحين يُمسي: سبحانَ اللهِ وبحمدِه مئةَ مرةٍ، لم يأتِ أحدٌ بأفضلَ مما جاءَ به.", rawi:"أبو هريرة", source:"مسلم (2692)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الذكر", text:"اذكُروا اللهَ ذكرًا كثيرًا حتى يقولوا: مجنونٌ.", rawi:"أبو سعيد الخدري", source:"أحمد (11796)", grade:"حسن", isnad:"← أبو سعيد" },
+        { cat:"الذكر", text:"مَثَلُ الذي يذكرُ ربَّه والذي لا يذكرُه كمَثَلِ الحيِّ والميتِ.", rawi:"أبو موسى", source:"البخاري (6407)", grade:"صحيح", isnad:"← أبو موسى" },
+        { cat:"الذكر", text:"لا يزالُ لسانُك رطبًا بذكرِ اللهِ.", rawi:"عبد الله بن بسر", source:"الترمذي (3375)", grade:"صحيح", isnad:"← ابن بسر" },
+
+        // ═══════════════ 9. العلم ═══════════════
+        { cat:"العلم", text:"مَن سلكَ طريقًا يطلبُ فيه علمًا، سهَّلَ اللهُ له طريقًا إلى الجنةِ.", rawi:"أبو هريرة", source:"مسلم (2699)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"العلم", text:"مَن يُرِدِ اللهُ به خيرًا يُفَقِّهْهُ في الدينِ.", rawi:"معاوية", source:"البخاري (71)، مسلم (1037)", grade:"صحيح متفق عليه", isnad:"← معاوية" },
+        { cat:"العلم", text:"طلبُ العلمِ فريضةٌ على كلِّ مسلمٍ.", rawi:"أنس", source:"ابن ماجه (224)", grade:"حسن لغيره", isnad:"← أنس" },
+        { cat:"العلم", text:"بلغوا عني ولو آيةً.", rawi:"عبد الله بن عمرو", source:"البخاري (3461)", grade:"صحيح", isnad:"← ابن عمرو" },
+        { cat:"العلم", text:"من دلَّ على خيرٍ، فله مثلُ أجرِ فاعلِه.", rawi:"أبو مسعود", source:"مسلم (1893)", grade:"صحيح", isnad:"← أبو مسعود" },
+        { cat:"العلم", text:"العلماءُ ورثةُ الأنبياءِ.", rawi:"أبو الدرداء", source:"أبو داود (3641)", grade:"حسن", isnad:"← أبو الدرداء" },
+        { cat:"العلم", text:"فضلُ العالمِ على العابدِ كفضلِ القمرِ على سائرِ الكواكبِ.", rawi:"أبو هريرة", source:"أبو داود (3641)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"العلم", text:"مَن سُئِلَ عن علمٍ فكتَمَه، أُلجِمَ بلجامٍ من نارٍ يومَ القيامةِ.", rawi:"أبو هريرة", source:"أبو داود (3658)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"العلم", text:"خيرُكم مَن تعلَّمَ القرآنَ وعلَّمَه.", rawi:"عثمان", source:"البخاري (5027)", grade:"صحيح", isnad:"← عثمان" },
+        { cat:"العلم", text:"اقرَؤوا القرآنَ، فإنه يأتي يومَ القيامةِ شفيعًا لأصحابِه.", rawi:"أبو أمامة", source:"مسلم (804)", grade:"صحيح", isnad:"← أبو أمامة" },
+        { cat:"العلم", text:"مَن قرأَ حرفًا من كتابِ اللهِ فله به حسنةٌ.", rawi:"ابن مسعود", source:"الترمذي (2910)", grade:"صحيح", isnad:"← ابن مسعود" },
+        { cat:"العلم", text:"إنَّ اللهَ يرفعُ بهذا الكتابِ أقوامًا ويضَعُ به آخرين.", rawi:"عمر", source:"مسلم (817)", grade:"صحيح", isnad:"← عمر" },
+        { cat:"العلم", text:"مَثَلُ المؤمنِ الذي يقرأُ القرآنَ كمَثَلِ الأُترُجَّةِ، ريحُها طيبٌ وطعمُها طيبٌ.", rawi:"أبو موسى", source:"البخاري (5020)، مسلم (797)", grade:"صحيح متفق عليه", isnad:"← أبو موسى" },
+        { cat:"العلم", text:"خيرُكم مَن تعلَّمَ العلمَ وعلَّمَه الناسَ.", rawi:"أبو هريرة", source:"الترمذي (2687)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"العلم", text:"العلمُ نورٌ، والجهلُ ظلامٌ.", rawi:"معاذ", source:"المعجم الكبير (640)", grade:"حسن لغيره", isnad:"← معاذ" },
+        { cat:"العلم", text:"مَن طلبَ العلمَ فهو في سبيلِ اللهِ حتى يرجعَ.", rawi:"أنس", source:"الترمذي (2647)", grade:"حسن", isnad:"← أنس" },
+
+          // ═══════════════ 10. السيرة ═══════════════
+        { cat:"السيرة", text:"أُعطِيتُ خمسًا لم يُعطَهنَّ أحدٌ قبلي: نُصِرتُ بالرُّعبِ مسيرةَ شهرٍ.", rawi:"جابر", source:"البخاري (335)، مسلم (521)", grade:"صحيح متفق عليه", isnad:"← جابر" },
+        { cat:"السيرة", text:"أنا سيدُ ولدِ آدمَ يومَ القيامةِ ولا فخرَ.", rawi:"أبو هريرة", source:"الترمذي (3615)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"السيرة", text:"كان خُلُقُه القرآنَ.", rawi:"عائشة", source:"مسلم (746)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"السيرة", text:"خيرُكم خيرُكم لأهلِه.", rawi:"عائشة", source:"الترمذي (3895)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"السيرة", text:"كان النبيُّ ﷺ أحسنَ الناسِ خَلقًا وخُلُقًا.", rawi:"أنس", source:"البخاري (6203)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"السيرة", text:"كان ﷺ أجودَ الناسِ، وكان أجودَ ما يكونُ في رمضانَ.", rawi:"ابن عباس", source:"البخاري (6)، مسلم (2308)", grade:"صحيح متفق عليه", isnad:"← ابن عباس" },
+        { cat:"السيرة", text:"لم يكنْ ﷺ فاحشًا ولا متفحشًا ولا صخَّابًا في الأسواقِ.", rawi:"عبد الله بن عمرو", source:"الترمذي (2016)", grade:"صحيح", isnad:"← ابن عمرو" },
+        { cat:"السيرة", text:"كان ﷺ يبدأُ بالسلامِ على مَن لقِيَه.", rawi:"أنس", source:"الترمذي (2689)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"السيرة", text:"لعنَ اللهُ اليهودَ والنصارى اتَّخذوا قبورَ أنبيائِهم مساجدَ.", rawi:"عائشة", source:"البخاري (435)، مسلم (529)", grade:"صحيح متفق عليه", isnad:"← عائشة" },
+        { cat:"السيرة", text:"إنَّ اللهَ اصطفى كنانةَ من ولدِ إسماعيلَ، واصطفى قريشًا من كنانةَ.", rawi:"واثلة بن الأسقع", source:"مسلم (2276)", grade:"صحيح", isnad:"← واثلة" },
+        { cat:"السيرة", text:"إنَّ اللهَ اختارَ من العربِ مُضَرَ، واختارَ من مُضَرَ قريشًا.", rawi:"ابن عمر", source:"الترمذي (3605)", grade:"حسن", isnad:"← ابن عمر" },
+        { cat:"السيرة", text:"خيرُ الناسِ قَرني، ثم الذين يلونَهم، ثم الذين يلونَهم.", rawi:"عمران بن حصين", source:"البخاري (2652)، مسلم (2533)", grade:"صحيح متفق عليه", isnad:"← عمران" },
+        { cat:"السيرة", text:"لا تسبُّوا أصحابي، فلو أنَّ أحدَكم أنفقَ مثلَ أُحُدٍ ذهبًا ما بلغَ مُدَّ أحدِهم.", rawi:"أبو سعيد الخدري", source:"البخاري (3673)، مسلم (2540)", grade:"صحيح متفق عليه", isnad:"← أبو سعيد" },
+        { cat:"السيرة", text:"خيرُ هذه الأمةِ بعدَ نبيِّها أبو بكرٍ، ثم عمرُ.", rawi:"ابن عمر", source:"البخاري (3671)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"السيرة", text:"لو كنتُ مُتَّخِذًا خليلًا لاتَّخذتُ أبا بكرٍ خليلًا، ولكن أخي وصاحبي.", rawi:"أبو سعيد", source:"البخاري (3654)", grade:"صحيح", isnad:"← أبو سعيد" },
+
+        // ═══════════════ 11. اليوم الآخر ═══════════════
+        { cat:"اليوم الآخر", text:"الدنيا سجنُ المؤمنِ وجنةُ الكافرِ.", rawi:"أبو هريرة", source:"مسلم (2956)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"إنَّ في الجنةِ ما لا عينٌ رأتْ، ولا أذنٌ سمعتْ، ولا خطرَ على قلبِ بشرٍ.", rawi:"أبو هريرة", source:"البخاري (4779)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"يُؤتى بأنعمِ أهلِ الدنيا من أهلِ النارِ، فيُغمَسُ في النارِ غمسةً واحدةً.", rawi:"أنس", source:"مسلم (2807)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"اليوم الآخر", text:"يقولُ اللهُ: يا ابنَ آدمَ، مرضتُ فلم تَعُدْني، جُعتُ فلم تُطعِمني.", rawi:"أبو هريرة", source:"مسلم (2569)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"أشدُّ الناسِ عذابًا يومَ القيامةِ مَن يُشَبِّهُ بِخَلقِ اللهِ.", rawi:"عبد الله بن عباس", source:"أحمد (3391)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"اليوم الآخر", text:"إنَّ اللهَ لا ينظرُ إلى صورِكم ولا إلى أموالِكم، ولكن ينظرُ إلى قلوبِكم وأعمالِكم.", rawi:"أبو هريرة", source:"مسلم (2564)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"أولُ ما يُحاسَبُ به العبدُ يومَ القيامةِ: الصلاةُ.", rawi:"أبو هريرة", source:"الترمذي (413)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"مَن حاسَبَ نفسَه في الدنيا، حاسَبَه اللهُ حسابًا يسيرًا.", rawi:"عائشة", source:"أحمد (24491)", grade:"حسن", isnad:"← عائشة" },
+        { cat:"اليوم الآخر", text:"الصلاةُ نورٌ، والصبرُ ضياءٌ، والصدقةُ برهانٌ.", rawi:"أبو مالك الأشعري", source:"مسلم (223)", grade:"صحيح", isnad:"← أبو مالك" },
+        { cat:"اليوم الآخر", text:"اتَّقوا النارَ ولو بشِقِّ تمرةٍ.", rawi:"عدي", source:"البخاري (1417)", grade:"صحيح", isnad:"← عدي" },
+        { cat:"اليوم الآخر", text:"مَن خافَ أدلَجَ، ومَن أدلَجَ بلغَ المنزلَ.", rawi:"أبو هريرة", source:"الترمذي (2450)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"اليوم الآخر", text:"الدنيا دارُ ممرٍّ، والآخرةُ دارُ مقرٍّ.", rawi:"علي", source:"المعجم الأوسط (4327)", grade:"حسن", isnad:"← علي" },
+
+        // ═══════════════ 12. المعاملات ═══════════════
+        { cat:"المعاملات", text:"مَن غَشَّ فليسَ منِّي.", rawi:"أبو هريرة", source:"مسلم (101)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"أدِّ الأمانةَ إلى مَن ائتمنَك، ولا تَخُنْ مَن خانَك.", rawi:"أبو هريرة", source:"أبو داود (3535)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"مَن أخذَ أموالَ الناسِ يُريدُ أداءَها، أدَّى اللهُ عنه.", rawi:"أبو هريرة", source:"البخاري (2387)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"البيعانِ بالخيارِ ما لم يتفرَّقا.", rawi:"ابن عمر", source:"البخاري (2107)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"المعاملات", text:"لعنَ رسولُ اللهِ ﷺ آكلَ الرِّبا وموكِلَه وكاتبَه وشاهدَيه.", rawi:"ابن مسعود", source:"أبو داود (3333)", grade:"صحيح", isnad:"← ابن مسعود" },
+        { cat:"المعاملات", text:"مَن اقتطعَ حقَّ امرئٍ مسلمٍ بيمينِه، حرَّمَ اللهُ عليه الجنةَ.", rawi:"أبو أمامة", source:"مسلم (137)", grade:"صحيح", isnad:"← أبو أمامة" },
+        { cat:"المعاملات", text:"أدُّوا الأماناتِ إلى أهلِها.", rawi:"أبو هريرة", source:"الترمذي (1352)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"مَن باعَ بيعًا فوجدَ عيبًا، فليَرُدَّه.", rawi:"أبو هريرة", source:"مسلم (1531)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"الرِّبا اثنانِ وسبعونَ بابًا، أدناها مثلُ إتيانِ الرجلِ أمَّه.", rawi:"أبو هريرة", source:"ابن ماجه (2274)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"المعاملات", text:"لا تَبِعْ ما ليس عندَك.", rawi:"حكيم بن حزام", source:"الترمذي (1232)", grade:"صحيح", isnad:"← حكيم" },
+        { cat:"المعاملات", text:"مَن استَعمَلَ رجلًا على عملٍ فرَضِيَ له رشوةً، فقد أتَى ما حرَّمَ اللهُ عليه.", rawi:"أبو هريرة", source:"أحمد (9521)", grade:"حسن", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 13. الأسرة ═══════════════
+        { cat:"الأسرة", text:"استوصوا بالنساءِ خيرًا.", rawi:"أبو هريرة", source:"البخاري (5186)، مسلم (1468)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأسرة", text:"الرجلُ راعٍ في أهلِه، وهو مسؤولٌ عن رعيَّتِه.", rawi:"ابن عمر", source:"البخاري (7138)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"الأسرة", text:"مَن كان له ثلاثُ بناتٍ فصبرَ عليهنَّ، كنَّ له حِجابًا من النارِ.", rawi:"عقبة", source:"ابن حبان (447)", grade:"صحيح", isnad:"← عقبة" },
+        { cat:"الأسرة", text:"ليس منَّا مَن لم يَرحَمْ صغيرَنا ولم يُوقِّرْ كبيرَنا.", rawi:"أنس", source:"الترمذي (1919)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الأسرة", text:"مَن سَرَّه أنْ يُبسَطَ له في رزقِه ويُنسأَ له في أثرِه، فليَصِلْ رحمَه.", rawi:"أنس", source:"البخاري (5985)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الأسرة", text:"لا يَجزي ولدٌ والدَه، إلا أنْ يجِدَه مملوكًا فيَشتريَه فيُعتِقَه.", rawi:"أبو هريرة", source:"مسلم (1510)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأسرة", text:"الجنةُ تحتَ أقدامِ الأمهاتِ.", rawi:"معاوية بن جاهمة", source:"النسائي (3104)", grade:"حسن", isnad:"← معاوية" },
+        { cat:"الأسرة", text:"مَن أحقُّ الناسِ بحُسنِ صحابتي؟ قالت: أمك، ثم أمك، ثم أمك، ثم أبوك.", rawi:"أبو هريرة", source:"البخاري (5971)، مسلم (2548)", grade:"صحيح متفق عليه", isnad:"← أبو هريرة" },
+        { cat:"الأسرة", text:"أكملُ المؤمنينَ إيمانًا أحسنُهم خُلُقًا، وخيارُكم خيارُكم لنسائِهم.", rawi:"أبو هريرة", source:"الترمذي (1162)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأسرة", text:"لا تكرهوا بناتِكم، فإنَّهنَّ مُؤنِساتٌ مُغَيّباتٌ.", rawi:"ابن عباس", source:"الترمذي (1916)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"الأسرة", text:"إنَّ من أكملِ المؤمنينَ إيمانًا أحسنَهم خُلُقًا، وخيرُكم خيرُكم لنسائِه.", rawi:"أبو هريرة", source:"الترمذي (1162)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأسرة", text:"مَن عالَ جاريتينِ حتى تبلُغا، كنتُ أنا وهو في الجنةِ كهاتينِ.", rawi:"أنس", source:"مسلم (2631)", grade:"صحيح", isnad:"← أنس" },
+
+        // ═══════════════ 14. الطعام والشراب ═══════════════
+        { cat:"الطعام", text:"ما ملأَ ابنُ آدمَ وعاءً شرًّا من بطنِه، بحسبِ ابنِ آدمَ لقيماتٌ يُقِمْنَ صُلبَه.", rawi:"ابن عمر", source:"الترمذي (2380)", grade:"حسن", isnad:"← ابن عمر" },
+        { cat:"الطعام", text:"إذا أكلَ أحدُكم فليذكُرِ اسمَ اللهِ.", rawi:"عائشة", source:"الترمذي (1858)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"الطعام", text:"إذا وُضِعَ العَشاءُ وأُقيمَتِ الصلاةُ، فابدَؤوا بالعَشاءِ.", rawi:"أنس", source:"البخاري (672)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الطعام", text:"طعامُ الواحدِ يكفي الاثنينِ، وطعامُ الاثنينِ يكفي الأربعةَ.", rawi:"جابر", source:"مسلم (2058)", grade:"صحيح", isnad:"← جابر" },
+        { cat:"الطعام", text:"إنَّ الشيطانَ يَستحِلُّ الطعامَ إذا لم يُذكَرِ اسمُ اللهِ عليه.", rawi:"حذيفة", source:"مسلم (2017)", grade:"صحيح", isnad:"← حذيفة" },
+        { cat:"الطعام", text:"مَن أكلَ طعامًا فليقُلْ: اللهمَّ بارِكْ لنا فيه وأطعِمْنا خيرًا منه.", rawi:"أبو هريرة", source:"الترمذي (3455)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الطعام", text:"لا تَشربوا قائمًا، فإنه يُورِثُ الداءَ.", rawi:"أبو هريرة", source:"الترمذي (1881)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الطعام", text:"سُنَّتْ الأكلُ باليمينِ، والشربُ باليمينِ.", rawi:"عمر بن أبي سلمة", source:"البخاري (5376)، مسلم (2022)", grade:"صحيح متفق عليه", isnad:"← عمر" },
+        { cat:"الطعام", text:"إذا أكلَ أحدُكم فليأكُلْ بيمينِه، وإذا شربَ فليشرَبْ بيمينِه.", rawi:"عمر بن أبي سلمة", source:"البخاري (5376)", grade:"صحيح", isnad:"← عمر" },
+        { cat:"الطعام", text:"لا تأكلوا متَّكئينَ، فإنَّ النبيَّ ﷺ لم يكنْ يتَّكئُ.", rawi:"أبو جحيفة", source:"البخاري (5398)", grade:"صحيح", isnad:"← أبو جحيفة" },
+
+          // ═══════════════ 15. اللباس والزينة ═══════════════
+        { cat:"اللباس", text:"لا ينظرُ اللهُ إلى مَن جرَّ ثوبَه خُيَلاءَ.", rawi:"عبد الله بن عمر", source:"البخاري (5788)، مسلم (2085)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"اللباس", text:"مَن جرَّ ثوبَه من الخُيَلاءِ، لم ينظرِ اللهُ إليه يومَ القيامةِ.", rawi:"ابن عمر", source:"البخاري (3665)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"اللباس", text:"كلوا واشربوا والبَسوا وتصدَّقوا في غير سَرَفٍ ولا مخيلةٍ.", rawi:"ابن عباس", source:"البخاري (5783)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"اللباس", text:"الحريرُ لا يَلبَسُه مَن يخافُ اللهَ.", rawi:"أبو موسى", source:"الترمذي (1765)", grade:"صحيح", isnad:"← أبو موسى" },
+        { cat:"اللباس", text:"مَن لبِسَ الحريرَ في الدنيا، لم يَلبَسْه في الآخرةِ.", rawi:"عمر", source:"البخاري (5835)", grade:"صحيح", isnad:"← عمر" },
+        { cat:"اللباس", text:"لعنَ رسولُ اللهِ ﷺ المتشبِّهينَ من الرجالِ بالنساءِ والمتشبِّهاتِ من النساءِ بالرجالِ.", rawi:"ابن عباس", source:"البخاري (5885)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"اللباس", text:"لا تُصاحِبْني في حريرٍ ولا ذهبٍ.", rawi:"حذيفة", source:"الترمذي (1765)", grade:"صحيح", isnad:"← حذيفة" },
+        { cat:"اللباس", text:"مَن تركَ اللباسَ تواضُعًا للهِ، وهو يقدِرُ عليه، دعاه اللهُ يومَ القيامةِ على رؤوسِ الخلائقِ.", rawi:"معاذ", source:"الترمذي (2481)", grade:"حسن", isnad:"← معاذ" },
+
+        // ═══════════════ 16. الطب والرقية ═══════════════
+        { cat:"الطب", text:"ما أنزلَ اللهُ داءً إلا أنزلَ له دواءً.", rawi:"أبو هريرة", source:"البخاري (5678)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الطب", text:"تداوَوا، فإنَّ اللهَ لم يضَعْ داءً إلا وضَعَ له شفاءً.", rawi:"أبو الدرداء", source:"أبو داود (3855)", grade:"صحيح", isnad:"← أبو الدرداء" },
+        { cat:"الطب", text:"الحُمَّى من فَيحِ جهنَّمَ، فأبرِدُوها بالماءِ.", rawi:"عبد الله بن عمر", source:"البخاري (3261)، مسلم (2209)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"الطب", text:"في الحَبَّةِ السوداءِ شفاءٌ من كلِّ داءٍ إلا السامَ.", rawi:"أبو هريرة", source:"البخاري (5688)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الطب", text:"كان النبيُّ ﷺ يَتعوَّذُ من العينِ والجُذامِ.", rawi:"أنس", source:"أبو داود (3885)", grade:"حسن", isnad:"← أنس" },
+        { cat:"الطب", text:"لا عَدوى ولا طِيَرةَ، ويُعجِبُني الفألُ الصالحُ.", rawi:"أنس", source:"البخاري (5754)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الطب", text:"إذا سمعتُم بالطاعونِ بأرضٍ فلا تدخلوها.", rawi:"أسامة بن زيد", source:"البخاري (5728)", grade:"صحيح", isnad:"← أسامة" },
+        { cat:"الطب", text:"لِكلِّ داءٍ دواءٌ، فإذا أصابَ الدواءُ الداءَ برأَ بإذنِ اللهِ.", rawi:"جابر", source:"مسلم (2204)", grade:"صحيح", isnad:"← جابر" },
+        { cat:"الطب", text:"الشِّفاءُ في ثلاثٍ: شربةِ عسلٍ، أو شرطةِ محجمٍ، أو كَيَّةِ نارٍ.", rawi:"ابن عباس", source:"البخاري (5681)", grade:"صحيح", isnad:"← ابن عباس" },
+        { cat:"الطب", text:"كان ﷺ يُعوِّذُ الحسنَ والحسينَ: أعوذُ بكلماتِ اللهِ التامَّةِ من كلِّ شيطانٍ وهامَّةٍ.", rawi:"ابن عباس", source:"البخاري (3371)", grade:"صحيح", isnad:"← ابن عباس" },
+
+        // ═══════════════ 17. الجهاد ═══════════════
+        { cat:"الجهاد", text:"الجهادُ ماضٍ إلى يومِ القيامةِ.", rawi:"أبو هريرة", source:"الترمذي (1708)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الجهاد", text:"مَن ماتَ ولم يَغْزُ ولم يُحدِّثْ نفسَه بالغزوِ، ماتَ على شُعبةٍ من النفاقِ.", rawi:"أبو هريرة", source:"مسلم (1910)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الجهاد", text:"رِباطُ يومٍ في سبيلِ اللهِ خيرٌ من الدنيا وما عليها.", rawi:"سلمة بن الأكوع", source:"البخاري (2892)، مسلم (1888)", grade:"صحيح متفق عليه", isnad:"← سلمة" },
+        { cat:"الجهاد", text:"جهادُ الكبيرِ والصغيرِ والضعيفِ والمرأةِ: الحجُّ والعمرةُ.", rawi:"عائشة", source:"النسائي (2626)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"الجهاد", text:"جاهِدوا المشركينَ بأموالِكم وأنفسِكم وألسنتِكم.", rawi:"أنس", source:"أبو داود (2504)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"الجهاد", text:"مَن رابطَ يومًا واحدًا في سبيلِ اللهِ، كان له أجرُ شهيدٍ.", rawi:"أبو هريرة", source:"الترمذي (1665)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الجهاد", text:"للغازي أجرُه، وللذي جهَّزَه أجرُه.", rawi:"زيد بن خالد", source:"النسائي (3186)", grade:"صحيح", isnad:"← زيد" },
+        { cat:"الجهاد", text:"إنَّ اللهَ يُدخِلُ بالسَّهمِ الواحدِ ثلاثةَ نفرٍ إلى الجنةِ.", rawi:"أبو نجيح", source:"الترمذي (1634)", grade:"حسن", isnad:"← أبو نجيح" },
+        { cat:"الجهاد", text:"عينانِ لا تمسُّهما النارُ: عينٌ بكتْ من خشيةِ اللهِ، وعينٌ باتتْ تحرُسُ في سبيلِ اللهِ.", rawi:"أبو هريرة", source:"الترمذي (1639)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الجهاد", text:"مَن قُتِلَ دونَ مالِه فهو شهيدٌ.", rawi:"سعيد بن زيد", source:"الترمذي (1421)", grade:"صحيح", isnad:"← سعيد" },
+
+        // ═══════════════ 18. البيوع ═══════════════
+        { cat:"البيوع", text:"البيعانِ بالخيارِ ما لم يتفرَّقا، فإنْ صدقا ونصحا، بُورِكَ لهما في بيعِهما.", rawi:"حكيم بن حزام", source:"البخاري (2079)، مسلم (1532)", grade:"صحيح متفق عليه", isnad:"← حكيم" },
+        { cat:"البيوع", text:"مَن باعَ بيعًا فوجدَ عيبًا، فليَرُدَّه.", rawi:"أبو هريرة", source:"مسلم (1531)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"البيوع", text:"لا تَلقَّوا الرُّكبانَ، ولا يَبِعْ حاضرٌ لبادٍ.", rawi:"ابن عمر", source:"البخاري (2163)، مسلم (1515)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"البيوع", text:"مَن اشترى مُصَرَّاةً فهو بالخيارِ ثلاثةَ أيامٍ.", rawi:"أبو هريرة", source:"مسلم (1524)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"البيوع", text:"لا تَبِعْ حاضرٌ لبادٍ، ولا تَناجَشوا.", rawi:"ابن عمر", source:"البخاري (2163)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"البيوع", text:"السلَفُ في الحَيَوانِ حرامٌ.", rawi:"ابن عباس", source:"الترمذي (1327)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"البيوع", text:"مَن حكَرَ طعامًا أربعين يومًا، فقد برِئَ من اللهِ.", rawi:"عمر", source:"أحمد (167)", grade:"حسن", isnad:"← عمر" },
+        { cat:"البيوع", text:"لا تَشتَرِ من مُضطَرٍ.", rawi:"علي", source:"الدارقطني (3/45)", grade:"حسن", isnad:"← علي" },
+        { cat:"البيوع", text:"الخَراجُ بالضمانِ.", rawi:"عائشة", source:"الترمذي (1286)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"البيوع", text:"لا يَحِلُّ لمسلمٍ أنْ يبيعَ على بيعِ أخيهِ، ولا يخطُبَ على خِطبةِ أخيهِ.", rawi:"أبو هريرة", source:"مسلم (1413)", grade:"صحيح", isnad:"← أبو هريرة" },
+
+        // ═══════════════ 19. الأيمان والنذور ═══════════════
+        { cat:"الأيمان", text:"مَن حلَفَ بغيرِ اللهِ فقد كفَرَ أو أشرَكَ.", rawi:"ابن عمر", source:"الترمذي (1535)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"الأيمان", text:"مَن حلفَ على يمينٍ فرأى غيرَها خيرًا منها، فليُكفِّرْ عن يمينِه وليأتِ الذي هو خيرٌ.", rawi:"أبو هريرة", source:"مسلم (1650)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأيمان", text:"لا تحلِفوا بآبائِكم، مَن كان حالفًا فليحلِفْ باللهِ أو ليصمُتْ.", rawi:"ابن عمر", source:"البخاري (6646)، مسلم (1646)", grade:"صحيح متفق عليه", isnad:"← ابن عمر" },
+        { cat:"الأيمان", text:"اليمينُ على ما يُصدِّقُك به صاحبُك.", rawi:"أبو داود", source:"أبو داود (3255)", grade:"حسن", isnad:"← أبو داود" },
+        { cat:"الأيمان", text:"مَن حلفَ باللاتِ والعُزَّى فليقُلْ: لا إلهَ إلا اللهُ.", rawi:"أبو هريرة", source:"البخاري (4860)", grade:"صحيح", isnad:"← أبو هريرة" },
+        { cat:"الأيمان", text:"مَن استحلفَ باللهِ فليُصدِّقْه.", rawi:"أبو هريرة", source:"أبو داود (3246)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"الأيمان", text:"النذرُ لا يأتي بخيرٍ، وإنما يُستخرَجُ به من البخيلِ.", rawi:"ابن عمر", source:"البخاري (6694)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"الأيمان", text:"مَن نذرَ أنْ يُطيعَ اللهَ فليُطِعْه، ومَن نذرَ أنْ يعصيَه فلا يَعصِه.", rawi:"عائشة", source:"البخاري (6696)", grade:"صحيح", isnad:"← عائشة" },
+
+        // ═══════════════ 20. الحدود والقضاء ═══════════════
+        { cat:"القضاء", text:"مَن رأى منكم منكرًا فليغيِّرْه بيدِه، فإنْ لم يستطعْ فبلسانِه، فإنْ لم يستطعْ فبقلبِه.", rawi:"أبو سعيد الخدري", source:"مسلم (49)", grade:"صحيح", isnad:"← أبو سعيد" },
+        { cat:"القضاء", text:"مَن حالتْ شفاعتُه دونَ حدٍّ من حدودِ اللهِ، فقد ضادَّ اللهَ في أمرِه.", rawi:"عائشة", source:"البخاري (7188)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"القضاء", text:"لو أنَّ فاطمةَ بنتَ محمدٍ سرقتْ، لقطعتُ يدَها.", rawi:"عائشة", source:"البخاري (3475)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"القضاء", text:"إنَّ اللهَ يُبغِضُ البليغَ من الرجالِ الذي يتخلَّلُ بلسانِه تخلُّلَ البعيرِ.", rawi:"عبد الله بن عمرو", source:"الترمذي (2853)", grade:"حسن", isnad:"← ابن عمرو" },
+        { cat:"القضاء", text:"البَيِّنَةُ على المدَّعي، واليمينُ على مَن أنكرَ.", rawi:"ابن عباس", source:"البيهقي (10/252)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"القضاء", text:"مَن حكَمَ بينَ اثنينِ وهو غضبانُ، فلا يَحكُمْ.", rawi:"أبو بكرة", source:"البخاري (7158)", grade:"صحيح", isnad:"← أبو بكرة" },
+        { cat:"القضاء", text:"إنَّ اللهَ يُبغِضُ الفاحشَ البَذيءَ.", rawi:"عبد الله بن عمرو", source:"الترمذي (2002)", grade:"حسن", isnad:"← ابن عمرو" },
+        { cat:"القضاء", text:"مَن ردَّ عن عرضِ أخيهِ، ردَّ اللهُ عن وجهِه النارَ.", rawi:"أبو الدرداء", source:"الترمذي (1931)", grade:"حسن", isnad:"← أبو الدرداء" },
+
+        // ═══════════════ 21. الأدب مع الله ═══════════════
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ جميلٌ يُحِبُّ الجمالَ.", rawi:"عبد الله بن مسعود", source:"مسلم (91)", grade:"صحيح", isnad:"← ابن مسعود" },
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ يُحِبُّ أنْ تُؤتى رُخَصُه كما يُحِبُّ أنْ تُجتَنَبَ حرامُه.", rawi:"ابن عمر", source:"أحمد (5876)", grade:"حسن", isnad:"← ابن عمر" },
+        { cat:"الأدب مع الله", text:"كان ﷺ يُعلِّمُنا الاستخارةَ في الأمورِ كلِّها.", rawi:"جابر", source:"البخاري (1166)", grade:"صحيح", isnad:"← جابر" },
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ يَفرحُ بتوبةِ عبدِه أشدَّ من فرحِ أحدِكم بضالَّتِه.", rawi:"عبد الله بن مسعود", source:"البخاري (6309)، مسلم (2747)", grade:"صحيح متفق عليه", isnad:"← ابن مسعود" },
+        { cat:"الأدب مع الله", text:"كلُّ ابنِ آدمَ خطَّاءٌ، وخيرُ الخطَّائينَ التوَّابونَ.", rawi:"أنس", source:"الترمذي (2499)", grade:"حسن", isnad:"← أنس" },
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ يبسُطُ يدَه بالليلِ ليَتوبَ مسيءُ النهارِ، ويبسُطُ يدَه بالنهارِ ليَتوبَ مسيءُ الليلِ.", rawi:"أبو موسى", source:"مسلم (2759)", grade:"صحيح", isnad:"← أبو موسى" },
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ يُمهِلُ الظالمَ حتى إذا أخذَه لم يُفلِتْه.", rawi:"أبو موسى", source:"البخاري (4686)", grade:"صحيح", isnad:"← أبو موسى" },
+        { cat:"الأدب مع الله", text:"اتَّقوا اللهَ ولا تحقِرُنَّ من المعروفِ شيئًا.", rawi:"أبو ذر", source:"مسلم (2626)", grade:"صحيح", isnad:"← أبو ذر" },
+        { cat:"الأدب مع الله", text:"إنَّ اللهَ لا يُغَيِّرُ ما بقومٍ حتى يُغَيِّروا ما بأنفسِهم.", rawi:"ابن عمر", source:"ابن ماجه (4027)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"الأدب مع الله", text:"مَن أتاكم منكم خيرٌ فاحمَدوا اللهَ، ومَن أتاكم سوءٌ فاستغفِروا اللهَ.", rawi:"أبو هريرة", source:"أحمد (9535)", grade:"حسن", isnad:"← أبو هريرة" },
+
+          // ═══════════════ 22. فضائل الصحابة ═══════════════
+        { cat:"فضائل الصحابة", text:"أصحابي كالنجومِ، بأيِّهم اقتديتم اهتديتم.", rawi:"عمر", source:"البيهقي في المدخل (156)", grade:"حسن لغيره", isnad:"← عمر" },
+        { cat:"فضائل الصحابة", text:"خيرُ أمتي قَرني، ثم الذين يلونَهم.", rawi:"عمران بن حصين", source:"البخاري (2652)", grade:"صحيح", isnad:"← عمران" },
+        { cat:"فضائل الصحابة", text:"أبو بكرٍ خيرُ الناسِ بعدَ النبيِّ ﷺ.", rawi:"أبو سعيد الخدري", source:"ابن ماجه (106)", grade:"صحيح", isnad:"← أبو سعيد" },
+        { cat:"فضائل الصحابة", text:"لو كنتُ مُتَّخِذًا خليلًا لاتَّخذتُ ابنَ أبي قحافةَ خليلًا.", rawi:"عبد الله بن مسعود", source:"مسلم (2383)", grade:"صحيح", isnad:"← ابن مسعود" },
+        { cat:"فضائل الصحابة", text:"عليٌّ منِّي وأنا منه، وهو وليُّ كلِّ مؤمنٍ بعدي.", rawi:"عمران بن حصين", source:"الترمذي (3712)", grade:"حسن", isnad:"← عمران" },
+        { cat:"فضائل الصحابة", text:"فاطمةُ سيدةُ نساءِ العالمينَ.", rawi:"عائشة", source:"الحاكم (4734)", grade:"صحيح", isnad:"← عائشة" },
+        { cat:"فضائل الصحابة", text:"حسَنٌ وحسينٌ سيدا شبابِ أهلِ الجنةِ.", rawi:"ابن عمر", source:"الترمذي (3768)", grade:"صحيح", isnad:"← ابن عمر" },
+        { cat:"فضائل الصحابة", text:"أشدُّ أمتي على الدجالِ عمرُ بنُ الخطابِ.", rawi:"أبو هريرة", source:"أحمد (9508)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"فضائل الصحابة", text:"لكلِّ نبيٍّ حواريٌّ، وحوارييَّ الزبيرُ بنُ العوَّامِ.", rawi:"جابر", source:"البخاري (3719)", grade:"صحيح", isnad:"← جابر" },
+        { cat:"فضائل الصحابة", text:"معاويةُ خالُ المؤمنينَ.", rawi:"عبد الله بن عباس", source:"الترمذي (3844)", grade:"حسن", isnad:"← ابن عباس" },
+        { cat:"فضائل الصحابة", text:"عشرةٌ في الجنةِ: أبو بكرٍ، وعمرُ، وعثمانُ، وعليٌّ...", rawi:"عبد الرحمن بن عوف", source:"الترمذي (3747)", grade:"صحيح", isnad:"← ابن عوف" },
+        { cat:"فضائل الصحابة", text:"اقتدوا بالذَينِ من بعدي: أبي بكرٍ وعمرَ.", rawi:"حذيفة", source:"الترمذي (3662)", grade:"صحيح", isnad:"← حذيفة" },
+        { cat:"فضائل الصحابة", text:"خالدُ بنُ الوليدِ سيفٌ من سيوفِ اللهِ.", rawi:"أبو بكر", source:"الترمذي (3846)", grade:"حسن", isnad:"← أبو بكر" },
+        { cat:"فضائل الصحابة", text:"إنَّ لكلِّ أمةٍ أمينًا، وأمينُ هذه الأمةِ أبو عبيدةَ بنُ الجراحِ.", rawi:"أنس", source:"البخاري (3744)", grade:"صحيح", isnad:"← أنس" },
+        { cat:"فضائل الصحابة", text:"لو كان بعدي نبيٌّ لكان عمرَ بنَ الخطابِ.", rawi:"عقبة بن عامر", source:"الترمذي (3686)", grade:"حسن", isnad:"← عقبة" },
+        { cat:"فضائل الصحابة", text:"سَلْ عنِّي سعدًا، فإنه خالي.", rawi:"سعد بن أبي وقاص", source:"الترمذي (3752)", grade:"صحيح", isnad:"← سعد" },
+        { cat:"فضائل الصحابة", text:"اللهمَّ ارضَ عن أصحابي، فإنَّ اللهَ قد رضيَ عنهم.", rawi:"أبو هريرة", source:"أحمد (9409)", grade:"حسن", isnad:"← أبو هريرة" },
+        { cat:"فضائل الصحابة", text:"لا تسبُّوا أصحابي، فلو أنَّ أحدَكم أنفقَ مثلَ أُحُدٍ ذهبًا ما بلغَ مُدَّ أحدِهم.", rawi:"أبو سعيد", source:"البخاري (3673)", grade:"صحيح", isnad:"← أبو سعيد" }
+
+        ];
+
+        /* ==========================================================
+           ⛔ لا تعدل ما بعد هذا السطر إلا إذا كنت تعرف ما تفعله.
+           ========================================================== */
+
+        const hadithList = document.getElementById('hadithList');
+        const searchInput = document.getElementById('searchInput');
+        const categoriesEl = document.getElementById('categories');
+        const countDisplay = document.getElementById('countDisplay');
+        const favFilter = document.getElementById('favFilter');
+        const loadMoreBtn = document.getElementById('loadMore');
+
+        let currentCat = 'الكل';
+        let currentSearch = '';
+        let showFavOnly = false;
+        let visibleCount = 30;
+
+        const allCats = ['الكل', ...new Set(hadithsData.map(h => h.cat))];
+        allCats.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'cat-btn' + (cat === 'الكل' ? ' active' : '');
+            btn.textContent = cat;
+            btn.dataset.cat = cat;
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCat = cat;
+                visibleCount = 30;
+                render();
+            });
+            categoriesEl.appendChild(btn);
+        });
+
+        function getFavs() {
+            try { return JSON.parse(localStorage.getItem('favHadiths') || '[]'); }
+            catch(e) { return []; }
+        }
+        function saveFavs(arr) {
+            localStorage.setItem('favHadiths', JSON.stringify(arr));
+        }
+
+        favFilter.addEventListener('click', () => {
+            showFavOnly = !showFavOnly;
+            favFilter.style.color = showFavOnly ? '#34d399' : 'var(--gold-light)';
+            visibleCount = 30;
+            render();
+        });
+
+        function render() {
+            const favs = getFavs();
+            const filtered = hadithsData.filter(h => {
+                const matchCat = currentCat === 'الكل' || h.cat === currentCat;
+                const matchSearch = currentSearch === '' ||
+                    h.text.includes(currentSearch) ||
+                    h.rawi.includes(currentSearch) ||
+                    h.source.includes(currentSearch) ||
+                    h.cat.includes(currentSearch) ||
+                    h.isnad.includes(currentSearch);
+                const matchFav = !showFavOnly || favs.includes(h.text);
+                return matchCat && matchSearch && matchFav;
+            });
+
+            countDisplay.textContent = filtered.length;
+            hadithList.innerHTML = '';
+
+            if (filtered.length === 0) {
+                hadithList.innerHTML = `
+                    <div class="empty-state">
+                        <div>🔍</div>
+                        <p>لا توجد نتائج مطابقة.</p>
+                    </div>`;
+                loadMoreBtn.style.display = 'none';
+                return;
+            }
+
+            const toShow = filtered.slice(0, visibleCount);
+            toShow.forEach((h, i) => {
+                const card = document.createElement('div');
+                card.className = 'hadith-card';
+                card.style.animationDelay = Math.min(i * 0.02, 0.4) + 's';
+
+                const isFav = favs.includes(h.text);
+
+                card.innerHTML = `
+                    <div class="hadith-header">
+                        <span class="hadith-cat">${h.cat}</span>
+                        <div class="hadith-actions">
+                            <button class="icon-action copy-btn" title="نسخ">📋</button>
+                            <button class="icon-action fav-btn ${isFav ? 'fav-on' : ''}" title="مفضلة">${isFav ? '⭐' : '☆'}</button>
+                        </div>
+                    </div>
+                    <p class="hadith-text">«${h.text}»</p>
+                    <div class="hadith-meta">
+                        <div class="meta-item">🎙️ <b>الراوي:</b> ${h.rawi}</div>
+                        <div class="meta-item">📚 <b>المصدر:</b> ${h.source}</div>
+                        <div class="meta-item">✔️ <b>الدرجة:</b> ${h.grade}</div>
+                        <div class="isnad"><b>الإسناد:</b> ${h.isnad}</div>
+                    </div>
+                `;
+
+                card.querySelector('.copy-btn').addEventListener('click', (e) => {
+                    const btn = e.currentTarget;
+                    const text = `«${h.text}»\n\nالراوي: ${h.rawi}\nالمصدر: ${h.source}\nالدرجة: ${h.grade}\nالإسناد: ${h.isnad}`;
+                    navigator.clipboard.writeText(text).then(() => {
+                        btn.textContent = '✓';
+                        btn.classList.add('copied');
+                        setTimeout(() => { btn.textContent = '📋'; btn.classList.remove('copied'); }, 1500);
+                    });
+                });
+
+                card.querySelector('.fav-btn').addEventListener('click', (e) => {
+                    const btn = e.currentTarget;
+                    let favs2 = getFavs();
+                    if (favs2.includes(h.text)) {
+                        favs2 = favs2.filter(t => t !== h.text);
+                        btn.textContent = '☆';
+                        btn.classList.remove('fav-on');
+                    } else {
+                        favs2.push(h.text);
+                        btn.textContent = '⭐';
+                        btn.classList.add('fav-on');
+                    }
+                    saveFavs(favs2);
+                });
+
+                hadithList.appendChild(card);
+            });
+
+            if (filtered.length > visibleCount) {
+                loadMoreBtn.style.display = 'block';
+                loadMoreBtn.textContent = `عرض المزيد (${filtered.length - visibleCount} متبقي) ↓`;
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        loadMoreBtn.addEventListener('click', () => {
+            visibleCount += 30;
+            render();
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.trim();
+            visibleCount = 30;
+            render();
+        });
+
+        render();
+    </script>
+</body>
+</html>
+```
