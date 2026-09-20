@@ -1,7 +1,7 @@
 const siteConfig = {
-    siteName: "سيف بن عمران",
-    logoTitle: "الــدولــة الإســلامـــيــه",
-    authorName: "أبو البراء المصري",
+    siteName: "بسم الله الرحمن الرحيم",
+    logoTitle: "الدولة الإسلاميه",
+    authorName: "بسم الله الرحمن الرحيم",
     welcomeMessage: "السلام عليكم ورحمة الله وبركاته...اهلا بك في موقع الخلافه .",
     
     books: [
