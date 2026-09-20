@@ -903,3 +903,41 @@ main {
     box-shadow: var(--shadow-sm);
     transition: all var(--transition);
     opacity: 1; /* تم التعديل: إظهار 
+/* تنبيه الكتب */
+.books-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: 20px;
+    margin-bottom: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.books-note-icon {
+    font-size: 1.4rem;
+    color: #fbbf24;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+}
+.books-note-text {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    flex: 1;
+}
+.books-note-text b {
+    color: #fbbf24;
+}
+
+/* وضع النهار */
+body.light-mode .books-note {
+    background: rgba(251, 191, 36, 0.12);
+    border-color: rgba(180, 83, 9, 0.3);
+}
+body.light-mode .books-note-text {
+    color: #334155;
+}
