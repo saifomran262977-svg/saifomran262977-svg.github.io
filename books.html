@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="مكتبة سيف بن عمران — المؤلفات والكتب الدينية.">
+
+    <meta name="theme-color"
+          content="#06111e">
+
+    <title>المؤلفات | سيف بن عمران</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     الخلفية
+================================================== -->
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+
+
+<!-- ==================================================
+     شريط التنقل
+================================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="brand">
+
+        <div class="brand-logo">
+            س
+        </div>
+
+        <div class="brand-text">
+
+            <strong>
+                سيف بن عمران
+            </strong>
+
+            <span>
+                دار الخلافة
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <button class="menu-button"
+            id="menuButton"
+            aria-label="فتح القائمة">
+
+        ☰
+
+    </button>
+
+
+    <nav id="mainNav">
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="books.html" class="active">
+            المؤلفات
+        </a>
+
+        <a href="about.html">
+            عن المؤلف
+        </a>
+
+        <a href="brothers.html">
+            الإخوة
+        </a>
+
+        <a href="contact.html">
+            التواصل
+        </a>
+
+    </nav>
+
+
+    <button class="theme-button"
+            id="themeButton"
+            aria-label="تغيير المظهر">
+
+        ◐
+
+    </button>
+
+</header>
+
+
+
+<!-- ==================================================
+     المحتوى
+================================================== -->
+
+<main>
+
+
+<!-- ==================================================
+     مقدمة المكتبة
+================================================== -->
+
+<section class="section"
+         style="padding-bottom:35px;">
+
+    <div class="page-intro"
+         style="
+         max-width:850px;
+         margin:60px auto 0;
+         text-align:center;
+         ">
+
+
+        <div class="small-title"
+             style="
+             justify-content:center;
+             ">
+
+            <span class="pulse"></span>
+
+            دار الخلافة · مكتبة المؤلفات
+
+        </div>
+
+
+        <h1
+            style="
+            font-size:clamp(42px,7vw,68px);
+            margin:15px 0 10px;
+            ">
+
+            المؤلفات
+            <span
+                style="
+                background:linear-gradient(
+                    90deg,
+                    #fff,
+                    var(--gold),
+                    var(--cyan)
+                );
+                -webkit-background-clip:text;
+                background-clip:text;
+                color:transparent;
+                ">
+
+                الدينية
+
+            </span>
+
+        </h1>
+
+
+        <p
+            style="
+            color:var(--muted);
+            line-height:2;
+            font-size:16px;
+            ">
+
+            تصفح المؤلفات المتاحة،
+            واختر الكتاب الذي تريد الانتقال
+            إلى صفحته ثم القراءة مباشرة.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     البحث
+================================================== -->
+
+<section
+    style="
+    max-width:650px;
+    margin:0 auto 45px;
+    ">
+
+
+    <div
+        style="
+        position:relative;
+        ">
+
+
+        <span
+            style="
+            position:absolute;
+            right:18px;
+            top:13px;
+            font-size:20px;
+            ">
+
+            🔎
+
+        </span>
+
+
+        <input
+            id="bookSearch"
+            type="search"
+            placeholder="ابحث باسم الكتاب..."
+            autocomplete="off"
+            style="
+            width:100%;
+            padding:15px 50px 15px 18px;
+            border-radius:16px;
+            border:1px solid var(--border);
+            background:rgba(255,255,255,.045);
+            color:var(--text);
+            outline:none;
+            font-family:inherit;
+            font-size:14px;
+            "
+        >
+
+    </div>
+
+
+    <p
+        id="searchMessage"
+        style="
+        display:none;
+        text-align:center;
+        color:var(--muted);
+        margin-top:20px;
+        ">
+
+        لا توجد نتائج مطابقة.
+
+    </p>
+
+</section>
+
+
+
+<!-- ==================================================
+     قائمة الكتب
+================================================== -->
+
+<section
+    class="books-grid"
+    id="booksList"
+    style="
+    padding-bottom:90px;
+    ">
+
+
+
+    <!-- ==================================================
+         الكتاب الأول
+    ================================================== -->
+
+    <article
+        class="book-card"
+        data-title="البيان الصحيح لمن بدّل دين المسيح"
+        style="
+        min-height:210px;
+        "
+    >
+
+
+        <div
+            class="book-cover cover-one"
+            style="
+            width:125px;
+            height:175px;
+            "
+        >
+
+            <span>
+                البيان
+            </span>
+
+            <small>
+                الصحيح
+            </small>
+
+        </div>
+
+
+        <div class="book-info">
+
+            <label>
+                المجلد الأول
+            </label>
+
+
+            <h2
+                style="
+                font-size:20px;
+                margin:10px 0;
+                line-height:1.6;
+                ">
+
+                البيان الصحيح لمن بدّل دين المسيح
+
+            </h2>
+
+
+            <p
+                style="
+                line-height:1.8;
+                margin-bottom:15px;
+                ">
+
+                صفحة مخصصة للكتاب،
+                تتضمن معلوماته ورابط القراءة
+                المباشر.
+
+            </p>
+
+
+            <a
+                href="bayan-almasih.html"
+                class="button primary"
+                style="
+                min-height:42px;
+                padding:9px 15px;
+                font-size:12px;
+                "
+            >
+
+                تفاصيل الكتاب ←
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ==================================================
+         الكتاب الثاني
+    ================================================== -->
+
+    <article
+        class="book-card"
+        data-title="أصل العقيدة"
+        style="
+        min-height:210px;
+        "
+    >
+
+
+        <div
+            class="book-cover cover-two"
+            style="
+            width:125px;
+            height:175px;
+            "
+        >
+
+            <span>
+                أصل
+            </span>
+
+            <small>
+                العقيدة
+            </small>
+
+        </div>
+
+
+        <div class="book-info">
+
+            <label>
+                كتاب
+            </label>
+
+
+            <h2
+                style="
+                font-size:20px;
+                margin:10px 0;
+                line-height:1.6;
+                ">
+
+                أصل العقيدة
+
+            </h2>
+
+
+            <p
+                style="
+                line-height:1.8;
+                margin-bottom:15px;
+                ">
+
+                صفحة مخصصة للكتاب،
+                تتضمن معلوماته ورابط القراءة
+                المباشر.
+
+            </p>
+
+
+            <a
+                href="asl-al-aqida.html"
+                class="button primary"
+                style="
+                min-height:42px;
+                padding:9px 15px;
+                font-size:12px;
+                "
+            >
+
+                تفاصيل الكتاب ←
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- ==================================================
+         الكتاب الثالث
+    ================================================== -->
+
+    <article
+        class="book-card"
+        data-title="نقد المذهب الشيعي"
+        style="
+        min-height:210px;
+        "
+    >
+
+
+        <div
+            class="book-cover cover-three"
+            style="
+            width:125px;
+            height:175px;
+            "
+        >
+
+            <span>
+                نقد
+            </span>
+
+            <small>
+                المذهب الشيعي
+            </small>
+
+        </div>
+
+
+        <div class="book-info">
+
+            <label>
+                كتاب
+            </label>
+
+
+            <h2
+                style="
+                font-size:20px;
+                margin:10px 0;
+                line-height:1.6;
+                ">
+
+                نقد المذهب الشيعي
+
+            </h2>
+
+
+            <p
+                style="
+                line-height:1.8;
+                margin-bottom:15px;
+                ">
+
+                صفحة مخصصة للكتاب،
+                تتضمن معلوماته ورابط القراءة
+                المباشر.
+
+            </p>
+
+
+            <a
+                href="naqd-al-shia.html"
+                class="button primary"
+                style="
+                min-height:42px;
+                padding:9px 15px;
+                font-size:12px;
+                "
+            >
+
+                تفاصيل الكتاب ←
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     رسالة مستقبلية
+================================================== -->
+
+<section
+    class="final-banner"
+    style="
+    margin-top:0;
+    ">
+
+    <div class="banner-symbol">
+        +
+    </div>
+
+
+    <span>
+        مكتبة قابلة للتوسع
+    </span>
+
+
+    <h2>
+        المزيد من المؤلفات قريبًا
+    </h2>
+
+
+    <p>
+        يمكن إضافة مؤلفات جديدة إلى هذه الصفحة
+        مع الحفاظ على نفس نظام الموقع.
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     التذييل
+================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <strong>
+                سيف بن عمران
+            </strong>
+
+            <span>
+                دار الخلافة
+            </span>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                الرئيسية
+            </a>
+
+            <a href="books.html">
+                المؤلفات
+            </a>
+
+            <a href="about.html">
+                عن المؤلف
+            </a>
+
+            <a href="contact.html">
+                التواصل
+            </a>
+
+        </div>
+
+
+        <div class="footer-slogan">
+
+            الله أكبر والعزة لله ولرسوله وللمؤمنين
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © <span id="year"></span>
+        سيف بن عمران
+
+    </div>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JavaScript
+================================================== -->
+
+<script src="main.js"></script>
+
+
+<!-- ==================================================
+     البحث داخل الكتب
+================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const searchInput =
+            document.getElementById("bookSearch");
+
+        const books =
+            document.querySelectorAll(
+                "#booksList .book-card"
+            );
+
+        const message =
+            document.getElementById(
+                "searchMessage"
+            );
+
+
+        if (!searchInput) {
+            return;
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const query =
+                    searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+                let visibleBooks = 0;
+
+
+                books.forEach(
+                    function (book) {
+
+                        const title =
+                            (
+                                book.dataset.title || ""
+                            ).toLowerCase();
+
+
+                        const matches =
+                            title.includes(query);
+
+
+                        if (matches) {
+
+                            book.style.display =
+                                "flex";
+
+                            visibleBooks++;
+
+                        } else {
+
+                            book.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (
+                    query.length > 0 &&
+                    visibleBooks === 0
+                ) {
+
+                    message.style.display =
+                        "block";
+
+                } else {
+
+                    message.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+    }
+
+);
+
+</script>
+
+
+</body>
+</html>
