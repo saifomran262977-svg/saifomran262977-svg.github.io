@@ -1,731 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="مكتبة سيف بن عمران — المؤلفات والكتب الدينية.">
-
-    <meta name="theme-color"
-          content="#06111e">
-
-    <title>المؤلفات | سيف بن عمران</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="المكتبة الدينية للمؤلف سيف بن عمران — جميع المؤلفات والكتب الدينية في مكان واحد.">
+    <meta name="author" content="سيف بن عمران">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="المكتبة الدينية | سيف بن عمران">
+    <meta property="og:description" content="تصفح جميع مؤلفات سيف بن عمران الدينية.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    
+    <title>المكتبة الدينية | سيف بن عمران</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- ملف التصميم -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body>
 
-
-<!-- ==================================================
-     الخلفية
-================================================== -->
-
-<div class="background-glow glow-one"></div>
-<div class="background-glow glow-two"></div>
-
-
-
-<!-- ==================================================
-     شريط التنقل
-================================================== -->
-
-<header class="navbar">
-
-    <a href="index.html" class="brand">
-
-        <div class="brand-logo">
-            س
+    <!-- ==========================================
+         شاشة التحميل (Preloader)
+         ========================================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">س</div>
+            <div class="preloader-bar"><span></span></div>
+            <p class="preloader-text">دار الخلافة</p>
         </div>
-
-        <div class="brand-text">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <button class="menu-button"
-            id="menuButton"
-            aria-label="فتح القائمة">
-
-        ☰
-
-    </button>
-
-
-    <nav id="mainNav">
-
-        <a href="index.html">
-            الرئيسية
-        </a>
-
-        <a href="books.html" class="active">
-            المؤلفات
-        </a>
-
-        <a href="about.html">
-            عن المؤلف
-        </a>
-
-        <a href="brothers.html">
-            الإخوة
-        </a>
-
-        <a href="contact.html">
-            التواصل
-        </a>
-
-    </nav>
-
-
-    <button class="theme-button"
-            id="themeButton"
-            aria-label="تغيير المظهر">
-
-        ◐
-
-    </button>
-
-</header>
-
-
-
-<!-- ==================================================
-     المحتوى
-================================================== -->
-
-<main>
-
-
-<!-- ==================================================
-     مقدمة المكتبة
-================================================== -->
-
-<section class="section"
-         style="padding-bottom:35px;">
-
-    <div class="page-intro"
-         style="
-         max-width:850px;
-         margin:60px auto 0;
-         text-align:center;
-         ">
-
-
-        <div class="small-title"
-             style="
-             justify-content:center;
-             ">
-
-            <span class="pulse"></span>
-
-            دار الخلافة · مكتبة المؤلفات
-
-        </div>
-
-
-        <h1
-            style="
-            font-size:clamp(42px,7vw,68px);
-            margin:15px 0 10px;
-            ">
-
-            المؤلفات
-            <span
-                style="
-                background:linear-gradient(
-                    90deg,
-                    #fff,
-                    var(--gold),
-                    var(--cyan)
-                );
-                -webkit-background-clip:text;
-                background-clip:text;
-                color:transparent;
-                ">
-
-                الدينية
-
-            </span>
-
-        </h1>
-
-
-        <p
-            style="
-            color:var(--muted);
-            line-height:2;
-            font-size:16px;
-            ">
-
-            تصفح المؤلفات المتاحة،
-            واختر الكتاب الذي تريد الانتقال
-            إلى صفحته ثم القراءة مباشرة.
-
-        </p>
-
-
     </div>
 
-</section>
+    <!-- ==========================================
+         شريط تقدم التمرير
+         ========================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- ==========================================
+         خلفيات متوهجة
+         ========================================== -->
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+    <div class="grid-overlay"></div>
 
-
-<!-- ==================================================
-     البحث
-================================================== -->
-
-<section
-    style="
-    max-width:650px;
-    margin:0 auto 45px;
-    ">
-
-
-    <div
-        style="
-        position:relative;
-        ">
-
-
-        <span
-            style="
-            position:absolute;
-            right:18px;
-            top:13px;
-            font-size:20px;
-            ">
-
-            🔎
-
-        </span>
-
-
-        <input
-            id="bookSearch"
-            type="search"
-            placeholder="ابحث باسم الكتاب..."
-            autocomplete="off"
-            style="
-            width:100%;
-            padding:15px 50px 15px 18px;
-            border-radius:16px;
-            border:1px solid var(--border);
-            background:rgba(255,255,255,.045);
-            color:var(--text);
-            outline:none;
-            font-family:inherit;
-            font-size:14px;
-            "
-        >
-
-    </div>
-
-
-    <p
-        id="searchMessage"
-        style="
-        display:none;
-        text-align:center;
-        color:var(--muted);
-        margin-top:20px;
-        ">
-
-        لا توجد نتائج مطابقة.
-
-    </p>
-
-</section>
-
-
-
-<!-- ==================================================
-     قائمة الكتب
-================================================== -->
-
-<section
-    class="books-grid"
-    id="booksList"
-    style="
-    padding-bottom:90px;
-    ">
-
-
-
-    <!-- ==================================================
-         الكتاب الأول
-    ================================================== -->
-
-    <article
-        class="book-card"
-        data-title="البيان الصحيح لمن بدّل دين المسيح"
-        style="
-        min-height:210px;
-        "
-    >
-
-
-        <div
-            class="book-cover cover-one"
-            style="
-            width:125px;
-            height:175px;
-            "
-        >
-
-            <span>
-                البيان
-            </span>
-
-            <small>
-                الصحيح
-            </small>
-
+    <!-- ==========================================
+         شريط التنقل العلوي
+         ========================================== -->
+    <header class="topbar" id="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
+            </div>
+        </a>
+        
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير المظهر">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
         </div>
+    </header>
 
-
-        <div class="book-info">
-
-            <label>
-                المجلد الأول
-            </label>
-
-
-            <h2
-                style="
-                font-size:20px;
-                margin:10px 0;
-                line-height:1.6;
-                ">
-
-                البيان الصحيح لمن بدّل دين المسيح
-
-            </h2>
-
-
-            <p
-                style="
-                line-height:1.8;
-                margin-bottom:15px;
-                ">
-
-                صفحة مخصصة للكتاب،
-                تتضمن معلوماته ورابط القراءة
-                المباشر.
-
-            </p>
-
-
-            <a
-                href="bayan-almasih.html"
-                class="button primary"
-                style="
-                min-height:42px;
-                padding:9px 15px;
-                font-size:12px;
-                "
-            >
-
-                تفاصيل الكتاب ←
-
-            </a>
-
+    <!-- ==========================================
+         القائمة الجانبية للهاتف
+         ========================================== -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <div class="nav-header">
+            <div class="nav-logo">س</div>
+            <div class="nav-title">
+                <b>دار الخلافة</b>
+                <small>سيف بن عمران</small>
+            </div>
         </div>
-
-    </article>
-
-
-
-    <!-- ==================================================
-         الكتاب الثاني
-    ================================================== -->
-
-    <article
-        class="book-card"
-        data-title="أصل العقيدة"
-        style="
-        min-height:210px;
-        "
-    >
-
-
-        <div
-            class="book-cover cover-two"
-            style="
-            width:125px;
-            height:175px;
-            "
-        >
-
-            <span>
-                أصل
-            </span>
-
-            <small>
-                العقيدة
-            </small>
-
-        </div>
-
-
-        <div class="book-info">
-
-            <label>
-                كتاب
-            </label>
-
-
-            <h2
-                style="
-                font-size:20px;
-                margin:10px 0;
-                line-height:1.6;
-                ">
-
-                أصل العقيدة
-
-            </h2>
-
-
-            <p
-                style="
-                line-height:1.8;
-                margin-bottom:15px;
-                ">
-
-                صفحة مخصصة للكتاب،
-                تتضمن معلوماته ورابط القراءة
-                المباشر.
-
-            </p>
-
-
-            <a
-                href="asl-al-aqida.html"
-                class="button primary"
-                style="
-                min-height:42px;
-                padding:9px 15px;
-                font-size:12px;
-                "
-            >
-
-                تفاصيل الكتاب ←
-
-            </a>
-
-        </div>
-
-    </article>
-
-
-
-    <!-- ==================================================
-         الكتاب الثالث
-    ================================================== -->
-
-    <article
-        class="book-card"
-        data-title="نقد المذهب الشيعي"
-        style="
-        min-height:210px;
-        "
-    >
-
-
-        <div
-            class="book-cover cover-three"
-            style="
-            width:125px;
-            height:175px;
-            "
-        >
-
-            <span>
-                نقد
-            </span>
-
-            <small>
-                المذهب الشيعي
-            </small>
-
-        </div>
-
-
-        <div class="book-info">
-
-            <label>
-                كتاب
-            </label>
-
-
-            <h2
-                style="
-                font-size:20px;
-                margin:10px 0;
-                line-height:1.6;
-                ">
-
-                نقد المذهب الشيعي
-
-            </h2>
-
-
-            <p
-                style="
-                line-height:1.8;
-                margin-bottom:15px;
-                ">
-
-                صفحة مخصصة للكتاب،
-                تتضمن معلوماته ورابط القراءة
-                المباشر.
-
-            </p>
-
-
-            <a
-                href="naqd-al-shia.html"
-                class="button primary"
-                style="
-                min-height:42px;
-                padding:9px 15px;
-                font-size:12px;
-                "
-            >
-
-                تفاصيل الكتاب ←
-
-            </a>
-
-        </div>
-
-    </article>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     رسالة مستقبلية
-================================================== -->
-
-<section
-    class="final-banner"
-    style="
-    margin-top:0;
-    ">
-
-    <div class="banner-symbol">
-        +
-    </div>
-
-
-    <span>
-        مكتبة قابلة للتوسع
-    </span>
-
-
-    <h2>
-        المزيد من المؤلفات قريبًا
-    </h2>
-
-
-    <p>
-        يمكن إضافة مؤلفات جديدة إلى هذه الصفحة
-        مع الحفاظ على نفس نظام الموقع.
-    </p>
-
-</section>
-
-
-</main>
-
-
-
-<!-- ==================================================
-     التذييل
-================================================== -->
-
-<footer>
-
-    <div class="footer-content">
-
-
-        <div class="footer-brand">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-
-        <div class="footer-links">
-
+        <div class="nav-links">
             <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 الرئيسية
             </a>
-
-            <a href="books.html">
+            <a href="books.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 المؤلفات
             </a>
-
             <a href="about.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 عن المؤلف
             </a>
-
+            <a href="brothers.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                الإخوة الموحدون
+            </a>
             <a href="contact.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 التواصل
             </a>
-
         </div>
-
-
-        <div class="footer-slogan">
-
-            الله أكبر والعزة لله ولرسوله وللمؤمنين
-
+        <div class="nav-footer">
+            <p>الله أكبر — والعزة لله</p>
         </div>
+    </nav>
 
-    </div>
+    <!-- ==========================================
+         المحتوى الرئيسي
+         ========================================== -->
+    <main>
 
+        <!-- ==========================================
+             ترويسة الصفحة (Page Header)
+             ========================================== -->
+        <section class="hero" style="padding-bottom: 10px;">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                مكتبة · دار الخلافة
+            </div>
+            
+            <h2 class="hero-title">
+                <span class="gradient-text">المكتبة</span> الدينية
+            </h2>
+            
+            <p class="hero-welcome">
+                تصفح جميع المؤلفات والكتب الدينية. اضغط على أي كتاب لفتحه مباشرة في نافذة جديدة.
+            </p>
+        </section>
 
-    <div class="copyright">
+        <!-- ==========================================
+             شبكة الكتب
+             ========================================== -->
+        <section class="section" id="books-section">
+            <div class="section-header">
+                <div class="section-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">مكتبة</span>
+                    <h3 class="section-title">جميع المؤلفات</h3>
+                </div>
+            </div>
+            
+            <!-- سيتم تعبئة بطاقات الكتب هنا تلقائيًا عبر JavaScript من config.js -->
+            <!-- كل بطاقة عبارة عن رابط مباشر للكتاب، والأيقونة نفسها قابلة للضغط -->
+            <div class="books-grid" id="booksContainer">
+                <!-- تظهر الكتب هنا تلقائيًا -->
+            </div>
+        </section>
 
-        © <span id="year"></span>
-        سيف بن عمران
+        <!-- ==========================================
+             قسم الاقتباس
+             ========================================== -->
+        <section class="quote-section">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">العلم نور، والجهل ظلام — نسأل الله أن ينفعنا بما علمنا وأن يعلمنا ما ينفعنا.</p>
+            <span class="quote-author">— دار الخلافة</span>
+        </section>
 
-    </div>
+    </main>
 
-</footer>
+    <!-- ==========================================
+         التذييل
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">س</div>
+                <b>دار الخلافة</b>
+                <span>الموقع الرسمي للمؤلف سيف بن عمران</span>
+            </div>
+            <div class="footer-links">
+                <b>روابط سريعة</b>
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">المؤلفات</a>
+                <a href="about.html">عن المؤلف</a>
+                <a href="contact.html">التواصل</a>
+            </div>
+            <div class="footer-links">
+                <b>الأقسام</b>
+                <a href="brothers.html">الإخوة الموحدون</a>
+                <a href="sources.html">المصادر</a>
+                <a href="books.html">الكتب الدينية</a>
+            </div>
+        </div>
+        <div class="footer-quote">
+            <span>ﷲ</span>
+            الله أكبر — والعزة لله ولرسوله وللمؤمنين
+        </div>
+        <div class="footer-bottom">
+            <small>© <span id="year"></span> سيف بن عمران | جميع الحقوق محفوظة</small>
+            <small>صُنع بـ <span class="heart">♥</span> لخدمة الدين</small>
+        </div>
+    </footer>
 
+    <!-- ==========================================
+         الأزرار العائمة
+         ========================================== -->
+    <a href="tel:01142077109" class="fab fab-contact" aria-label="اتصال سريع">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+    
+    <button class="fab fab-top" id="backToTop" aria-label="العودة للأعلى">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+        </svg>
+    </button>
 
-
-<!-- ==================================================
-     JavaScript
-================================================== -->
-
-<script src="main.js"></script>
-
-
-<!-- ==================================================
-     البحث داخل الكتب
-================================================== -->
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const searchInput =
-            document.getElementById("bookSearch");
-
-        const books =
-            document.querySelectorAll(
-                "#booksList .book-card"
-            );
-
-        const message =
-            document.getElementById(
-                "searchMessage"
-            );
-
-
-        if (!searchInput) {
-            return;
-        }
-
-
-        searchInput.addEventListener(
-            "input",
-            function () {
-
-                const query =
-                    searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-                let visibleBooks = 0;
-
-
-                books.forEach(
-                    function (book) {
-
-                        const title =
-                            (
-                                book.dataset.title || ""
-                            ).toLowerCase();
-
-
-                        const matches =
-                            title.includes(query);
-
-
-                        if (matches) {
-
-                            book.style.display =
-                                "flex";
-
-                            visibleBooks++;
-
-                        } else {
-
-                            book.style.display =
-                                "none";
-
-                        }
-
-                    }
-                );
-
-
-                if (
-                    query.length > 0 &&
-                    visibleBooks === 0
-                ) {
-
-                    message.style.display =
-                        "block";
-
-                } else {
-
-                    message.style.display =
-                        "none";
-
-                }
-
-            }
-        );
-
-    }
-
-);
-
-</script>
-
+    <!-- ==========================================
+         ملفات البرمجة
+         ========================================== -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
 
 </body>
 </html>
