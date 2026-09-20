@@ -4,6 +4,7 @@
  * ==========================================
  * يتحكم في تفاعلات الموقع وبناء العناصر ديناميكيًا.
  * يعتمد على البيانات الموجودة في config.js
+ * تم إزالة كود الإخفاء (Reveal) لضمان ظهور المحتوى على جميع الهواتف.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (preloader) {
         window.addEventListener('load', () => {
             preloader.classList.add('hidden');
-            // إزالة العنصر من الصفحة بعد انتهاء الحركة لتخفيف الحمل
             setTimeout(() => {
                 if (preloader.parentNode) {
                     preloader.parentNode.removeChild(preloader);
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navOverlay.addEventListener('click', closeMenu);
     }
 
-    // إغلاق القائمة عند النقر على أي رابط داخلها
     if (navMenu) {
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMenu);
@@ -99,12 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
-            // حفظ التفضيل في الذاكرة المحلية
             const isLight = document.body.classList.contains('light-mode');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
 
-        // استعادة التفضيل عند التحميل
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             document.body.classList.add('light-mode');
@@ -193,66 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 10. حركات الظهور عند التمرير (Scroll Reveal)
-    // ==========================================
-    const revealElements = document.querySelectorAll('.section, .hero, .quote-section, .card');
-    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => {
-            el.classList.add('reveal-init');
-            revealObserver.observe(el);
-        });
-    }
-
-    // ==========================================
-    // 11. تأثير العد التصاعدي للأرقام (Count Up)
-    // ==========================================
-    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-    if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
-        const countObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.getAttribute('data-count'), 10);
-                    if (isNaN(target)) return;
-                    let current = 0;
-                    const step = Math.max(1, Math.floor(target / 30));
-                    const updateCount = () => {
-                        current += step;
-                        if (current >= target) {
-                            el.textContent = target;
-                            return;
-                        }
-                        el.textContent = current;
-                        requestAnimationFrame(updateCount);
-                    };
-                    updateCount();
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statNumbers.forEach(el => countObserver.observe(el));
-    }
-
-    // ==========================================
-    // 12. زر البحث (Search Button) - يمكن تطويره لاحقًا
+    // 10. زر البحث (Search Button)
     // ==========================================
     const searchBtn = document.getElementById('searchBtn');
     if (searchBtn) {
         searchBtn.addEventListener('click', () => {
-            // يمكنك هنا فتح نافذة بحث منبثقة. حاليًا سنكتفي بإظهار تنبيه بسيط.
             alert('ميزة البحث قادمة قريبًا إن شاء الله.');
         });
     }
