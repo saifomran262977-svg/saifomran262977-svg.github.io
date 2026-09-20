@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الرسمي للمؤلف - سيف بن عمران</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- مكتبة الأيقونات الشهيرة Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- شعار دار الخلافة بالأعلى -->
+    <div class="top-banner">
+        <i class="fa-solid fa-kaaba"></i> دار الخلافة للبحوث والمؤلفات الإسلامية
+    </div>
+
+    <!-- رأس الصفحة والواجهة -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="logo-icon animate-pulse">
+                <i class="fa-solid fa-book-quran"></i>
+            </div>
+            <h1>سيف بن عمران</h1>
+            <p class="subtitle">(أبو البراء المصري)</p>
+            
+            <div class="welcome-box">
+                <p>أهلاً بك يا أخي في موقعي. أرجو أن تستفيد بمؤلفاتي وجزاك الله كل خير.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للموقع -->
+    <main class="container main-content">
+
+        <!-- قسم الكتب الدينية -->
+        <section id="books-section" class="card-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-books"></i> الكتب الدينية والمؤلفات
+            </h2>
+            <p class="section-desc">اضغط على أي كتاب للانتقال المباشر لقراءته والاستفادة من علومه:</p>
+            
+            <div class="books-grid">
+                <!-- الكتاب الأول -->
+                <a href="https://tinyurl.com/saif-omran-bayan-read" target="_blank" class="book-card">
+                    <div class="book-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h3>البيان الصحيح لمن بدّل دين المسيح</h3>
+                    <span class="book-vol">المجلّد الأول</span>
+                    <span class="read-btn">اقرأ الكتاب <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+
+                <!-- الكتاب الثاني -->
+                <a href="https://tinyurl.com/saif-omran-aslakeda-read" target="_blank" class="book-card">
+                    <div class="book-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h3>أصل العقيدة</h3>
+                    <span class="book-vol">كتاب منهجي أصيل</span>
+                    <span class="read-btn">اقرأ الكتاب <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+
+                <!-- الكتاب الثالث -->
+                <a href="https://tinyurl.com/saif-omran-shia-read" target="_blank" class="book-card">
+                    <div class="book-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h3>نقد المذهب الشيعي</h3>
+                    <span class="book-vol">دراسة نقدية تحليلية</span>
+                    <span class="read-btn">اقرأ الكتاب <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- قسم الإخوة الموحدين -->
+        <section class="card-section brothers-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-users-gear"></i> الإخوة الموحدين أعزهم الله
+            </h2>
+            <div class="brothers-grid">
+                <div class="brother-badge"><i class="fa-solid fa-shield-halved"></i> أبو عبد الله الأنصاريّ</div>
+                <div class="brother-badge"><i class="fa-solid fa-shield-halved"></i> أبو عمر العراقي</div>
+                <div class="brother-badge"><i class="fa-solid fa-shield-halved"></i> أبو عائشه الليبي</div>
+                <div class="brother-badge"><i class="fa-solid fa-shield-halved"></i> أبو حذيفه المهاجر</div>
+                <div class="brother-badge"><i class="fa-solid fa-shield-halved"></i> أبو علي المصري</div>
+            </div>
+        </section>
+
+        <!-- قسم التواصل مع المؤلف -->
+        <section class="card-section contact-section">
+            <h2 class="section-title">
+                <i class="fa-solid fa-headset"></i> تواصل مع المؤلف
+            </h2>
+            <p>يسعدنا تلقي استفساراتكم وملاحظاتكم عبر رقم التواصل المباشر:</p>
+            <a href="tel:01142077109" class="phone-btn">
+                <i class="fa-brands fa-whatsapp"></i> 01142077109
+            </a>
+        </section>
+
+    </main>
+
+    <!-- تذيل الموقع (Footer) -->
+    <footer>
+        <div class="container">
+            <p class="glorify-text">الله أكبر والعزة لله ولرسوله وللمؤمنين</p>
+            <p class="copyright">جميع الحقوق محفوظة للمؤلف سيف بن عمران &copy; 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
