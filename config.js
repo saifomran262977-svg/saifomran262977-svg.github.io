@@ -1,29 +1,35 @@
 const siteConfig = {
     siteName: "سيف بن عمران",
-    logoTitle: "دار الخلافة",
+    logoTitle: "الــدولــة الإســلامـــيــه",
     authorName: "أبو البراء المصري",
-    welcomeMessage: "أهلاً بك يا أخي في موقعي. أرجو أن تستفيد بمؤلفاتي وجزاك الله كل خير.",
+    welcomeMessage: "السلام عليكم ورحمة الله وبركاته...اهلا بك في موقع الخلافه .",
     
     books: [
-        {
-            id: 1,
-            title: "البيان الصحيح لمن بدّل دين المسيح (المجلد الأول)",
-            link: "https://tinyurl.com/saif-omran-bayan-read",
-            icon: "📘"
-        },
-        {
-            id: 2,
-            title: "أصل العقيدة",
-            link: "https://tinyurl.com/saif-omran-aslakeda-read",
-            icon: "📗"
-        },
-        {
-            id: 3,
-            title: "نقد المذهب الشيعي",
-            link: "https://tinyurl.com/saif-omran-shia-read",
-            icon: "📕"
-        }
-    ],
+       {
+        id: 1,
+        title: "البيان الصحيح لمن بدّل دين المسيح (المجلد الأول)",
+        link: "https://tinyurl.com/saif-omran-bayan-read",
+        icon: "📘"
+    },
+    {
+        id: 2,
+        title: "أصل العقيدة",
+        link: "https://tinyurl.com/saif-omran-aslakeda-read",
+        icon: "📗"
+    },
+    {
+        id: 3,
+        title: "نقد المذهب الشيعي",
+        link: "https://tinyurl.com/saif-omran-shia-read",
+        icon: "📕"
+    },
+    {
+        id: 4,
+        title: "الرد على الملحدين",
+        link: "https://shortlink.win/1ytRV",
+        icon: "📙"
+    }
+],
 
     brothers: [
         "أبو عبد الله الأنصاريّ",
