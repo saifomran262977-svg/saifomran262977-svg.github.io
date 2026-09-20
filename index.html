@@ -1,1095 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="الموقع الرسمي لسيف بن عمران (أبو البراء المصري) — دار الخلافة — مكتبة المؤلفات والكتب.">
-
-    <meta name="theme-color"
-          content="#06111e">
-
-    <meta property="og:title"
-          content="سيف بن عمران | دار الخلافة">
-
-    <meta property="og:description"
-          content="أهلاً بك في موقع سيف بن عمران (أبو البراء المصري).">
-
-    <meta property="og:type"
-          content="website">
-
-    <title>
-        سيف بن عمران | دار الخلافة
-    </title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="الموقع الرسمي للمؤلف سيف بن عمران (أبو البراء المصري) — مكتبة المؤلفات الدينية لدار الخلافة. كتب، بحوث، وصفحات تعريفية.">
+    <meta name="author" content="سيف بن عمران">
+    <meta name="keywords" content="سيف بن عمران, دار الخلافة, كتب دينية, البيان الصحيح, أصل العقيدة, نقد المذهب الشيعي, أبو البراء المصري">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="سيف بن عمران | دار الخلافة">
+    <meta property="og:description" content="أهلاً بك في موقعي. أرجو أن تستفيد بمؤلفاتي وجزاك الله كل خير.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="سيف بن عمران | دار الخلافة">
+    <meta name="twitter:description" content="مكتبة المؤلفات الدينية لدار الخلافة.">
+    
+    <title>سيف بن عمران | دار الخلافة</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- ملف التصميم الرئيسي -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
-
-<!-- ==================================================
-     مؤثرات الخلفية
-================================================== -->
-
-<div class="background-glow glow-one"></div>
-<div class="background-glow glow-two"></div>
-<div class="background-glow glow-three"></div>
-
-
-
-<!-- ==================================================
-     شريط التنقل
-================================================== -->
-
-<header class="navbar">
-
-    <a href="index.html"
-       class="brand">
-
-        <div class="brand-logo">
-            س
+    <!-- ==========================================
+         شاشة التحميل (Preloader)
+         ========================================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">س</div>
+            <div class="preloader-bar"><span></span></div>
+            <p class="preloader-text">دار الخلافة</p>
         </div>
-
-        <div class="brand-text">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="فتح القائمة"
-        aria-expanded="false">
-
-        ☰
-
-    </button>
-
-
-    <nav id="mainNav">
-
-        <a href="index.html"
-           class="active">
-
-            الرئيسية
-
-        </a>
-
-        <a href="books.html">
-
-            المؤلفات
-
-        </a>
-
-        <a href="about.html">
-
-            عن المؤلف
-
-        </a>
-
-        <a href="brothers.html">
-
-            الإخوة
-
-        </a>
-
-        <a href="contact.html">
-
-            التواصل
-
-        </a>
-
-    </nav>
-
-
-    <button
-        class="theme-button"
-        id="themeButton"
-        aria-label="تغيير المظهر">
-
-        ◐
-
-    </button>
-
-</header>
-
-
-
-<!-- ==================================================
-     HERO
-================================================== -->
-
-<main>
-
-
-<section class="hero-section">
-
-
-    <div class="hero-content">
-
-
-        <div class="small-title">
-
-            <span class="pulse"></span>
-
-            دار الخلافة
-
-        </div>
-
-
-        <h1 class="hero-title">
-
-            سيف بن
-
-            <span>
-                عمران
-            </span>
-
-        </h1>
-
-
-        <div class="author-subtitle">
-
-            أبو البراء المصري
-
-        </div>
-
-
-        <p class="hero-description">
-
-            أهلاً بك يا أخي في موقعي.
-            أرجو أن تستفيد بمؤلفاتي
-            وجزاك الله كل خير.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-
-            <a
-                href="books.html"
-                class="button primary hero-button"
-            >
-
-                📚
-
-                المؤلفات الدينية
-
-            </a>
-
-
-            <a
-                href="about.html"
-                class="button secondary hero-button"
-            >
-
-                ✦
-
-                عن المؤلف
-
-            </a>
-
-
-        </div>
-
-
-        <div class="hero-mini-links">
-
-
-            <a href="contact.html">
-
-                التواصل
-
-            </a>
-
-
-            <span>
-                •
-            </span>
-
-
-            <a href="brothers.html">
-
-                الإخوة الموحدون
-
-            </a>
-
-
-            <span>
-                •
-            </span>
-
-
-            <a href="books.html">
-
-                المكتبة
-
-            </a>
-
-
-        </div>
-
-
     </div>
 
+    <!-- ==========================================
+         شريط تقدم التمرير (Scroll Progress)
+         ========================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- ==========================================
+         خلفيات متوهجة متحركة (Ambient Orbs)
+         ========================================== -->
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+    <div class="grid-overlay"></div>
 
-    <!-- الشعار -->
-
-    <div class="hero-visual">
-
-
-        <div class="orbit orbit-one"></div>
-
-        <div class="orbit orbit-two"></div>
-
-        <div class="orbit orbit-three"></div>
-
-
-        <div class="hero-emblem">
-
-            <div class="emblem-inner">
-
-                <span>
-                    س
-                </span>
-
+    <!-- ==========================================
+         شريط التنقل العلوي (Header)
+         ========================================== -->
+    <header class="topbar" id="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
             </div>
-
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
+            </div>
+        </a>
+        
+        <div class="header-actions">
+            <button class="icon-btn" id="searchBtn" aria-label="بحث">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </button>
+            <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير المظهر">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
         </div>
+    </header>
 
-
-        <div class="floating-symbol symbol-one">
-            ✦
+    <!-- ==========================================
+         القائمة الجانبية للهاتف (Mobile Nav)
+         ========================================== -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <div class="nav-header">
+            <div class="nav-logo">س</div>
+            <div class="nav-title">
+                <b>دار الخلافة</b>
+                <small>سيف بن عمران</small>
+            </div>
         </div>
-
-        <div class="floating-symbol symbol-two">
-            ◈
-        </div>
-
-        <div class="floating-symbol symbol-three">
-            ✧
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     شريط الإحصائيات
-================================================== -->
-
-<section class="stats-section">
-
-
-    <div class="stat-item">
-
-        <strong>
-            03
-        </strong>
-
-        <span>
-            مؤلفات
-        </span>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <strong>
-            05
-        </strong>
-
-        <span>
-            إخوة
-        </span>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <strong>
-            04
-        </strong>
-
-        <span>
-            منصات تواصل
-        </span>
-
-    </div>
-
-
-    <div class="stat-item">
-
-        <strong>
-            ∞
-        </strong>
-
-        <span>
-            قابل للتوسع
-        </span>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     قسم الترحيب
-================================================== -->
-
-<section class="section">
-
-
-    <div class="welcome-panel">
-
-
-        <div class="welcome-symbol">
-
-            ✦
-
-        </div>
-
-
-        <div>
-
-            <span>
-                أهلاً بك في الموقع
-            </span>
-
-
-            <h2>
-                مرحبًا بك في دار الخلافة
-            </h2>
-
-
-            <p>
-
-                هذا الموقع مخصص لجمع المؤلفات
-                والصفحات التعريفية ووسائل التواصل
-                في مكان واحد، مع إمكانية إضافة
-                المزيد من المحتوى مستقبلًا.
-
-            </p>
-
-        </div>
-
-
-        <a
-            href="books.html"
-            class="button primary"
-        >
-
-            دخول المكتبة ←
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     الأقسام الرئيسية
-================================================== -->
-
-<section class="section">
-
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                استكشف الموقع
-            </span>
-
-            <h2>
-                الأقسام الرئيسية
-            </h2>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="main-sections-grid">
-
-
-        <!-- المؤلفات -->
-
-        <a
-            href="books.html"
-            class="feature-card feature-large"
-        >
-
-            <div class="feature-icon">
-                📚
-            </div>
-
-
-            <div class="feature-content">
-
-                <span>
-                    المكتبة
-                </span>
-
-                <h3>
-                    المؤلفات الدينية
-                </h3>
-
-                <p>
-
-                    تصفح الكتب المتاحة
-                    وانتقل مباشرة إلى
-                    صفحات القراءة.
-
-                </p>
-
-
-                <strong>
-                    استكشف الكتب ←
-                </strong>
-
-            </div>
-
-
-            <div class="feature-glow"></div>
-
-        </a>
-
-
-
-        <!-- عن المؤلف -->
-
-        <a
-            href="about.html"
-            class="feature-card"
-        >
-
-            <div class="feature-icon">
-                ✦
-            </div>
-
-
-            <div class="feature-content">
-
-                <span>
-                    التعريف
-                </span>
-
-                <h3>
-                    عن المؤلف
-                </h3>
-
-                <p>
-
-                    سيف بن عمران
-                    (أبو البراء المصري).
-
-                </p>
-
-
-                <strong>
-                    معرفة المزيد ←
-                </strong>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- الإخوة -->
-
-        <a
-            href="brothers.html"
-            class="feature-card"
-        >
-
-            <div class="feature-icon">
-                ◈
-            </div>
-
-
-            <div class="feature-content">
-
-                <span>
-                    قسم خاص
-                </span>
-
-                <h3>
-                    الإخوة الموحدون
-                </h3>
-
-                <p>
-
-                    صفحة الأسماء المدرجة
-                    في الموقع.
-
-                </p>
-
-
-                <strong>
-                    الانتقال ←
-                </strong>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- التواصل -->
-
-        <a
-            href="contact.html"
-            class="feature-card"
-        >
-
-            <div class="feature-icon">
-                ◉
-            </div>
-
-
-            <div class="feature-content">
-
-                <span>
-                    تواصل
-                </span>
-
-                <h3>
-                    تواصل مع المؤلف
-                </h3>
-
-                <p>
-
-                    واتساب وفيسبوك
-                    وإنستغرام وتيك توك.
-
-                </p>
-
-
-                <strong>
-                    التواصل ←
-                </strong>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     أحدث المؤلفات
-================================================== -->
-
-<section class="section">
-
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                المكتبة الرقمية
-            </span>
-
-            <h2>
-                أبرز المؤلفات
-            </h2>
-
-        </div>
-
-
-        <a
-            href="books.html"
-            class="more-link"
-        >
-
-            جميع الكتب ←
-
-        </a>
-
-    </div>
-
-
-
-    <div class="books-grid">
-
-
-        <!-- الكتاب الأول -->
-
-        <a
-            href="bayan-almasih.html"
-            class="book-card"
-        >
-
-            <div class="book-cover cover-one">
-
-                <span>
-                    البيان
-                </span>
-
-                <small>
-                    الصحيح
-                </small>
-
-            </div>
-
-
-            <div class="book-info">
-
-                <label>
-                    المجلد الأول
-                </label>
-
-
-                <h3>
-                    البيان الصحيح لمن بدّل دين المسيح
-                </h3>
-
-
-                <p>
-                    قراءة الكتاب ←
-                </p>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- الكتاب الثاني -->
-
-        <a
-            href="asl-al-aqida.html"
-            class="book-card"
-        >
-
-            <div class="book-cover cover-two">
-
-                <span>
-                    أصل
-                </span>
-
-                <small>
-                    العقيدة
-                </small>
-
-            </div>
-
-
-            <div class="book-info">
-
-                <label>
-                    كتاب
-                </label>
-
-
-                <h3>
-                    أصل العقيدة
-                </h3>
-
-
-                <p>
-                    قراءة الكتاب ←
-                </p>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- الكتاب الثالث -->
-
-        <a
-            href="naqd-al-shia.html"
-            class="book-card"
-        >
-
-            <div class="book-cover cover-three">
-
-                <span>
-                    نقد
-                </span>
-
-                <small>
-                    المذهب الشيعي
-                </small>
-
-            </div>
-
-
-            <div class="book-info">
-
-                <label>
-                    كتاب
-                </label>
-
-
-                <h3>
-                    نقد المذهب الشيعي
-                </h3>
-
-
-                <p>
-                    قراءة الكتاب ←
-                </p>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     منصات التواصل
-================================================== -->
-
-<section class="section">
-
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                تواصل
-            </span>
-
-            <h2>
-                تابع صفحات المؤلف
-            </h2>
-
-        </div>
-
-
-        <a
-            href="contact.html"
-            class="more-link"
-        >
-
-            جميع وسائل التواصل ←
-
-        </a>
-
-    </div>
-
-
-
-    <div class="social-grid">
-
-
-        <a
-            href="https://wa.me/201142077109"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card whatsapp"
-        >
-
-            <div class="social-icon">
-                ◉
-            </div>
-
-
-            <div>
-
-                <strong>
-                    واتساب
-                </strong>
-
-                <span>
-                    01142077109
-                </span>
-
-            </div>
-
-
-            <b>
-                فتح ←
-            </b>
-
-        </a>
-
-
-
-        <a
-            href="https://www.facebook.com/share/1DXvo6oreg/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card facebook"
-        >
-
-            <div class="social-icon">
-                f
-            </div>
-
-
-            <div>
-
-                <strong>
-                    Facebook
-                </strong>
-
-                <span>
-                    صفحة المؤلف
-                </span>
-
-            </div>
-
-
-            <b>
-                فتح ←
-            </b>
-
-        </a>
-
-
-
-        <a
-            href="https://www.instagram.com/abo_albrae_?stkn=MXg3cng0aHYwNWQyMg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card instagram"
-        >
-
-            <div class="social-icon">
-                ◎
-            </div>
-
-
-            <div>
-
-                <strong>
-                    Instagram
-                </strong>
-
-                <span>
-                    @abo_albrae_
-                </span>
-
-            </div>
-
-
-            <b>
-                فتح ←
-            </b>
-
-        </a>
-
-
-
-        <a
-            href="https://www.tiktok.com/@saif.omran59?_r=1&_t=ZS-99sqsQzxGJ2"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-card tiktok"
-        >
-
-            <div class="social-icon">
-                ♪
-            </div>
-
-
-            <div>
-
-                <strong>
-                    TikTok
-                </strong>
-
-                <span>
-                    @saif.omran59
-                </span>
-
-            </div>
-
-
-            <b>
-                فتح ←
-            </b>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     دعوة للمكتبة
-================================================== -->
-
-<section class="final-banner">
-
-
-    <div class="banner-symbol">
-        ✦
-    </div>
-
-
-    <span>
-        سيف بن عمران · أبو البراء المصري
-    </span>
-
-
-    <h2>
-        اقرأ، استكشف، وانتقل بين أقسام الموقع
-    </h2>
-
-
-    <p>
-        جميع أقسام الموقع متصلة ببعضها
-        لتسهيل الوصول إلى المحتوى.
-    </p>
-
-
-    <a
-        href="books.html"
-        class="button primary"
-    >
-
-        📚 فتح المكتبة
-
-    </a>
-
-
-</section>
-
-
-</main>
-
-
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer>
-
-
-    <div class="footer-content">
-
-
-        <div class="footer-brand">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                أبو البراء المصري
-            </span>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <a href="index.html">
+        <div class="nav-links">
+            <a href="index.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 الرئيسية
             </a>
-
             <a href="books.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 المؤلفات
             </a>
-
             <a href="about.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 عن المؤلف
             </a>
-
             <a href="brothers.html">
-                الإخوة
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                الإخوة الموحدون
             </a>
-
             <a href="contact.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 التواصل
             </a>
-
         </div>
-
-
-
-        <div class="footer-slogan">
-
-            الله أكبر والعزة لله ولرسوله وللمؤمنين
-
+        <div class="nav-footer">
+            <p>الله أكبر — والعزة لله</p>
         </div>
+    </nav>
 
+    <!-- ==========================================
+         المحتوى الرئيسي (Main Content)
+         ========================================== -->
+    <main>
 
-    </div>
+        <!-- ==========================================
+             قسم الترحيب (Hero Section)
+             ========================================== -->
+        <section class="hero" id="hero">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                دار الخلافة · مكتبة رقمية
+            </div>
+            
+            <h2 class="hero-title">
+                سيف بن <span class="gradient-text">عمران</span>
+            </h2>
+            
+            <p class="hero-subtitle">
+                أبو البراء المصري
+            </p>
+            
+            <p class="hero-welcome">
+                أهلاً بك يا أخي في موقعي. أرجو أن تستفيد بمؤلفاتي وجزاك الله كل خير.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="books.html" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    استكشف المؤلفات
+                </a>
+                <a href="contact.html" class="btn btn-ghost">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    تواصل معي
+                </a>
+            </div>
+            
+            <!-- إحصائيات سريعة -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="3">0</span>
+                    <span class="stat-label">مؤلفات</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">قابلة للتوسع</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">RTL</span>
+                    <span class="stat-label">واجهة عربية</span>
+                </div>
+            </div>
+        </section>
 
+        <!-- ==========================================
+             قسم الكتب الدينية (Books Section)
+             ========================================== -->
+        <section class="section" id="books-section">
+            <div class="section-header">
+                <div class="section-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">مكتبة</span>
+                    <h3 class="section-title">الكتب الدينية</h3>
+                </div>
+                <a href="books.html" class="section-link">عرض الكل</a>
+            </div>
+            
+            <div class="books-grid" id="booksContainer">
+                <!-- يتم تعبئة أزرار الكتب تلقائيًا عبر JavaScript من config.js -->
+            </div>
+        </section>
 
-    <div class="copyright">
+        <!-- ==========================================
+             قسم الإخوة الموحدين (Brothers Section)
+             ========================================== -->
+        <section class="section" id="brothers-section">
+            <div class="section-header">
+                <div class="section-icon-wrap emerald">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">صحبة</span>
+                    <h3 class="section-title">الإخوة الموحدون</h3>
+                </div>
+            </div>
+            
+            <div class="brothers-grid" id="brothersContainer">
+                <!-- يتم تعبئة أسماء الإخوة تلقائيًا عبر JavaScript من config.js -->
+            </div>
+        </section>
 
-        © <span id="year"></span>
+        <!-- ==========================================
+             قسم التواصل (Contact Section)
+             ========================================== -->
+        <section class="section" id="contact-section">
+            <div class="section-header">
+                <div class="section-icon-wrap gold">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">تواصل</span>
+                    <h3 class="section-title">مع المؤلف</h3>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <p class="contact-desc">
+                    للتواصل المباشر والاستفسارات، يمكنك الاتصال بي على الرقم التالي:
+                </p>
+                <a href="#" id="phoneContainer" class="contact-btn">
+                    <!-- يتم تعبئة الرقم تلقائيًا عبر JavaScript -->
+                </a>
+            </div>
+        </section>
 
-        سيف بن عمران
-        (أبو البراء المصري)
+        <!-- ==========================================
+             قسم الاقتباس (Quote Section)
+             ========================================== -->
+        <section class="quote-section">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">مكتبة رقمية قابلة للنمو — يمكن إضافة كتب وأقسام وصفحات جديدة لاحقًا مع الحفاظ على نفس التصميم.</p>
+            <span class="quote-author">— دار الخلافة</span>
+        </section>
 
-    </div>
+    </main>
 
+    <!-- ==========================================
+         التذييل (Footer)
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">س</div>
+                <b>دار الخلافة</b>
+                <span>الموقع الرسمي للمؤلف سيف بن عمران</span>
+            </div>
+            <div class="footer-links">
+                <b>روابط سريعة</b>
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">المؤلفات</a>
+                <a href="about.html">عن المؤلف</a>
+                <a href="contact.html">التواصل</a>
+            </div>
+            <div class="footer-links">
+                <b>الأقسام</b>
+                <a href="brothers.html">الإخوة الموحدون</a>
+                <a href="sources.html">المصادر</a>
+                <a href="books.html">الكتب الدينية</a>
+            </div>
+        </div>
+        <div class="footer-quote">
+            <span>ﷲ</span>
+            الله أكبر — والعزة لله ولرسوله وللمؤمنين
+        </div>
+        <div class="footer-bottom">
+            <small>© <span id="year"></span> سيف بن عمران | جميع الحقوق محفوظة</small>
+            <small>صُنع بـ <span class="heart">♥</span> لخدمة الدين</small>
+        </div>
+    </footer>
 
-</footer>
+    <!-- ==========================================
+         الأزرار العائمة (Floating Buttons)
+         ========================================== -->
+    <a href="tel:01142077109" class="fab fab-contact" id="fabContact" aria-label="اتصال سريع">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+    
+    <button class="fab fab-top" id="backToTop" aria-label="العودة للأعلى">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+        </svg>
+    </button>
 
-
-
-<!-- ==================================================
-     JavaScript
-================================================== -->
-
-<script src="main.js"></script>
-
+    <!-- ==========================================
+         ملفات البرمجة (JavaScript)
+         ========================================== -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
 
 </body>
-
 </html>
