@@ -795,16 +795,9 @@ main {
     transition: all var(--transition);
     position: relative;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.5s ease-out forwards;
+    opacity: 1; /* تم التعديل: إظهار البطاقة دائماً */
+    transform: translateY(0);
 }
-
-.book-card:nth-child(1) { animation-delay: 0.1s; }
-.book-card:nth-child(2) { animation-delay: 0.2s; }
-.book-card:nth-child(3) { animation-delay: 0.3s; }
-.book-card:nth-child(4) { animation-delay: 0.4s; }
-.book-card:nth-child(5) { animation-delay: 0.5s; }
 
 .book-card::before {
     content: '';
@@ -902,4 +895,11 @@ main {
     align-items: center;
     gap: 10px;
     padding: 20px 12px;
-    background: var(--bg-card
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    opacity: 1; /* تم التعديل: إظهار 
