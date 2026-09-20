@@ -1,937 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="الإخوة الموحدون — صفحة تعريفية ضمن موقع سيف بن عمران.">
-
-    <meta name="theme-color"
-          content="#06111e">
-
-    <title>
-        الإخوة الموحدون | سيف بن عمران
-    </title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="الإخوة الموحدون أعزهم الله — قائمة بأسماء الإخوة في دار الخلافة.">
+    <meta name="author" content="سيف بن عمران">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="الإخوة الموحدون | سيف بن عمران">
+    <meta property="og:description" content="قائمة الإخوة الموحدين أعزهم الله.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    
+    <title>الإخوة الموحدون | سيف بن عمران</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- ملف التصميم -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body>
 
-<div class="background-glow glow-one"></div>
-<div class="background-glow glow-two"></div>
-
-
-<!-- ==================================================
-     NAVBAR
-================================================== -->
-
-<header class="navbar">
-
-    <a href="index.html" class="brand">
-
-        <div class="brand-logo">
-            س
+    <!-- ==========================================
+         شاشة التحميل (Preloader)
+         ========================================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">س</div>
+            <div class="preloader-bar"><span></span></div>
+            <p class="preloader-text">دار الخلافة</p>
         </div>
-
-        <div class="brand-text">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="فتح القائمة"
-        aria-expanded="false">
-
-        ☰
-
-    </button>
-
-
-    <nav id="mainNav">
-
-        <a href="index.html">
-            الرئيسية
-        </a>
-
-        <a href="books.html">
-            المؤلفات
-        </a>
-
-        <a href="about.html">
-            عن المؤلف
-        </a>
-
-        <a href="brothers.html"
-           class="active">
-            الإخوة
-        </a>
-
-        <a href="contact.html">
-            التواصل
-        </a>
-
-    </nav>
-
-
-    <button
-        class="theme-button"
-        id="themeButton"
-        aria-label="تغيير المظهر">
-
-        ◐
-
-    </button>
-
-</header>
-
-
-
-<!-- ==================================================
-     MAIN
-================================================== -->
-
-<main>
-
-
-<!-- ==================================================
-     HERO
-================================================== -->
-
-<section class="section brothers-hero">
-
-    <div
-        style="
-        max-width:900px;
-        margin:55px auto 0;
-        text-align:center;
-        "
-    >
-
-        <div
-            class="small-title"
-            style="justify-content:center;"
-        >
-
-            <span class="pulse"></span>
-
-            دار الخلافة · الإخوة الموحدون
-
-        </div>
-
-
-        <h1
-            style="
-            font-size:clamp(40px,7vw,70px);
-            margin:18px 0 10px;
-            "
-        >
-
-            الإخوة
-
-            <span
-                style="
-                background:
-                linear-gradient(
-                    90deg,
-                    #fff,
-                    var(--gold),
-                    var(--cyan)
-                );
-                -webkit-background-clip:text;
-                background-clip:text;
-                color:transparent;
-                "
-            >
-
-                الموحدون
-
-            </span>
-
-        </h1>
-
-
-        <div class="brothers-badge">
-
-            أعزهم الله
-
-        </div>
-
-
-        <p
-            style="
-            max-width:720px;
-            margin:25px auto 0;
-            color:var(--muted);
-            line-height:2;
-            font-size:15px;
-            "
-        >
-
-            صفحة تجمع الأسماء التي طلب المؤلف
-            إدراجها ضمن قسم الإخوة في الموقع.
-
-        </p>
-
     </div>
 
-</section>
+    <!-- ==========================================
+         شريط تقدم التمرير
+         ========================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- ==========================================
+         خلفيات متوهجة
+         ========================================== -->
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+    <div class="grid-overlay"></div>
 
-
-<!-- ==================================================
-     INTRO CARD
-================================================== -->
-
-<section class="section">
-
-    <div
-        class="main-card"
-        style="
-        max-width:850px;
-        margin:auto;
-        text-align:center;
-        "
-    >
-
-        <div class="card-icon">
-            ✦
-        </div>
-
-
-        <h2>
-            الإخوة الموحدون
-        </h2>
-
-
-        <p
-            style="
-            max-width:650px;
-            margin:15px auto 0;
-            line-height:2;
-            "
-        >
-
-            هذه الصفحة جزء من أقسام الموقع،
-            ويمكن استخدامها لاحقًا لإضافة
-            نبذة أو أعمال أو روابط تعريفية
-            لكل اسم على حدة.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     BROTHERS GRID
-================================================== -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                قائمة الأسماء
-            </span>
-
-            <h2>
-                الإخوة
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="brothers-grid">
-
-
-
-        <!-- 01 -->
-
-        <article class="brother-card">
-
-            <div class="brother-number">
-                01
+    <!-- ==========================================
+         شريط التنقل العلوي
+         ========================================== -->
+    <header class="topbar" id="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
             </div>
-
-
-            <div class="brother-avatar">
-                أ
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
             </div>
-
-
-            <div class="brother-content">
-
-                <span>
-                    الأخ الأول
-                </span>
-
-                <h3>
-                    أبو عبد الله الأنصاريّ
-                </h3>
-
-                <p>
-                    من الإخوة المدرجين في صفحة
-                    الموقع.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- 02 -->
-
-        <article class="brother-card">
-
-            <div class="brother-number">
-                02
-            </div>
-
-
-            <div class="brother-avatar">
-                أ
-            </div>
-
-
-            <div class="brother-content">
-
-                <span>
-                    الأخ الثاني
-                </span>
-
-                <h3>
-                    أبو عمر العراقي
-                </h3>
-
-                <p>
-                    من الإخوة المدرجين في صفحة
-                    الموقع.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- 03 -->
-
-        <article class="brother-card">
-
-            <div class="brother-number">
-                03
-            </div>
-
-
-            <div class="brother-avatar">
-                أ
-            </div>
-
-
-            <div class="brother-content">
-
-                <span>
-                    الأخ الثالث
-                </span>
-
-                <h3>
-                    أبو عائشة الليبي
-                </h3>
-
-                <p>
-                    من الإخوة المدرجين في صفحة
-                    الموقع.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- 04 -->
-
-        <article class="brother-card">
-
-            <div class="brother-number">
-                04
-            </div>
-
-
-            <div class="brother-avatar">
-                أ
-            </div>
-
-
-            <div class="brother-content">
-
-                <span>
-                    الأخ الرابع
-                </span>
-
-                <h3>
-                    أبو حذيفة المهاجر
-                </h3>
-
-                <p>
-                    من الإخوة المدرجين في صفحة
-                    الموقع.
-                </p>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- 05 -->
-
-        <article class="brother-card">
-
-            <div class="brother-number">
-                05
-            </div>
-
-
-            <div class="brother-avatar">
-                أ
-            </div>
-
-
-            <div class="brother-content">
-
-                <span>
-                    الأخ الخامس
-                </span>
-
-                <h3>
-                    أبو علي المصري
-                </h3>
-
-                <p>
-                    من الإخوة المدرجين في صفحة
-                    الموقع.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     NAVIGATION CARDS
-================================================== -->
-
-<section class="section">
-
-    <div
-        class="cards-grid"
-    >
-
-
-        <a
-            href="books.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                📚
-            </div>
-
-            <h3>
-                المؤلفات الدينية
-            </h3>
-
-            <p>
-                تصفح الكتب والمؤلفات الموجودة
-                في المكتبة.
-            </p>
-
-            <strong>
-                الانتقال إلى المكتبة ←
-            </strong>
-
         </a>
-
-
-
-        <a
-            href="about.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                ✦
-            </div>
-
-            <h3>
-                عن المؤلف
-            </h3>
-
-            <p>
-                تعرف على سيف بن عمران
-                وأبو البراء المصري.
-            </p>
-
-            <strong>
-                صفحة المؤلف ←
-            </strong>
-
-        </a>
-
-
-
-        <a
-            href="contact.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                ◉
-            </div>
-
-            <h3>
-                التواصل
-            </h3>
-
-            <p>
-                انتقل إلى صفحة وسائل التواصل
-                والحسابات.
-            </p>
-
-            <strong>
-                التواصل ←
-            </strong>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     FINAL BANNER
-================================================== -->
-
-<section class="final-banner">
-
-    <div class="banner-symbol">
-        ✦
-    </div>
-
-
-    <span>
-        سيف بن عمران · أبو البراء المصري
-    </span>
-
-
-    <h2>
-        دار الخلافة
-    </h2>
-
-
-    <p>
-        موقع رقمي للمؤلفات والمواد
-        والصفحات التعريفية.
-    </p>
-
-</section>
-
-
-</main>
-
-
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer>
-
-    <div class="footer-content">
-
-
-        <div class="footer-brand">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                أبو البراء المصري
-            </span>
-
-            <span>
-                دار الخلافة
-            </span>
-
+        
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير المظهر">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
         </div>
+    </header>
 
-
-        <div class="footer-links">
-
+    <!-- ==========================================
+         القائمة الجانبية للهاتف
+         ========================================== -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <div class="nav-header">
+            <div class="nav-logo">س</div>
+            <div class="nav-title">
+                <b>دار الخلافة</b>
+                <small>سيف بن عمران</small>
+            </div>
+        </div>
+        <div class="nav-links">
             <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 الرئيسية
             </a>
-
             <a href="books.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 المؤلفات
             </a>
-
             <a href="about.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 عن المؤلف
             </a>
-
-            <a href="brothers.html">
-                الإخوة
+            <a href="brothers.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                الإخوة الموحدون
             </a>
-
             <a href="contact.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 التواصل
             </a>
-
         </div>
-
-
-        <div class="footer-slogan">
-
-            الله أكبر والعزة لله ولرسوله وللمؤمنين
-
+        <div class="nav-footer">
+            <p>الله أكبر — والعزة لله</p>
         </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        سيف بن عمران (أبو البراء المصري)
-
-    </div>
-
-</footer>
-
-
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
-<script src="main.js"></script>
-
-
-
-<!-- ==================================================
-     PAGE STYLES
-================================================== -->
-
-<style>
-
-
-.brothers-badge {
-
-    display:inline-flex;
-
-    padding:8px 17px;
-
-    border-radius:999px;
-
-    border:1px solid
-        rgba(232,201,107,.25);
-
-    background:
-        rgba(232,201,107,.06);
-
-    color:var(--gold);
-
-    font-size:12px;
-
-    font-weight:800;
-
-    box-shadow:
-        0 0 25px
-        rgba(232,201,107,.06);
-
-}
-
-
-.brothers-grid {
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:18px;
-
-}
-
-
-.brother-card {
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    min-height:145px;
-
-    padding:25px;
-
-    overflow:hidden;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        );
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-
-}
-
-
-.brother-card::before {
-
-    content:"";
-
-    position:absolute;
-
-    width:140px;
-
-    height:140px;
-
-    top:-70px;
-
-    left:-70px;
-
-    border-radius:50%;
-
-    background:
-        rgba(97,229,223,.08);
-
-    filter:blur(20px);
-
-}
-
-
-.brother-card:hover {
-
-    transform:
-        translateY(-6px);
-
-    border-color:
-        rgba(97,229,223,.30);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.22);
-
-}
-
-
-.brother-number {
-
-    position:absolute;
-
-    top:15px;
-
-    left:18px;
-
-    color:
-        rgba(255,255,255,.16);
-
-    font-size:11px;
-
-    font-weight:900;
-
-}
-
-
-.brother-avatar {
-
-    width:72px;
-
-    height:72px;
-
-    flex-shrink:0;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:22px;
-
-    border:
-        1px solid
-        rgba(232,201,107,.22);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(232,201,107,.13),
-            rgba(97,229,223,.07)
-        );
-
-    color:var(--gold);
-
-    font-size:28px;
-
-    font-weight:900;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(255,255,255,.025);
-
-}
-
-
-.brother-content {
-
-    position:relative;
-
-    z-index:1;
-
-}
-
-
-.brother-content span {
-
-    color:var(--cyan);
-
-    font-size:10px;
-
-    font-weight:700;
-
-}
-
-
-.brother-content h3 {
-
-    margin:7px 0;
-
-    font-size:19px;
-
-}
-
-
-.brother-content p {
-
-    margin:0;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.8;
-
-}
-
-
-.navigation-card {
-
-    text-decoration:none;
-
-    color:inherit;
-
-    cursor:pointer;
-
-}
-
-
-.navigation-card strong {
-
-    display:block;
-
-    margin-top:15px;
-
-    color:var(--cyan);
-
-    font-size:11px;
-
-}
-
-
-@media (max-width:760px) {
-
-    .brothers-grid {
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .brother-card {
-
-        min-height:125px;
-
-        padding:20px;
-
-    }
-
-
-    .brother-avatar {
-
-        width:62px;
-
-        height:62px;
-
-    }
-
-}
-
-
-</style>
-
+    </nav>
+
+    <!-- ==========================================
+         المحتوى الرئيسي
+         ========================================== -->
+    <main>
+
+        <!-- ==========================================
+             ترويسة الصفحة (Page Header)
+             ========================================== -->
+        <section class="hero" style="padding-bottom: 10px;">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                صحبة · دار الخلافة
+            </div>
+            
+            <h2 class="hero-title">
+                الإخوة <span class="gradient-text">الموحدون</span>
+            </h2>
+            
+            <p class="hero-welcome">
+                أعزهم الله — قائمة بأسماء الإخوة الذين نعتز بصحبتهم ونسأل الله أن يجمعنا بهم في جنات النعيم.
+            </p>
+        </section>
+
+        <!-- ==========================================
+             شبكة الإخوة
+             ========================================== -->
+        <section class="section" id="brothers-section">
+            <div class="section-header">
+                <div class="section-icon-wrap emerald">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">صحبة</span>
+                    <h3 class="section-title">أسماء الإخوة</h3>
+                </div>
+            </div>
+            
+            <!-- سيتم تعبئة بطاقات الإخوة هنا تلقائيًا عبر JavaScript من config.js -->
+            <div class="brothers-grid" id="brothersContainer">
+                <!-- تظهر أسماء الإخوة هنا تلقائيًا -->
+            </div>
+        </section>
+
+        <!-- ==========================================
+             قسم الاقتباس
+             ========================================== -->
+        <section class="quote-section">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">المؤمن للمؤمن كالبنيان يشد بعضه بعضًا — نسأل الله أن يجمعنا وإياهم على الحق.</p>
+            <span class="quote-author">— دار الخلافة</span>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         التذييل
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">س</div>
+                <b>دار الخلافة</b>
+                <span>الموقع الرسمي للمؤلف سيف بن عمران</span>
+            </div>
+            <div class="footer-links">
+                <b>روابط سريعة</b>
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">المؤلفات</a>
+                <a href="about.html">عن المؤلف</a>
+                <a href="contact.html">التواصل</a>
+            </div>
+            <div class="footer-links">
+                <b>الأقسام</b>
+                <a href="brothers.html">الإخوة الموحدون</a>
+                <a href="sources.html">المصادر</a>
+                <a href="books.html">الكتب الدينية</a>
+            </div>
+        </div>
+        <div class="footer-quote">
+            <span>ﷲ</span>
+            الله أكبر — والعزة لله ولرسوله وللمؤمنين
+        </div>
+        <div class="footer-bottom">
+            <small>© <span id="year"></span> سيف بن عمران | جميع الحقوق محفوظة</small>
+            <small>صُنع بـ <span class="heart">♥</span> لخدمة الدين</small>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         الأزرار العائمة
+         ========================================== -->
+    <a href="tel:01142077109" class="fab fab-contact" aria-label="اتصال سريع">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+    
+    <button class="fab fab-top" id="backToTop" aria-label="العودة للأعلى">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+        </svg>
+    </button>
+
+    <!-- ==========================================
+         ملفات البرمجة
+         ========================================== -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
 
 </body>
-
 </html>
