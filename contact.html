@@ -1,1356 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="صفحة التواصل مع سيف بن عمران (أبو البراء المصري). واتساب وفيسبوك وإنستغرام وتيك توك.">
-
-    <meta name="theme-color"
-          content="#06111e">
-
-    <meta property="og:title"
-          content="التواصل | سيف بن عمران">
-
-    <meta property="og:description"
-          content="تواصل مع سيف بن عمران (أبو البراء المصري) عبر وسائل التواصل المختلفة.">
-
-    <title>
-        التواصل | سيف بن عمران
-    </title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="تواصل مع المؤلف سيف بن عمران (أبو البراء المصري) — واتساب، فيسبوك، إنستغرام، تيك توك، واتصال هاتفي.">
+    <meta name="author" content="سيف بن عمران">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="تواصل معي | سيف بن عمران">
+    <meta property="og:description" content="وسائل التواصل المباشر مع المؤلف.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    
+    <title>تواصل معي | سيف بن عمران</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- ملف التصميم -->
     <link rel="stylesheet" href="style.css">
-
+    
+    <!-- أنماط خاصة بصفحة التواصل -->
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media (min-width: 640px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+            text-decoration: none;
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.08), transparent);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+        .contact-item:hover::before,
+        .contact-item:active::before {
+            left: 100%;
+        }
+        .contact-item:hover,
+        .contact-item:active {
+            transform: scale(0.98);
+            border-color: var(--emerald-light);
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+        }
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+            font-size: 1.6rem;
+        }
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .contact-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .contact-info span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            direction: ltr;
+            text-align: right;
+        }
+        .contact-arrow {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--gold-light);
+            flex-shrink: 0;
+            transition: all var(--transition);
+        }
+        .contact-arrow svg {
+            width: 16px;
+            height: 16px;
+        }
+        .contact-item:hover .contact-arrow,
+        .contact-item:active .contact-arrow {
+            background: var(--gold-light);
+            color: #000;
+            transform: translateX(-4px);
+        }
+        .whatsapp .contact-icon { background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); }
+        .facebook .contact-icon { background: rgba(24, 119, 242, 0.15); border-color: rgba(24, 119, 242, 0.3); }
+        .instagram .contact-icon { background: rgba(225, 48, 108, 0.15); border-color: rgba(225, 48, 108, 0.3); }
+        .tiktok .contact-icon { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+        .phone .contact-icon { background: rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.3); }
+    </style>
 </head>
-
-
 <body>
 
-<div class="background-glow glow-one"></div>
-<div class="background-glow glow-two"></div>
-
-
-<!-- ==================================================
-     شريط التنقل
-================================================== -->
-
-<header class="navbar">
-
-    <a href="index.html" class="brand">
-
-        <div class="brand-logo">
-            س
+    <!-- ==========================================
+         شاشة التحميل (Preloader)
+         ========================================== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">س</div>
+            <div class="preloader-bar"><span></span></div>
+            <p class="preloader-text">دار الخلافة</p>
         </div>
-
-        <div class="brand-text">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="فتح القائمة"
-        aria-expanded="false">
-
-        ☰
-
-    </button>
-
-
-    <nav id="mainNav">
-
-        <a href="index.html">
-            الرئيسية
-        </a>
-
-        <a href="books.html">
-            المؤلفات
-        </a>
-
-        <a href="about.html">
-            عن المؤلف
-        </a>
-
-        <a href="brothers.html">
-            الإخوة
-        </a>
-
-        <a href="contact.html"
-           class="active">
-            التواصل
-        </a>
-
-    </nav>
-
-
-    <button
-        class="theme-button"
-        id="themeButton"
-        aria-label="تغيير المظهر">
-
-        ◐
-
-    </button>
-
-</header>
-
-
-
-<!-- ==================================================
-     المحتوى الرئيسي
-================================================== -->
-
-<main>
-
-
-<!-- ==================================================
-     مقدمة الصفحة
-================================================== -->
-
-<section class="section contact-hero">
-
-    <div
-        style="
-        max-width:900px;
-        margin:55px auto 0;
-        text-align:center;
-        "
-    >
-
-        <div
-            class="small-title"
-            style="justify-content:center;"
-        >
-
-            <span class="pulse"></span>
-
-            دار الخلافة · التواصل
-
-        </div>
-
-
-        <h1
-            style="
-            font-size:clamp(40px,7vw,70px);
-            margin:18px 0 10px;
-            "
-        >
-
-            تواصل مع
-
-            <span
-                style="
-                background:
-                linear-gradient(
-                    90deg,
-                    #fff,
-                    var(--gold),
-                    var(--cyan)
-                );
-
-                -webkit-background-clip:text;
-                background-clip:text;
-
-                color:transparent;
-                "
-            >
-
-                المؤلف
-
-            </span>
-
-        </h1>
-
-
-        <p
-            style="
-            max-width:700px;
-            margin:20px auto 0;
-            color:var(--muted);
-            line-height:2;
-            font-size:15px;
-            "
-        >
-
-            سيف بن عمران
-            <strong style="color:var(--gold);">
-                (أبو البراء المصري)
-            </strong>
-
-            <br>
-
-            يمكنك استخدام إحدى وسائل التواصل
-            الموجودة في هذه الصفحة.
-
-        </p>
-
     </div>
 
-</section>
+    <!-- ==========================================
+         شريط تقدم التمرير
+         ========================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- ==========================================
+         خلفيات متوهجة
+         ========================================== -->
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
+    <div class="grid-overlay"></div>
 
-
-<!-- ==================================================
-     بطاقة واتساب الرئيسية
-================================================== -->
-
-<section class="section">
-
-    <div
-        class="contact-main-card"
-    >
-
-        <div class="contact-main-icon">
-
-            ◉
-
+    <!-- ==========================================
+         شريط التنقل العلوي
+         ========================================== -->
+    <header class="topbar" id="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
+            </div>
+        </a>
+        
+        <div class="header-actions">
+            <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تغيير المظهر">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
         </div>
+    </header>
 
-
-        <div class="contact-main-content">
-
-            <span>
-                التواصل المباشر
-            </span>
-
-
-            <h2>
-                واتساب
-            </h2>
-
-
-            <div
-                class="phone-number"
-                id="phoneNumber"
-            >
-
-                01142077109
-
+    <!-- ==========================================
+         القائمة الجانبية للهاتف
+         ========================================== -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-menu" id="navMenu" aria-label="القائمة الرئيسية">
+        <div class="nav-header">
+            <div class="nav-logo">س</div>
+            <div class="nav-title">
+                <b>دار الخلافة</b>
+                <small>سيف بن عمران</small>
             </div>
-
-
-            <p>
-
-                اضغط على الزر لفتح محادثة
-                واتساب مباشرة.
-
-            </p>
-
-
-            <div
-                class="contact-buttons"
-            >
-
-                <a
-                    href="https://wa.me/201142077109"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="button primary"
-                >
-
-                    فتح واتساب ←
-
-                </a>
-
-
-                <button
-                    type="button"
-                    class="button secondary"
-                    id="copyPhone"
-                >
-
-                    نسخ الرقم
-
-                </button>
-
-            </div>
-
-
-            <div
-                id="copyMessage"
-                class="copy-message"
-                aria-live="polite"
-            ></div>
-
         </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     حسابات التواصل
-================================================== -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                منصات التواصل
-            </span>
-
-            <h2>
-                الحسابات
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="contact-social-grid">
-
-
-        <!-- Facebook -->
-
-        <a
-            href="https://www.facebook.com/share/1DXvo6oreg/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-social-card facebook-card"
-        >
-
-            <div class="contact-social-icon">
-                f
-            </div>
-
-
-            <div class="contact-social-info">
-
-                <span>
-                    Facebook
-                </span>
-
-                <strong>
-                    فيسبوك
-                </strong>
-
-                <small>
-                    الانتقال إلى الحساب
-                </small>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                ←
-            </div>
-
-        </a>
-
-
-
-        <!-- Instagram -->
-
-        <a
-            href="https://www.instagram.com/abo_albrae_?stkn=MXg3cng0aHYwNWQyMg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-social-card instagram-card"
-        >
-
-            <div class="contact-social-icon">
-                ◎
-            </div>
-
-
-            <div class="contact-social-info">
-
-                <span>
-                    Instagram
-                </span>
-
-                <strong>
-                    @abo_albrae_
-                </strong>
-
-                <small>
-                    الانتقال إلى الحساب
-                </small>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                ←
-            </div>
-
-        </a>
-
-
-
-        <!-- TikTok -->
-
-        <a
-            href="https://www.tiktok.com/@saif.omran59?_r=1&_t=ZS-99sqsQzxGJ2"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-social-card tiktok-card"
-        >
-
-            <div class="contact-social-icon">
-                ♪
-            </div>
-
-
-            <div class="contact-social-info">
-
-                <span>
-                    TikTok
-                </span>
-
-                <strong>
-                    @saif.omran59
-                </strong>
-
-                <small>
-                    الانتقال إلى الحساب
-                </small>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                ←
-            </div>
-
-        </a>
-
-
-
-        <!-- WhatsApp -->
-
-        <a
-            href="https://wa.me/201142077109"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-social-card whatsapp-card"
-        >
-
-            <div class="contact-social-icon">
-                ◉
-            </div>
-
-
-            <div class="contact-social-info">
-
-                <span>
-                    WhatsApp
-                </span>
-
-                <strong>
-                    01142077109
-                </strong>
-
-                <small>
-                    محادثة مباشرة
-                </small>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                ←
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     بطاقة معلومات المؤلف
-================================================== -->
-
-<section class="section">
-
-    <div
-        class="main-card author-contact-card"
-    >
-
-        <div
-            class="author-contact-symbol"
-        >
-
-            س
-
-        </div>
-
-
-        <div>
-
-            <span
-                style="
-                color:var(--cyan);
-                font-size:12px;
-                font-weight:700;
-                "
-            >
-
-                معلومات المؤلف
-
-            </span>
-
-
-            <h2>
-                سيف بن عمران
-            </h2>
-
-
-            <h3>
-                أبو البراء المصري
-            </h3>
-
-
-            <p>
-
-                صاحب الموقع والمؤلفات المنشورة
-                في المكتبة الرقمية.
-
-            </p>
-
-        </div>
-
-
-        <a
-            href="about.html"
-            class="button secondary"
-        >
-
-            عن المؤلف ←
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     روابط سريعة
-================================================== -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>
-                الوصول السريع
-            </span>
-
-            <h2>
-                أقسام الموقع
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="cards-grid">
-
-
-        <a
-            href="books.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                📚
-            </div>
-
-            <h3>
-                المؤلفات الدينية
-            </h3>
-
-            <p>
-                تصفح الكتب والمؤلفات الموجودة
-                في المكتبة.
-            </p>
-
-            <strong>
-                دخول المكتبة ←
-            </strong>
-
-        </a>
-
-
-
-        <a
-            href="about.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                ✦
-            </div>
-
-            <h3>
-                عن المؤلف
-            </h3>
-
-            <p>
-                معلومات تعريفية عن سيف بن عمران
-                وأبو البراء المصري.
-            </p>
-
-            <strong>
-                معرفة المزيد ←
-            </strong>
-
-        </a>
-
-
-
-        <a
-            href="brothers.html"
-            class="main-card navigation-card"
-        >
-
-            <div class="card-icon">
-                ◈
-            </div>
-
-            <h3>
-                الإخوة الموحدون
-            </h3>
-
-            <p>
-                الانتقال إلى صفحة الإخوة
-                الموجودة في الموقع.
-            </p>
-
-            <strong>
-                الانتقال ←
-            </strong>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     العبارة الختامية
-================================================== -->
-
-<section class="final-banner">
-
-    <div class="banner-symbol">
-        ✦
-    </div>
-
-
-    <span>
-        سيف بن عمران · أبو البراء المصري
-    </span>
-
-
-    <h2>
-        دار الخلافة
-    </h2>
-
-
-    <p>
-        شكرًا لزيارتك للموقع.
-    </p>
-
-</section>
-
-
-</main>
-
-
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer>
-
-    <div class="footer-content">
-
-
-        <div class="footer-brand">
-
-            <strong>
-                سيف بن عمران
-            </strong>
-
-            <span>
-                أبو البراء المصري
-            </span>
-
-            <span>
-                دار الخلافة
-            </span>
-
-        </div>
-
-
-        <div class="footer-links">
-
+        <div class="nav-links">
             <a href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 الرئيسية
             </a>
-
             <a href="books.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 المؤلفات
             </a>
-
             <a href="about.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 عن المؤلف
             </a>
-
             <a href="brothers.html">
-                الإخوة
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                الإخوة الموحدون
             </a>
-
-            <a href="contact.html">
+            <a href="contact.html" class="active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 التواصل
             </a>
-
         </div>
-
-
-        <div class="footer-slogan">
-
-            الله أكبر والعزة لله ولرسوله وللمؤمنين
-
+        <div class="nav-footer">
+            <p>الله أكبر — والعزة لله</p>
         </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © <span id="year"></span>
-        سيف بن عمران (أبو البراء المصري)
-
-    </div>
-
-</footer>
-
-
-
-<!-- ==================================================
-     JavaScript الأساسي
-================================================== -->
-
-<script src="main.js"></script>
-
-
-
-<!-- ==================================================
-     JavaScript صفحة التواصل
-================================================== -->
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-
-        /* =============================================
-           نسخ رقم الهاتف
-        ============================================= */
-
-        const copyButton =
-            document.getElementById("copyPhone");
-
-        const phoneNumber =
-            document.getElementById("phoneNumber");
-
-        const copyMessage =
-            document.getElementById("copyMessage");
-
-
-        if (
-            copyButton &&
-            phoneNumber
-        ) {
-
-            copyButton.addEventListener(
-                "click",
-                async function () {
-
-                    const number =
-                        phoneNumber.textContent
-                        .trim();
-
-
-                    try {
-
-                        await navigator.clipboard.writeText(
-                            number
-                        );
-
-
-                        copyMessage.textContent =
-                            "تم نسخ رقم التواصل بنجاح ✓";
-
-
-                        copyMessage.classList.add(
-                            "show"
-                        );
-
-
-                        setTimeout(
-                            function () {
-
-                                copyMessage.classList.remove(
-                                    "show"
-                                );
-
-                            },
-                            2500
-                        );
-
-
-                    } catch (error) {
-
-                        copyMessage.textContent =
-                            "يمكنك تحديد الرقم ونسخه يدويًا.";
-
-                        copyMessage.classList.add(
-                            "show"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-
-    }
-
-);
-
-</script>
-
-
-
-<!-- ==================================================
-     تنسيقات الصفحة
-================================================== -->
-
-<style>
-
-
-.contact-main-card {
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
-    padding:35px;
-
-    border:
-        1px solid
-        rgba(97,229,223,.18);
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(97,229,223,.065),
-            rgba(255,255,255,.025)
-        );
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.18);
-
-}
-
-
-.contact-main-icon {
-
-    width:100px;
-
-    height:100px;
-
-    flex-shrink:0;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:30px;
-
-    border:
-        1px solid
-        rgba(232,201,107,.25);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(232,201,107,.12),
-            rgba(97,229,223,.08)
-        );
-
-    color:var(--gold);
-
-    font-size:42px;
-
-    box-shadow:
-        0 0 40px
-        rgba(232,201,107,.06);
-
-}
-
-
-.contact-main-content {
-
-    flex:1;
-
-}
-
-
-.contact-main-content > span {
-
-    color:var(--cyan);
-
-    font-size:11px;
-
-    font-weight:800;
-
-}
-
-
-.contact-main-content h2 {
-
-    margin:6px 0;
-
-    font-size:28px;
-
-}
-
-
-.phone-number {
-
-    display:inline-block;
-
-    direction:ltr;
-
-    margin:8px 0;
-
-    padding:8px 14px;
-
-    border-radius:10px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    color:var(--gold);
-
-    font-size:19px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-}
-
-
-.contact-main-content p {
-
-    color:var(--muted);
-
-    line-height:1.8;
-
-    font-size:13px;
-
-}
-
-
-.contact-buttons {
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:18px;
-
-}
-
-
-.copy-message {
-
-    opacity:0;
-
-    height:0;
-
-    overflow:hidden;
-
-    color:var(--cyan);
-
-    font-size:11px;
-
-    transition:
-        opacity .25s ease;
-
-}
-
-
-.copy-message.show {
-
-    opacity:1;
-
-    height:auto;
-
-    margin-top:12px;
-
-}
-
-
-.contact-social-grid {
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:17px;
-
-}
-
-
-.contact-social-card {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-
-    min-height:125px;
-
-    padding:22px;
-
-    text-decoration:none;
-
-    color:inherit;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease,
-        box-shadow .3s ease;
-
-}
-
-
-.contact-social-card:hover {
-
-    transform:
-        translateY(-6px);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.2);
-
-}
-
-
-.contact-social-icon {
-
-    width:58px;
-
-    height:58px;
-
-    flex-shrink:0;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:18px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    font-size:27px;
-
-    font-weight:900;
-
-}
-
-
-.contact-social-info {
-
-    flex:1;
-
-}
-
-
-.contact-social-info span {
-
-    display:block;
-
-    color:var(--cyan);
-
-    font-size:10px;
-
-    font-weight:700;
-
-}
-
-
-.contact-social-info strong {
-
-    display:block;
-
-    margin-top:5px;
-
-    font-size:16px;
-
-}
-
-
-.contact-social-info small {
-
-    display:block;
-
-    margin-top:6px;
-
-    color:var(--muted);
-
-    font-size:10px;
-
-}
-
-
-.contact-arrow {
-
-    color:var(--cyan);
-
-    font-size:18px;
-
-}
-
-
-.facebook-card:hover {
-
-    border-color:
-        rgba(80,130,255,.45);
-
-}
-
-
-.instagram-card:hover {
-
-    border-color:
-        rgba(230,90,180,.45);
-
-}
-
-
-.tiktok-card:hover {
-
-    border-color:
-        rgba(100,220,230,.45);
-
-}
-
-
-.whatsapp-card:hover {
-
-    border-color:
-        rgba(75,210,120,.45);
-
-}
-
-
-.author-contact-card {
-
-    max-width:900px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-}
-
-
-.author-contact-symbol {
-
-    width:80px;
-
-    height:80px;
-
-    flex-shrink:0;
-
-    display:grid;
-
-    place-items:center;
-
-    border-radius:25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(232,201,107,.12),
-            rgba(97,229,223,.08)
-        );
-
-    border:
-        1px solid
-        rgba(232,201,107,.22);
-
-    color:var(--gold);
-
-    font-size:32px;
-
-    font-weight:900;
-
-}
-
-
-.author-contact-card h2 {
-
-    margin:7px 0 2px;
-
-    font-size:24px;
-
-}
-
-
-.author-contact-card h3 {
-
-    margin:0;
-
-    color:var(--gold);
-
-    font-size:13px;
-
-}
-
-
-.author-contact-card p {
-
-    margin:8px 0 0;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.8;
-
-}
-
-
-.author-contact-card > div:nth-child(2) {
-
-    flex:1;
-
-}
-
-
-.navigation-card {
-
-    text-decoration:none;
-
-    color:inherit;
-
-}
-
-
-.navigation-card strong {
-
-    display:block;
-
-    margin-top:15px;
-
-    color:var(--cyan);
-
-    font-size:11px;
-
-}
-
-
-@media (max-width:760px) {
-
-    .contact-main-card {
-
-        flex-direction:column;
-
-        text-align:center;
-
-        padding:25px;
-
-    }
-
-
-    .contact-buttons {
-
-        justify-content:center;
-
-    }
-
-
-    .contact-social-grid {
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .author-contact-car
+    </nav>
+
+    <!-- ==========================================
+         المحتوى الرئيسي
+         ========================================== -->
+    <main>
+
+        <!-- ==========================================
+             ترويسة الصفحة (Page Header)
+             ========================================== -->
+        <section class="hero" style="padding-bottom: 10px;">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                تواصل · دار الخلافة
+            </div>
+            
+            <h2 class="hero-title">
+                تواصل <span class="gradient-text">معي</span>
+            </h2>
+            
+            <p class="hero-welcome">
+                سيف بن عمران (أبو البراء المصري) — يسعدني تواصلكم واستفساراتكم عبر الوسائل التالية.
+            </p>
+        </section>
+
+        <!-- ==========================================
+             شبكة التواصل
+             ========================================== -->
+        <section class="section" id="contact-section">
+            <div class="section-header">
+                <div class="section-icon-wrap gold">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">تواصل</span>
+                    <h3 class="section-title">وسائل الاتصال</h3>
+                </div>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- واتساب -->
+                <a href="https://wa.me/201142077109" target="_blank" rel="noopener noreferrer" class="contact-item whatsapp">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-info">
+                        <h4>واتساب</h4>
+                        <span>01142077109</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- فيسبوك -->
+                <a href="https://www.facebook.com/share/1DXvo6oreg/" target="_blank" rel="noopener noreferrer" class="contact-item facebook">
+                    <div class="contact-icon">📘</div>
+                    <div class="contact-info">
+                        <h4>فيسبوك</h4>
+                        <span>صفحة المؤلف</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- إنستغرام -->
+                <a href="https://www.instagram.com/abo_albrae_?stkn=MXg3cng0aHYwNWQyMg==" target="_blank" rel="noopener noreferrer" class="contact-item instagram">
+                    <div class="contact-icon">📸</div>
+                    <div class="contact-info">
+                        <h4>إنستغرام</h4>
+                        <span>@abo_albrae_</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- تيك توك -->
+                <a href="https://www.tiktok.com/@saif.omran59?_r=1&_t=ZS-99sqsQzxGJ2" target="_blank" rel="noopener noreferrer" class="contact-item tiktok">
+                    <div class="contact-icon">🎵</div>
+                    <div class="contact-info">
+                        <h4>تيك توك</h4>
+                        <span>@saif.omran59</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- اتصال هاتفي -->
+                <a href="tel:01142077109" class="contact-item phone">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-info">
+                        <h4>اتصال هاتفي</h4>
+                        <span>01142077109</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             قسم الاقتباس
+             ========================================== -->
+        <section class="quote-section">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">تواصلوا معي، فالكلمة الطيبة صدقة، والرأي الصائب نور.</p>
+            <span class="quote-author">— سيف بن عمران</span>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         التذييل
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">س</div>
+                <b>دار الخلافة</b>
+                <span>الموقع الرسمي للمؤلف سيف بن عمران</span>
+            </div>
+            <div class="footer-links">
+                <b>روابط سريعة</b>
+                <a href="index.html">الرئيسية</a>
+                <a href="books.html">المؤلفات</a>
+                <a href="about.html">عن المؤلف</a>
+                <a href="contact.html">التواصل</a>
+            </div>
+            <div class="footer-links">
+                <b>الأقسام</b>
+                <a href="brothers.html">الإخوة الموحدون</a>
+                <a href="sources.html">المصادر</a>
+                <a href="books.html">الكتب الدينية</a>
+            </div>
+        </div>
+        <div class="footer-quote">
+            <span>ﷲ</span>
+            الله أكبر — والعزة لله ولرسوله وللمؤمنين
+        </div>
+        <div class="footer-bottom">
+            <small>© <span id="year"></span> سيف بن عمران | جميع الحقوق محفوظة</small>
+            <small>صُنع بـ <span class="heart">♥</span> لخدمة الدين</small>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         الأزرار العائمة
+         ========================================== -->
+    <a href="tel:01142077109" class="fab fab-contact" aria-label="اتصال سريع">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+    
+    <button class="fab fab-top" id="backToTop" aria-label="العودة للأعلى">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="5 12 12 5 19 12"/>
+        </svg>
+    </button>
+
+    <!-- ==========================================
+         ملفات البرمجة
+         ========================================== -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
