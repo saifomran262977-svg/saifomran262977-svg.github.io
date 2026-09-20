@@ -1,276 +1,1652 @@
+/* =========================================================
+   SAIF OMRAN — DAR AL-KHILAFAH
+   Main Website Style
+========================================================= */
+
+
+/* =========================================================
+   المتغيرات
+========================================================= */
+
 :root {
-    --bg-main: #061a14;
-    --bg-card: #0b2e25;
-    --primary-gold: #d4af37;
-    --light-gold: #f3e5ab;
-    --text-white: #ffffff;
-    --text-gray: #d0d0d0;
-    --accent-green: #134e40;
+
+    --bg: #06111e;
+    --bg-secondary: #0a1929;
+
+    --surface: rgba(15, 31, 49, 0.72);
+    --surface-light: rgba(255, 255, 255, 0.055);
+
+    --border: rgba(180, 210, 235, 0.14);
+
+    --text: #f4f8fc;
+    --muted: #aab8c9;
+
+    --gold: #e8c96b;
+    --gold-light: #fff0ad;
+
+    --cyan: #61e5df;
+    --blue: #72aaff;
+
+    --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.30);
+
+    --radius: 24px;
+
 }
+
+
+/* =========================================================
+   الوضع الفاتح
+========================================================= */
+
+body.light {
+
+    --bg: #edf3f6;
+    --bg-secondary: #ffffff;
+
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-light: rgba(20, 45, 65, 0.045);
+
+    --border: rgba(20, 45, 65, 0.12);
+
+    --text: #152235;
+    --muted: #5c6b7c;
+
+    background: #edf3f6;
+
+}
+
+
+/* =========================================================
+   الإعدادات العامة
+========================================================= */
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
-    font-family: 'Amiri', 'Traditional Arabic', Tahoma, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-white);
-    line-height: 1.9;
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--text);
+
+    font-family:
+        Cairo,
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 0%,
+            #132d49 0,
+            #071321 38%,
+            #040a12 100%
+        );
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+
+body.light {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 0%,
+            #ffffff 0,
+            #edf3f6 60%,
+            #e4ebf0 100%
+        );
+
 }
 
-/* شريط دار الخلافة العلوي */
-.top-banner {
-    background: linear-gradient(90deg, #103c30, #1f5e4d, #103c30);
-    color: var(--light-gold);
-    text-align: center;
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-bottom: 2px solid var(--primary-gold);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.top-banner i {
-    color: var(--primary-gold);
-    margin-left: 8px;
+
+button,
+input {
+    font-family: inherit;
 }
 
-/* واجهة الموقع (Hero) */
-.hero-section {
-    background: radial-gradient(circle, #0f382d 0%, #061a14 100%);
-    text-align: center;
-    padding: 60px 20px;
-    border-bottom: 4px solid var(--primary-gold);
+
+button {
+    cursor: pointer;
 }
 
-.logo-icon {
-    font-size: 4rem;
-    color: var(--primary-gold);
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+
+/* =========================================================
+   الخلفيات المضيئة
+========================================================= */
+
+.background-glow {
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(85px);
+
+    opacity: 0.13;
+
+    pointer-events: none;
+
+    z-index: -1;
+
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-    color: var(--light-gold);
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+
+.glow-one {
+
+    background: var(--cyan);
+
+    top: 8%;
+
+    right: -130px;
+
 }
 
-.subtitle {
-    font-size: 1.4rem;
-    color: var(--text-gray);
-    margin-bottom: 25px;
+
+.glow-two {
+
+    background: #637cff;
+
+    bottom: 8%;
+
+    left: -150px;
+
 }
 
-/* رسالة الترحيب اللامعة */
-.welcome-box {
-    background: rgba(11, 46, 37, 0.85);
-    border: 2px solid var(--primary-gold);
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
-    font-size: 1.3rem;
-    color: var(--light-gold);
-}
 
-/* المحتوى والأقسام */
-.main-content {
-    padding: 40px 20px;
-}
+/* =========================================================
+   شريط التنقل
+========================================================= */
 
-.card-section {
-    background-color: var(--bg-card);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 35px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
+.navbar {
 
-.section-title {
-    color: var(--primary-gold);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-align: center;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-    padding-bottom: 10px;
-}
+    position: sticky;
 
-.section-title i {
-    margin-left: 10px;
-}
+    top: 0;
 
-.section-desc {
-    text-align: center;
-    color: var(--text-gray);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
+    z-index: 100;
 
-/* شبكة الكتب الدينية */
-.books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: 78px;
+
+    padding:
+        0
+        max(20px, 5vw);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
     gap: 20px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(4, 11, 20, 0.78);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
 }
+
+
+body.light .navbar {
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+}
+
+
+/* =========================================================
+   العلامة التجارية
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+.brand-logo {
+
+    width: 47px;
+
+    height: 47px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    color: #182030;
+
+    font-family: "Amiri", serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 35px
+        rgba(232, 201, 107, 0.18);
+
+}
+
+
+.brand-text strong {
+
+    display: block;
+
+    font-size: 16px;
+
+    line-height: 1.3;
+
+}
+
+
+.brand-text span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   القائمة
+========================================================= */
+
+.navbar nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+.navbar nav a {
+
+    padding:
+        10px
+        13px;
+
+    border-radius: 12px;
+
+    color: #c3cfdd;
+
+    font-size: 13px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.navbar nav a:hover {
+
+    color: white;
+
+    background:
+        rgba(97, 229, 223, 0.08);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.navbar nav a.active {
+
+    color: white;
+
+    background:
+        rgba(97, 229, 223, 0.10);
+
+}
+
+
+body.light .navbar nav a {
+
+    color: #4b596a;
+
+}
+
+
+body.light .navbar nav a:hover,
+body.light .navbar nav a.active {
+
+    color: #172235;
+
+}
+
+
+/* =========================================================
+   أزرار الشريط
+========================================================= */
+
+.menu-button,
+.theme-button {
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: var(--text);
+
+    border-radius: 12px;
+
+    padding:
+        8px
+        11px;
+
+    font-size: 19px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.menu-button:hover,
+.theme-button:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.menu-button {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   المحتوى العام
+========================================================= */
+
+main {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin:
+        0
+        auto;
+
+}
+
+
+/* =========================================================
+   الواجهة الرئيسية
+========================================================= */
+
+.hero {
+
+    min-height: 650px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr
+        0.8fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+}
+
+
+.hero-content {
+
+    animation:
+        heroAppear 0.8s ease both;
+
+}
+
+
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   العنوان الصغير
+========================================================= */
+
+.small-title {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--cyan);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.pulse {
+
+    width: 8px;
+
+    height: 8px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 0 7px rgba(97, 229, 223, 0.07),
+        0 0 20px var(--cyan);
+
+    animation:
+        pulseAnimation 2s infinite;
+
+}
+
+
+@keyframes pulseAnimation {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/* =========================================================
+   العنوان الرئيسي
+========================================================= */
+
+.hero h1 {
+
+    margin:
+        18px
+        0
+        12px;
+
+    font-size:
+        clamp(48px, 8vw, 82px);
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+}
+
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--gold),
+            var(--cyan)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+/* =========================================================
+   الرسالة
+========================================================= */
+
+.hero-message {
+
+    max-width: 720px;
+
+    margin: 0;
+
+    color: #dbe5f0;
+
+    font-family:
+        "Amiri",
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    line-height: 1.9;
+
+}
+
+
+body.light .hero-message {
+
+    color: #47576a;
+
+}
+
+
+/* =========================================================
+   أزرار الواجهة
+========================================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 27px;
+
+}
+
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding:
+        12px
+        20px;
+
+    border-radius: 15px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.button.primary {
+
+    color: #141c28;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 14px 35px
+        rgba(232, 201, 107, 0.14);
+
+}
+
+
+.button.primary:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(232, 201, 107, 0.25);
+
+}
+
+
+.button.secondary {
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+}
+
+
+.button.secondary:hover {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   الروابط السريعة
+========================================================= */
+
+.quick-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 23px;
+
+}
+
+
+.quick-buttons a {
+
+    padding:
+        7px
+        12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 999px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.quick-buttons a:hover {
+
+    color: var(--cyan);
+
+    border-color:
+        rgba(97, 229, 223, 0.35);
+
+    background:
+        rgba(97, 229, 223, 0.05);
+
+}
+
+
+/* =========================================================
+   البطاقة الجانبية
+========================================================= */
+
+.hero-card {
+
+    min-height: 390px;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        var(--shadow);
+
+    animation:
+        floatingCard 5s ease-in-out infinite;
+
+}
+
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+.hero-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+
+    height: 200px;
+
+    border-radius: 50%;
+
+    top: -90px;
+
+    right: -70px;
+
+    background:
+        rgba(97, 229, 223, 0.08);
+
+    filter: blur(20px);
+
+}
+
+
+.hero-seal {
+
+    width: 120px;
+
+    height: 120px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 38px;
+
+    color: #172030;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            #d6ae4b
+        );
+
+    font-family:
+        "Amiri",
+        serif;
+
+    font-size: 65px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 60px
+        rgba(232, 201, 107, 0.16);
+
+    margin-bottom: 20px;
+
+}
+
+
+.gold-text {
+
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.hero-card h2 {
+
+    margin:
+        8px
+        0;
+
+    font-size: 25px;
+
+}
+
+
+.hero-card p {
+
+    max-width: 340px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+}
+
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 28px;
+
+    margin-top: 24px;
+
+}
+
+
+.hero-stats div {
+
+    min-width: 60px;
+
+}
+
+
+.hero-stats strong {
+
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 22px;
+
+}
+
+
+.hero-stats span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   الأقسام
+========================================================= */
+
+.section {
+
+    padding:
+        80px
+        0;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.section-heading > div > span {
+
+    color: var(--cyan);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.section-heading h2 {
+
+    margin:
+        7px
+        0
+        0;
+
+    font-size: 35px;
+
+}
+
+
+.section-heading p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+}
+
+
+.more-link {
+
+    color: var(--cyan);
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   بطاقات الأقسام
+========================================================= */
+
+.cards-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.main-card {
+
+    min-height: 245px;
+
+    padding: 27px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.main-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(97, 229, 223, 0.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(97, 229, 223, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+}
+
+
+.card-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 17px;
+
+    font-size: 26px;
+
+    background:
+        rgba(97, 229, 223, 0.08);
+
+    margin-bottom: 22px;
+
+}
+
+
+.main-card h3 {
+
+    margin:
+        0
+        0
+        8px;
+
+    font-size: 18px;
+
+}
+
+
+.main-card p {
+
+    min-height: 65px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.main-card b {
+
+    display: block;
+
+    margin-top: 17px;
+
+    color: var(--cyan);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   الكتب
+========================================================= */
+
+.books-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
 
 .book-card {
-    background: linear-gradient(145deg, #0d362b, #08241d);
-    border: 2px solid #1a5c4a;
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text-white);
+
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 17px;
+
+    min-height: 170px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+
 }
+
 
 .book-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-gold);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-    background: linear-gradient(145deg, #124638, #0b2e25);
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(97, 229, 223, 0.35);
+
 }
 
-.book-icon {
-    font-size: 2.5rem;
-    color: var(--primary-gold);
-    margin-bottom: 15px;
-}
 
-.book-card h3 {
-    font-size: 1.4rem;
-    color: var(--light-gold);
-    margin-bottom: 10px;
-}
+/* =========================================================
+   أغلفة الكتب
+========================================================= */
 
-.book-vol {
-    font-size: 0.95rem;
-    color: var(--text-gray);
-    margin-bottom: 20px;
-    background: rgba(0,0,0,0.2);
-    padding: 4px 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin: 0 auto 20px auto;
-}
+.book-cover {
 
-.read-btn {
-    background-color: var(--primary-gold);
-    color: #061a14;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
+    width: 92px;
 
-.book-card:hover .read-btn {
-    background-color: #ffe066;
-}
+    height: 130px;
 
-/* الإخوة الموحدين */
-.brothers-grid {
+    flex-shrink: 0;
+
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+
+    flex-direction: column;
+
     justify-content: center;
-    margin-top: 20px;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 10px;
+
+    border-radius: 14px;
+
+    font-family:
+        "Amiri",
+        serif;
+
+    font-weight: 700;
+
+    font-size: 23px;
+
+    line-height: 1.1;
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(255, 255, 255, 0.07),
+
+        0 15px 30px
+        rgba(0, 0, 0, 0.24);
+
 }
 
-.brother-badge {
-    background: #08241d;
-    border: 1px solid var(--primary-gold);
-    color: var(--light-gold);
-    padding: 12px 20px;
+
+.book-cover small {
+
+    margin-top: 6px;
+
+    font-size: 13px;
+
+}
+
+
+.cover-one {
+
+    color: #edfaff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #172d49,
+            #2d6179
+        );
+
+}
+
+
+.cover-two {
+
+    color: #fff8ed;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3a2b22,
+            #8a6842
+        );
+
+}
+
+
+.cover-three {
+
+    color: #ecfff8;
+
+    background:
+        linear-gradient(
+            145deg,
+            #173a34,
+            #397766
+        );
+
+}
+
+
+/* =========================================================
+   معلومات الكتاب
+========================================================= */
+
+.book-info {
+
+    min-width: 0;
+
+}
+
+
+.book-info label {
+
+    display: inline-block;
+
+    padding:
+        5px
+        9px;
+
+    border-radius: 999px;
+
+    color: var(--gold);
+
+    background:
+        rgba(232, 201, 107, 0.08);
+
+    font-size: 10px;
+
+}
+
+
+.book-info h3 {
+
+    margin:
+        9px
+        0
+        5px;
+
+    font-size: 15px;
+
+    line-height: 1.55;
+
+}
+
+
+.book-info p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   البانر الأخير
+========================================================= */
+
+.final-banner {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin:
+        10px
+        0
+        90px;
+
+    padding:
+        48px
+        25px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--border);
+
     border-radius: 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(97, 229, 223, 0.07),
+            rgba(232, 201, 107, 0.06)
+        );
+
+    box-shadow:
+        var(--shadow);
+
 }
 
-.brother-badge:hover {
-    transform: scale(1.05);
-    background: #124638;
+
+.banner-symbol {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin:
+        0
+        auto
+        15px;
+
+    border-radius: 19px;
+
+    color: #182030;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    font-size: 25px;
+
 }
 
-.brother-badge i {
-    color: var(--primary-gold);
+
+.final-banner > span {
+
+    color: var(--gold);
+
+    font-size: 13px;
+
 }
 
-/* التواصل */
-.contact-section {
-    text-align: center;
+
+.final-banner h2 {
+
+    margin:
+        7px
+        0;
+
+    font-size: 30px;
+
 }
 
-.phone-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #25d366;
-    color: white;
-    text-decoration: none;
-    padding: 15px 30px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    border-radius: 50px;
-    margin-top: 20px;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-    transition: transform 0.3s, background 0.3s;
+
+.final-banner p {
+
+    margin: 0;
+
+    color: var(--muted);
+
 }
 
-.phone-btn:hover {
-    transform: scale(1.08);
-    background: #20ba5a;
-}
 
-/* تذيل الموقع */
+/* =========================================================
+   التذييل
+========================================================= */
+
 footer {
-    background-color: #04120e;
-    text-align: center;
-    padding: 30px 20px;
-    border-top: 3px solid var(--primary-gold);
+
+    border-top:
+        1px solid var(--border);
+
+    padding:
+        38px
+        max(20px, 5vw);
+
+    background:
+        rgba(2, 7, 14, 0.55);
+
 }
 
-.glorify-text {
-    font-size: 1.5rem;
-    color: var(--primary-gold);
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+
+body.light footer {
+
+    background:
+        rgba(255, 255, 255, 0.55);
+
 }
+
+
+.footer-content {
+
+    width: min(1180px, 100%);
+
+    margin:
+        0
+        auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1.3fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+}
+
+
+.footer-brand strong {
+
+    display: block;
+
+}
+
+
+.footer-brand span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 17px;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+}
+
+
+.footer-links a:hover {
+
+    color: var(--cyan);
+
+}
+
+
+.footer-slogan {
+
+    color: var(--gold);
+
+    font-family:
+        "Amiri",
+        serif;
+
+    font-size: 18px;
+
+    text-align: left;
+
+}
+
 
 .copyright {
-    color: var(--text-gray);
-    font-size: 0.95rem;
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #66778b;
+
+    font-size: 11px;
+
 }
 
-/* حركات نبض الأيقونات */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
+
+/* =========================================================
+   تأثير التركيز
+========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+
+    outline:
+        2px solid var(--cyan);
+
+    outline-offset: 4px;
+
 }
 
-.animate-pulse {
-    animation: pulse 3s infinite ease-in-out;
-}
+
+/* =========================================================
+   الشاشات المتوسطة
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .cards-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .books-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .hero {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            75px
+            0
+            40px;
+
+    }
+
+
+    .hero-card {
+
+        max-width: 550px;
+
+      
