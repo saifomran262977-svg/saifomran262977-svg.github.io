@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <meta name="description" content="علماء الإسلام | دار الخلافة - سير أعلام الأمة: الإمام أحمد بن حنبل، ابن القيم، ابن تيمية، محمد بن عبد الوهاب">
+    <title>علماء الإسلام | دار الخلافة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #020617;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --gold-light: #fbbf24;
+            --gold-dark: #b45309;
+            --emerald-light: #34d399;
+            --emerald-dark: #047857;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --font-main: 'Tajawal', system-ui, sans-serif;
+            --font-quran: 'Amiri', serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+        body::before { width: 300px; height: 300px; background: #047857; top: -100px; right: -100px; }
+        body::after { width: 400px; height: 400px; background: #b45309; bottom: -150px; left: -150px; }
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .logo-icon {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            border-radius: 8px; color: #000; font-weight: 900; font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        .logo-text h1 {
+            font-size: 1.1rem; font-weight: 800;
+            background: linear-gradient(to left, var(--gold-light), var(--emerald-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1.2;
+        }
+        .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+        .back-btn-top {
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 8px; color: var(--text-primary);
+            text-decoration: none;
+        }
+        .back-btn-top svg { width: 20px; height: 20px; }
+        .wrap { max-width: 780px; margin: 0 auto; padding: 24px 16px 60px; }
+        .hero { text-align: center; padding: 20px 0 20px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            color: var(--emerald-light);
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+        .badge-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--emerald-light);
+            box-shadow: 0 0 10px var(--emerald-light);
+            animation: pulseDot 2s infinite;
+        }
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .hero-title { font-size: 2rem; font-weight: 900; line-height: 1.3; margin-bottom: 10px; }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gold-light), var(--emerald-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* أزرار التنقل بين العلماء */
+        .scholars-nav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 0 16px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scholars-nav::-webkit-scrollbar { display: none; }
+        .scholar-tab {
+            flex-shrink: 0;
+            padding: 10px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .scholar-tab:active { transform: scale(0.95); }
+        .scholar-tab.active {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(251,191,36,0.3);
+        }
+
+        /* بطاقة العالم */
+        .scholar-card {
+            display: none;
+            position: relative;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .scholar-card.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scholar-card::before {
+            content: '';
+            position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(251,191,36,0.06), transparent);
+            transition: left 1s ease;
+            pointer-events: none;
+            animation: cardShine 8s ease-in-out infinite;
+        }
+        @keyframes cardShine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+        .scholar-card::after {
+            content: '';
+            position: absolute; top: 0; right: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--gold-light), var(--emerald-light));
+        }
+
+        .scholar-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .scholar-avatar {
+            width: 70px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            border-radius: 50%;
+            color: #000;
+            font-weight: 900;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 25px rgba(251,191,36,0.4);
+            font-family: var(--font-quran);
+        }
+        .scholar-title-wrap { flex: 1; }
+        .scholar-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            line-height: 1.3;
+            margin-bottom: 4px;
+            font-family: var(--font-quran);
+        }
+        .scholar-nick {
+            font-size: 0.85rem;
+            color: var(--emerald-light);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .scholar-dates {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .scholar-section {
+            margin-bottom: 22px;
+        }
+        .scholar-section:last-child { margin-bottom: 0; }
+        .section-icon-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .section-icon-title span:first-child {
+            font-size: 1.3rem;
+        }
+        .scholar-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.95;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 480px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+        .info-box {
+            padding: 12px 14px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+        }
+        .info-box small {
+            display: block;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+        .info-box b {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .info-box .emerald { color: var(--emerald-light); }
+
+        .list-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .list-items li {
+            position: relative;
+            padding-right: 22px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .list-items li::before {
+            content: '✦';
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--gold-light);
+            font-size: 0.75rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        @media (max-width: 480px) {
+            .books-grid { grid-template-columns: 1fr; }
+        }
+        .book-item {
+            padding: 10px 12px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            border-right: 3px solid var(--emerald-light);
+            transition: all var(--transition);
+        }
+        .book-item:hover {
+            background: rgba(52,211,153,0.05);
+            transform: translateX(-3px);
+        }
+        .book-item b {
+            display: block;
+            color: var(--emerald-light);
+            font-weight: 700;
+            margin-bottom: 2px;
+            font-size: 0.85rem;
+        }
+
+        .quote-box {
+            padding: 16px 18px;
+            background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(52,211,153,0.05));
+            border: 1px solid rgba(251,191,36,0.2);
+            border-radius: var(--radius-md);
+            font-family: var(--font-quran);
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.9;
+            text-align: center;
+            position: relative;
+        }
+        .quote-box::before {
+            content: '❝';
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            font-size: 2rem;
+            color: var(--gold-light);
+            opacity: 0.4;
+        }
+        .quote-box span {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.78rem;
+            color: var(--gold-light);
+            font-family: var(--font-main);
+            font-weight: 600;
+        }
+
+        .fav-quote {
+            text-align: center;
+            padding: 14px;
+            background: var(--bg-glass);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-family: var(--font-quran);
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-quran);
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="index.html" class="brand">
+            <div class="logo-icon">س</div>
+            <div class="logo-text">
+                <h1>دار الخلافة</h1>
+                <p>سيف بن عمران</p>
+            </div>
+        </a>
+        <a href="index.html" class="back-btn-top" aria-label="رجوع">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+    </header>
+
+    <main class="wrap">
+
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                سِيَر · دار الخلافة
+            </div>
+            <h1 class="hero-title">علماء <span class="gradient-text">الإسلام</span></h1>
+            <p>سِيَر أعلام الأمة، الذين حفظ اللهُ بهم الدينَ، ورفع بهم رايةَ العلم.</p>
+        </section>
+
+        <!-- أزرار التنقل -->
+        <div class="scholars-nav" id="scholarsNav"></div>
+
+        <!-- بطاقات العلماء -->
+        <div id="scholarsContainer"></div>
+
+    </main>
+
+    <div class="footer">
+        ﷲ — العلماءُ ورثةُ الأنبياء
+    </div>
+
+    <script>
+        /* ==========================================================
+           قاعدة بيانات العلماء
+           ========================================================== */
+
+        const scholarsData = [
+
+            // ═══════════════════════════════════════════
+            // 1. الإمام أحمد بن حنبل
+            // ═══════════════════════════════════════════
+            {
+                id: "ahmad",
+                name: "الإمام أحمد بن حنبل",
+                nick: "إمام أهل السنة والجماعة",
+                letter: "أ",
+                dates: "١٦٤ هـ — ٢٤١ هـ | ٧٨٠ م — ٨٥٥ م",
+                sections: [
+                    {
+                        icon: "📜",
+                        title: "مولده ونشأته",
+                        text: "هو أبو عبد الله أحمد بن محمد بن حنبل الشيباني، وُلد في بغداد سنة ١٦٤هـ، في بيتٍ متواضع، مات أبوه وهو في بطن أمه. تربي يتيمًا في كنف أمه، فحفظ القرآن صغيرًا، وطلب العلم في سنٍّ مبكرة، فرحل في طلب الحديث إلى الكوفة والبصرة ومكة والمدينة واليمن والشام والجزيرة، فكتب عن كبار المحدثين في زمانه. كان زاهدًا، شديد الفقر، صابرًا محتسبًا، لا يبيع دينه بعرضٍ من الدنيا."
+                    },
+                    {
+                        icon: "🎓",
+                        title: "شيوخه وتلاميذه",
+                        text: "أخذ الإمام أحمد عن عددٍ كبير من كبار العلماء، ومن أبرز شيوخه: الإمام الشافعي، وسفيان بن عيينة، ووكيع بن الجراح، وعبد الرحمن بن مهدي، ويحيى بن سعيد القطان. وتخرَّج على يديه أئمة كبار، منهم: الإمام البخاري، والإمام مسلم، وأبو داود، والترمذي، وابنه عبد الله بن أحمد، وأبو زرعة الرازي، وأبو حاتم الرازي، وغيرهم رحمهم الله."
+                    },
+                    {
+                        icon: "⚔️",
+                        title: "جهاده في الفتنة",
+                        text: "أعظم مواقفه: ثباته في فتنة \"خلق القرآن\" التي أثارها المعتزلة في عهد المأمون ثم المعتصم ثم الواثق. فقد ضُرِبَ بالسياط حتى أُغمِيَ عليه، وحُبِسَ، وقُيِّدَ، لكنه لم يَرجِعْ عن قوله: \"القرآنُ كلامُ اللهِ غيرُ مخلوقٍ\". وبهذا الموقف العظيم حفظ اللهُ عقيدةَ الأمة، وصار الإمام أحمد رمزًا للثبات في وجه الفتن. قال الإمام علي بن المديني: \"إنَّ اللهَ أعزَّ هذا الدينَ برجلين: أبو بكرٍ يومَ الردة، وأحمدُ بنُ حنبلٍ يومَ الفتنة\"."
+                    },
+                    {
+                        icon: "📚",
+                        title: "مؤلفاته",
+                        text: "خلَّف الإمام أحمد تراثًا علميًا هائلًا، على رأسِه:",
+                        books: [
+                            { name: "المسند", desc: "أعظم كتب الحديث، يحتوي على نحو ٢٧٦٤٧ حديثًا" },
+                            { name: "الزهد", desc: "في الزهد والرقائق" },
+                            { name: "الرد على الجهمية", desc: "في العقيدة" },
+                            { name: "فضائل الصحابة", desc: "في مناقب الصحابة" },
+                            { name: "العلل ومعرفة الرجال", desc: "في علم الجرح والتعديل" },
+                            { name: "كتاب السنة", desc: "في تقرير عقيدة أهل السنة" }
+                        ]
+                    },
+                    {
+                        icon: "💎",
+                        title: "فضله على طلاب العلم",
+                        text: "الإمام أحمد بن حنبل هو مدرسةٌ كاملة في الصبر والثبات والزهد. من أهم ما يُستفاد من سيرته: أنَّ العلمَ لا يُنال إلا بالصبر والتضحية، وأنَّ الثباتَ على الحقِّ ولو كَلَّفَ ذلك السَّجنَ والضرب. مسنده يُعدُّ من أهم مصادر السنة النبوية، وهو أصلٌ من أصول الحديث بعد الصحيحين، وقد اعتمد عليه العلماءُ في تخريج الأحاديث والاستدلال بها."
+                    },
+                    {
+                        icon: "🌟",
+                        title: "من أقواله",
+                        quote: "قَالُوا: يا أبا عبد الله، تصبِرُ على السوطِ والسيفِ؟ قال: \"أصبِرُ على السوطِ، ولا أصبِرُ على السيفِ\".",
+                        quoteBy: "الإمام أحمد بن حنبل"
+                    }
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // 2. شيخ الإسلام ابن تيمية
+            // ═══════════════════════════════════════════
+            {
+                id: "taymiyyah",
+                name: "شيخ الإسلام ابن تيمية",
+                nick: "شيخ الإسلام والمسلمين",
+                letter: "ت",
+                dates: "٦٦١ هـ — ٧٢٨ هـ | ١٢٦٣ م — ١٣٢٨ م",
+                sections: [
+                    {
+                        icon: "📜",
+                        title: "مولده ونشأته",
+                        text: "هو تقيُّ الدين أبو العباس أحمد بن عبد الحليم بن عبد السلام بن تيمية الحرَّاني، وُلد في حَرَّان سنة ٦٦١هـ، ثم انتقل مع أسرته إلى دمشق صغيرًا هربًا من التتار. نشأ في بيتٍ عِلمٍ وصلاح، فحفظ القرآن، وطلب العلم في سنٍّ مبكرة، حتى صار من كبار العلماء قبل أن يبلغ العشرين. كان آيةً في الحفظ، فقد حفظ كثيرًا من الكتب، وألمَّ بعلوم: التفسير، والحديث، والفقه، والأصول، والمنطق، والفلسفة، واللغة، والنحو."
+                    },
+                    {
+                        icon: "🎓",
+                        title: "شيوخه وتلاميذه",
+                        text: "من أبرز شيوخه: والده عبد الحليم، وزين الدين بن المُنَجَّا، والشمس بن عبد الهادي، وغيرهم. أما تلاميذه فمنهم: الإمام ابن القيم الجوزية، والحافظ ابن كثير، والحافظ الذهبي، وابن عبد الهادي، وأبو حفص البزار، وغيرهم. فأيُّ مدرسةٍ علميةٍ تلك التي خرَّجت ابن القيم وابن كثير والذهبي؟!"
+                    },
+                    {
+                        icon: "⚔️",
+                        title: "جهاده في نصرة الإسلام",
+                        text: "لم يقتصر جهادُ ابن تيمية على العلم والدعوة، بل شارك بنفسه في الجهاد ضد التتار في معركة شقحب سنة ٧٠٢هـ، وكان يُثبِّت المسلمين ويقول للسلطان: \"أَقدِمْ فأنتَ منصورٌ بإذنِ اللهِ\". كما وقف في وجه البدع والانحرافات العقدية والفكرية، وناظر أئمة الفرق، ونصر عقيدةَ أهل السنة بالدليل والبرهان. ورفع رايةَ الجهاد باللسان والسنان، حتى صار إمامًا للمصلحين."
+                    },
+                    {
+                        icon: "📚",
+                        title: "مؤلفاته",
+                        text: "ترك ابن تيمية تراثًا عظيمًا، من أهمه:",
+                        books: [
+                            { name: "مجموع الفتاوى", desc: "٣٧ مجلدًا، يجمع أشهر رسائله وفتاواه" },
+                            { name: "منهاج السنة النبوية", desc: "في الرد على الرافضة" },
+                            { name: "الجواب الصحيح لمن بدل دين المسيح", desc: "في الرد على النصارى" },
+                            { name: "كتاب التوحيد (رسالة)", desc: "في تقرير عقيدة التوحيد" },
+                            { name: "العقيدة الواسطية", desc: "تقرير عقيدة أهل السنة" },
+                            { name: "الفتوى الحموية", desc: "في الأسماء والصفات" },
+                            { name: "درء تعارض العقل والنقل", desc: "في الرد على الفلاسفة" },
+                            { name: "اقتضاء الصراط المستقيم", desc: "في مخالفة المشركين" }
+                        ]
+                    },
+                    {
+                        icon: "💎",
+                        title: "فضله على طلاب العلم",
+                        text: "ابن تيمية هو المدرسة الإصلاحية الأولى في تاريخ الإسلام بعد القرون المفضلة. أعاد للأمة رشدها، وجدَّد لها فهمَ العقيدة، وردَّ شبهات الفلاسفة والمتكلمين والصوفية والرافضة والنصارى والملحدين. كتبه اليوم من أعظم مراجع طلاب العلم والباحثين، ومجموع فتاويه بحرٌ لا ينضب. تعلمنا من سيرته: الجمع بين العلم والعمل، والشجاعة في قول الحق، والصبر على الأذى في سبيله."
+                    },
+                    {
+                        icon: "🌟",
+                        title: "من أقواله",
+                        quote: "\"الحقُّ ما قامَ عليه الدليلُ، لا ما عليه فلانٌ وفلانٌ\".",
+                        quoteBy: "شيخ الإسلام ابن تيمية"
+                    }
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // 3. الإمام ابن القيم الجوزية
+            // ═══════════════════════════════════════════
+            {
+                id: "qayyim",
+                name: "الإمام ابن القيم",
+                nick: "الجوزية · ملك العلماء في التزكية",
+                letter: "ق",
+                dates: "٦٩١ هـ — ٧٥١ هـ | ١٢٩٢ م — ١٣٥٠ م",
+                sections: [
+                    {
+                        icon: "📜",
+                        title: "مولده ونشأته",
+                        text: "هو شمس الدين أبو عبد الله محمد بن أبي بكر بن أيوب بن سعد بن حريز الزُّرَعي، المعروف بابن القيم الجوزية، وُلد في دمشق سنة ٦٩١هـ. نشأ في بيت علمٍ وصلاح، فأخذ العلم عن كبار علماء عصره، ومنهم والده، والشيخ تقي الدين ابن تيمية الذي لازمه ملازمةً تامة نحو ١٦ سنة، حتى صار من خاصة أصحابه وأبرز تلاميذه. كان ابن القيم إمامًا في التفسير والحديث والفقه والعقيدة، مبدعًا في التزكية والأخلاق والسلوك."
+                    },
+                    {
+                        icon: "🎓",
+                        title: "شيوخه وتلاميذه",
+                        text: "من أبرز شيوخه: والده أبو بكر، وابن تيمية، وشمس الدين الذهبي، وابن عبد الدائم القاضي، وغيرهم. أما تلاميذه فمنهم: ابنه شمس الدين، وابن كثير، وابن رجب الحنبلي، والحافظ الذهبي (وقد روى عنه)، وابن عبد الهادي، وغيرهم."
+                    },
+                    {
+                        icon: "⚔️",
+                        title: "جهاده وصبره",
+                        text: "شارك ابن القيم شيخَه ابن تيمية في محنته، إذ سُجِن معه في المرة الأخيرة، ولم يُفرَج عنه إلا بعد موت ابن تيمية. صبر على الأذى، ولم ينكص عن قول الحق. كان من أكثر العلماء جهادًا بالنفس واللسان والقلم، وكتبه كلها دعوة إلى الإصلاح والتجديد."
+                    },
+                    {
+                        icon: "📚",
+                        title: "مؤلفاته",
+                        text: "خلَّف ابن القيم مؤلفاتٍ عظيمةً، أشهرها:",
+                        books: [
+                            { name: "زاد المعاد", desc: "في فقه السيرة النبوية والطب النبوي" },
+                            { name: "مدارج السالكين", desc: "في منازل السائرين إلى الله" },
+                            { name: "إغاثة اللهفان", desc: "في مصائد الشيطان وأمراض القلوب" },
+                            { name: "الفوائد", desc: "في الفوائد العلمية والإيمانية" },
+                            { name: "الوابل الصيب", desc: "في فضل الذكر والدعاء" },
+                            { name: "حادي الأرواح", desc: "في وصف الجنة" },
+                            { name: "طريق الهجرتين", desc: "في هجرة القلب إلى الله" },
+                            { name: "شفاء العليل", desc: "في مسألة القضاء والقدر" },
+                            { name: "الصواعق المرسلة", desc: "في الرد على تأويلات الجهمية" },
+                            { name: "أعلام الموقعين", desc: "في أصول الفقه" },
+                            { name: "الجواب الكافي", desc: "في الداء والدواء" },
+                            { name: "مفتاح دار السعادة", desc: "في فضل العلم والعمل" }
+                        ]
+                    },
+                    {
+                        icon: "💎",
+                        title: "فضله على طلاب العلم",
+                        text: "ابن القيم هو إمامُ التزكيةِ والسلوك، وأستاذُ القلوب. كتبه تجمع بين العلم والعمل، والدليل والوجدان، والاعتقاد والسلوك. من أراد أن يُعالج قلبه، ويطهر نفسه، ويُرقّي إيمانه، فليقرأ كتب ابن القيم. وقد قال عنه الحافظ ابن كثير: \"كان ذا عبادةٍ وتهجدٍ، وطولِ صلاةٍ، وانكماشٍ في طلب العلم\". ومن أشهر أقواله: \"العلمُ هو الحياةُ، والجهلُ هو الموت\"."
+                    },
+                    {
+                        icon: "🌟",
+                        title: "من أقواله",
+                        quote: "\"القلبُ في سيره إلى الله عز وجل بمنزلة الطائرِ، فالمحبةُ رأسُه، والخوفُ والرجاءُ جناحاه\".",
+                        quoteBy: "الإمام ابن القيم"
+                    }
+                ]
+            },
+
+            // ═══════════════════════════════════════════
+            // 4. الإمام محمد بن عبد الوهاب
+            // ═══════════════════════════════════════════
+            {
+                id: "abdulwahhab",
+                name: "الإمام محمد بن عبد الوهاب",
+                nick: "المجدِّد · إمام الدعوة الإصلاحية",
+                letter: "م",
+                dates: "١١١٥ هـ — ١٢٠٦ هـ | ١٧٠٣ م — ١٧٩٢ م",
+                sections: [
+                    {
+                        icon: "📜",
+                        title: "مولده ونشأته",
+                        text: "هو محمد بن عبد الوهاب بن سليمان التميمي النجدي، وُلد في بلدة العُيَينة بنجد سنة ١١١٥هـ في بيتِ علمٍ وفضل، فجده سليمان كان من كبار علماء نجد، ووالده عبد الوهاب كان قاضيًا وفقيهًا. حفظ القرآن صغيرًا، وأخذ العلم عن والده، ثم رحل في طلب العلم إلى مكة والمدينة والبصرة وغيرها، فطلب الحديث والتفسير والفقه والعقيدة، حتى صار عالمًا مجتهدًا مصلحًا."
+                    },
+                    {
+                        icon: "🎓",
+                        title: "شيوخه وتلاميذه",
+                        text: "من أبرز شيوخه: والده عبد الوهاب، والشيخ عبد الله بن إبراهيم الشمري، والشيخ محمد حياة السندي بالمدينة، والشيخ إسماعيل العجلوني، وغيرهم. أما تلاميذه وأنصاره فمنهم: أبناؤه، وأحفاده، وكبار علماء الدعوة، وأمير الدرعية محمد بن سعود الذي نصره وأيَّده، ومن بعدهم أئمة الدعوة."
+                    },
+                    {
+                        icon: "⚔️",
+                        title: "دعوته وجهاده",
+                        text: "قام الإمام محمد بن عبد الوهاب بدعوةٍ إصلاحيةٍ شاملة، تدعو إلى: تحقيق التوحيد، ومحاربة الشرك والبدع والخرافات، والعودة إلى الكتاب والسنة بفهم السلف الصالح، وإحياء العلم الشرعي، ونبذ التقليد الأعمى، والأمر بالمعروف والنهي عن المنكر. وقد لاقى في سبيل دعوته الأذى والتشريد، لكنه صبر وثبت حتى أظهر اللهُ دينَه وأيَّد دعوتَه، وقامت على أساسها دولة علم وتوحيد."
+                    },
+                    {
+                        icon: "📚",
+                        title: "مؤلفاته",
+                        text: "ترك الإمام تراثًا علميًا نافعًا، من أبرز مؤلفاته:",
+                        books: [
+                            { name: "كتاب التوحيد", desc: "أشهر كتبه، في تقرير التوحيد ونبذ الشرك" },
+                            { name: "ثلاثة الأصول", desc: "رسالة في أصول الدين الثلاثة" },
+                            { name: "الأصول الأربعة", desc: "في أصول الشرك الأربعة" },
+                            { name: "القواعد الأربع", desc: "في قواعد الشرك" },
+                            { name: "نواقض الإسلام", desc: "عشرة نواقض للإسلام" },
+                            { name: "كتاب الكبائر", desc: "في بيان الكبائر وعقوبتها" },
+                            { name: "مسائل الجاهلية", desc: "في بيان مسائل الجاهلية" },
+                            { name: "مختصر سيرة الرسول ﷺ", desc: "في السيرة النبوية" },
+                            { name: "الرسائل الشخصية", desc: "مجموعة رسائل وفتاوى" }
+                        ]
+                    },
+                    {
+                        icon: "💎",
+                        title: "فضله على طلاب العلم",
+                        text: "الإمام محمد بن عبد الوهاب هو مجدِّدُ القرنِ الثاني عشر الهجري كما شهد بذلك علماء عصره. أعاد للأمة عقيدتها النقية الصافية، وأحيا فيها روح التوحيد، وطهَّر المجتمع من الشرك والبدع. كتبه اليوم تُدرَّس في كل المعاهد الشرعية وفي كل بلاد المسلمين، وهي من أهم مراجع طالب العلم في العقيدة والتوحيد. ومن أهم ما نتعلمه من سيرته: أنَّ الإصلاح الحقيقي يبدأ من تصحيح العقيدة، وأنَّ الصبر على الأذى هو طريق المصلحين، وأنَّ التجديدَ لا يكونُ إلا بالرجوع إلى الأصل."
+                    },
+                    {
+                        icon: "🌟",
+                        title: "من أقواله",
+                        quote: "\"أُوصيكم بتقوى اللهِ، وطلبِ العلمِ، والعملِ به، والدعوةِ إليه، والصبرِ على الأذى فيه\".",
+                        quoteBy: "الإمام محمد بن عبد الوهاب"
+                    }
+                ]
+            }
+
+        ];
+
+        /* ==========================================================
+           بناء الصفحة
+           ========================================================== */
+
+        const navEl = document.getElementById('scholarsNav');
+        const containerEl = document.getElementById('scholarsContainer');
+
+        // بناء الأزرار
+        scholarsData.forEach((s, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'scholar-tab' + (i === 0 ? ' active' : '');
+            btn.textContent = s.name;
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.scholar-tab').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.scholar-card').forEach(c => c.classList.remove('active'));
+                document.getElementById('scholar-' + s.id).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            navEl.appendChild(btn);
+        });
+
+        // بناء البطاقات
+        scholarsData.forEach((s, index) => {
+            const card = document.createElement('div');
+            card.className = 'scholar-card' + (index === 0 ? ' active' : '');
+            card.id = 'scholar-' + s.id;
+
+            let sectionsHTML = '';
+
+            s.sections.forEach(sec => {
+                sectionsHTML += `
+                    <div class="scholar-section">
+                        <div class="section-icon-title">
+                            <span>${sec.icon}</span>
+                            <span>${sec.title}</span>
+                        </div>
+                `;
+
+                if (sec.text) {
+                    sectionsHTML += `<p class="scholar-text">${sec.text}</p>`;
+                }
+
+                if (sec.books) {
+                    sectionsHTML += `<div class="books-grid">`;
+                    sec.books.forEach(b => {
+                        sectionsHTML += `
+                            <div class="book-item">
+                                <b>${b.name}</b>
+                                ${b.desc}
+                            </div>
+                        `;
+                    });
+                    sectionsHTML += `</div>`;
+                }
+
+                if (sec.quote) {
+                    sectionsHTML += `
+                        <div class="quote-box">
+                            ${sec.quote}
+                            <span>— ${sec.quoteBy}</span>
+                        </div>
+                    `;
+                }
+
+                sectionsHTML += `</div>`;
+            });
+
+            card.innerHTML = `
+                <div class="scholar-header">
+                    <div class="scholar-avatar">${s.letter}</div>
+                    <div class="scholar-title-wrap">
+                        <h2 class="scholar-name">${s.name}</h2>
+                        <p class="scholar-nick">${s.nick}</p>
+                        <p class="scholar-dates">📅 ${s.dates}</p>
+                    </div>
+                </div>
+                ${sectionsHTML}
+                <div class="fav-quote">
+                    ﷲ — رحمهم الله جميعًا، وجمعنا بهم في جنات النعيم
+                </div>
+            `;
+
+            containerEl.appendChild(card);
+        });
+    </script>
+</body>
+</html>
+```
