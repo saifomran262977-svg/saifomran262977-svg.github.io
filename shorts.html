@@ -4,398 +4,141 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
     <meta name="theme-color" content="#020617">
-    <meta name="description" content="مقاطع دعوية قصيرة | دار الخلافة — فيديوهات مؤثرة في العقيدة والسيرة والتذكير">
+    <meta name="description" content="مقاطع دعوية قصيرة | دار الخلافة">
     <title>مقاطع دعوية | دار الخلافة</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-primary: #020617;
-            --bg-card: rgba(15, 23, 42, 0.7);
-            --bg-glass: rgba(255, 255, 255, 0.03);
-            --gold-light: #fbbf24;
-            --gold-dark: #b45309;
-            --emerald-light: #34d399;
-            --emerald-dark: #047857;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --font-main: 'Tajawal', system-ui, sans-serif;
-            --font-quran: 'Amiri', serif;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html, body {
             height: 100%;
+            background: #020617;
+            color: #f8fafc;
+            font-family: 'Tajawal', sans-serif;
             overflow: hidden;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-main);
         }
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background: radial-gradient(circle at top right, rgba(52,211,153,0.08), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(251,191,36,0.08), transparent 50%);
+            background:
+                radial-gradient(circle at top right, rgba(52,211,153,0.10), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(251,191,36,0.10), transparent 50%);
             pointer-events: none;
-            z-index: 1;
         }
-
-        /* ═══════ الترويسة العلوية ═══════ */
-        .shorts-header {
+        .header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            top: 0; left: 0; right: 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 16px;
+            padding: 14px 16px;
+            z-index: 10;
             background: linear-gradient(to bottom, rgba(2,6,23,0.95), transparent);
-            pointer-events: none;
         }
-        .shorts-header > * { pointer-events: auto; }
-        .shorts-brand {
+        .brand {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
             color: inherit;
         }
-        .shorts-logo {
-            width: 38px;
-            height: 38px;
+        .logo {
+            width: 40px; height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            background: linear-gradient(135deg, #fbbf24, #b45309);
             border-radius: 10px;
             color: #000;
             font-weight: 900;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             box-shadow: 0 0 20px rgba(251,191,36,0.4);
         }
-        .shorts-title {
+        .brand-text b {
             font-size: 0.95rem;
             font-weight: 800;
-            color: var(--text-primary);
-        }
-        .shorts-title small {
             display: block;
-            font-size: 0.65rem;
-            color: var(--gold-light);
+        }
+        .brand-text small {
+            font-size: 0.7rem;
+            color: #fbbf24;
             font-weight: 500;
         }
-        .shorts-close {
-            width: 38px;
-            height: 38px;
+        .close {
+            width: 40px; height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--bg-glass);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            color: var(--text-primary);
-            text-decoration: none;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .shorts-close svg { width: 20px; height: 20px; }
-
-        /* ═══════ حاوية الفيديوهات ═══════ */
-        .shorts-container {
-            height: 100vh;
-            height: 100dvh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            position: relative;
-            z-index: 2;
-        }
-        .shorts-container::-webkit-scrollbar { display: none; }
-
-        /* ═══════ بطاقة الفيديو ═══════ */
-        .short-item {
-            position: relative;
-            height: 100vh;
-            height: 100dvh;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: #000;
-        }
-
-        /* الخلفية */
-        .short-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.35) blur(2px);
-            transform: scale(1.05);
-            z-index: 1;
-        }
-        .short-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.4) 50%, rgba(2,6,23,0.7) 100%);
-            z-index: 2;
-        }
-
-        /* الفيديو */
-        .short-video {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            z-index: 3;
-            background: #000;
-        }
-
-        /* ═══════ المحتوى (النص والأزرار) ═══════ */
-        .short-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 80px 40px 20px;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            pointer-events: none;
-        }
-        .short-content > * { pointer-events: auto; }
-
-        .short-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            background: rgba(52,211,153,0.15);
-            border: 1px solid rgba(52,211,153,0.3);
-            border-radius: 50px;
-            color: var(--emerald-light);
-            font-size: 0.7rem;
-            font-weight: 600;
-            width: fit-content;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .short-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.5;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
-        }
-
-        .short-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
-        }
-
-        .short-author {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.78rem;
-            color: var(--gold-light);
-            font-weight: 600;
-        }
-        .short-author::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold-light);
-            box-shadow: 0 0 10px var(--gold-light);
-        }
-
-        /* ═══════ الأزرار الجانبية ═══════ */
-        .short-actions {
-            position: absolute;
-            right: 12px;
-            bottom: 100px;
-            z-index: 20;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .action-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-family: inherit;
-            transition: transform 0.2s ease;
-        }
-        .action-btn:active { transform: scale(0.9); }
-        .action-btn .icon-wrap {
-            width: 46px;
-            height: 46px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(15,23,42,0.7);
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-        }
-        .action-btn:hover .icon-wrap {
-            background: rgba(251,191,36,0.15);
-            border-color: var(--gold-light);
-        }
-        .action-btn .icon-wrap svg {
-            width: 22px;
-            height: 22px;
-            stroke: #fff;
-        }
-        .action-btn .count {
-            font-size: 0.7rem;
-            font-weight: 700;
+            border-radius: 10px;
             color: #fff;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+            text-decoration: none;
         }
-        .action-btn.liked .icon-wrap {
-            background: rgba(239,68,68,0.2);
-            border-color: #ef4444;
-        }
-        .action-btn.liked .icon-wrap svg {
-            stroke: #ef4444;
-            fill: #ef4444;
-        }
-        .action-btn.saved .icon-wrap {
-            background: rgba(251,191,36,0.2);
-            border-color: var(--gold-light);
-        }
-        .action-btn.saved .icon-wrap svg {
-            stroke: var(--gold-light);
-            fill: var(--gold-light);
-        }
-
-        /* ═══════ زر المشاركة ═══════ */
-        .share-btn .icon-wrap {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
-            border: none;
-        }
-        .share-btn .icon-wrap svg {
-            stroke: #000;
-        }
-
-        /* ═══════ مؤشر التمرير ═══════ */
-        .scroll-hint {
+        .close svg { width: 20px; height: 20px; }
+        .empty {
             position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 50;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            animation: scrollBounce 2s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes scrollBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
-            50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
-        }
-        .scroll-hint svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--gold-light);
-        }
-
-        /* ═══════ شاشة عدم وجود فيديوهات ═══════ */
-        .empty-shorts {
-            position: absolute;
             inset: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
             padding: 30px;
             text-align: center;
             z-index: 5;
         }
-        .empty-shorts .icon {
-            font-size: 4rem;
-            filter: drop-shadow(0 0 20px rgba(251,191,36,0.4));
+        .empty-icon {
+            font-size: 5rem;
+            filter: drop-shadow(0 0 30px rgba(251,191,36,0.4));
+            animation: pulse 2s ease-in-out infinite;
         }
-        .empty-shorts h2 {
-            font-size: 1.4rem;
-            color: var(--gold-light);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .empty h2 {
+            font-size: 1.6rem;
+            color: #fbbf24;
             font-weight: 800;
+            line-height: 1.4;
         }
-        .empty-shorts p {
+        .empty p {
+            font-size: 1rem;
+            color: #94a3b8;
+            line-height: 2;
+            max-width: 340px;
+            font-family: 'Amiri', serif;
+        }
+        .empty-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #fbbf24, #b45309);
+            color: #000;
+            font-weight: 800;
+            border-radius: 14px;
+            text-decoration: none;
             font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            max-width: 320px;
-        }
-
-        /* ═══════ إشعار النسخ ═══════ */
-        .toast {
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            z-index: 999;
-            padding: 12px 20px;
-            background: rgba(15,23,42,0.98);
-            border: 1px solid var(--emerald-light);
-            border-radius: 50px;
-            color: var(--emerald-light);
-            font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            opacity: 0;
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+            margin-top: 10px;
+            box-shadow: 0 0 25px rgba(251,191,36,0.35);
         }
     </style>
 </head>
 <body>
 
-    <!-- الترويسة -->
-    <header class="shorts-header">
-        <a href="index.html" class="shorts-brand">
-            <div class="shorts-logo">س</div>
-            <div class="shorts-title">
-                دار الخلافة
+    <header class="header">
+        <a href="index.html" class="brand">
+            <div class="logo">س</div>
+            <div class="brand-text">
+                <b>دار الخلافة</b>
                 <small>مقاطع دعوية</small>
             </div>
         </a>
-        <a href="index.html" class="shorts-close" aria-label="إغلاق">
+        <a href="index.html" class="close" aria-label="إغلاق">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"/>
                 <line x1="6" y1="6" x2="18" y2="18"/>
@@ -403,145 +146,14 @@
         </a>
     </header>
 
-    <!-- حاوية الفيديوهات -->
-    <div class="shorts-container" id="shortsContainer">
-        <!-- يتم تعبئة الفيديوهات هنا تلقائيًا -->
+    <div class="empty">
+        <div class="empty-icon">🎬</div>
+        <h2>لا توجد مقاطع بعد</h2>
+        <p>ترقبوا قريبًا بإذن الله، سيتم إضافة المقاطع الدعوية القصيرة.</p>
+        <a href="index.html" class="empty-back">
+            ← العودة إلى الرئيسية
+        </a>
     </div>
 
-    <!-- إشعار النسخ -->
-    <div class="toast" id="toast">✓ تم النسخ</div>
-
-    <script>
-        /* ==========================================================
-           🟢 قاعدة بيانات المقاطع الدعوية
-           ==========================================================
-           كل مقطع كائن { } يحتوي على:
-
-           video:   رابط الفيديو (mp4 مباشر)
-           poster:  صورة الغلاف (اختياري)
-           tag:     الوسم (مثلاً: عقيدة، سيرة، تذكير)
-           title:   عنوان المقطع
-           desc:    وصف قصير (اختياري)
-           author:  المصدر (قناة، عالم، ...)
-
-           🎯 أضف مقاطعك بسهولة بنفس الطريقة.
-           ========================================================== */
-
-        const shortsData = [
-            const shortsData = [];
-
-        /* ==========================================================
-           ⛔ لا تعدل ما بعد هذا السطر إلا إذا كنت تعرف ما تفعله.
-           ========================================================== */
-
-        const container = document.getElementById('shortsContainer');
-        const toast = document.getElementById('toast');
-
-        // مفاتيح التخزين
-        const LIKES_KEY = 'shorts_likes';
-        const SAVES_KEY = 'shorts_saves';
-
-        function getArr(key) {
-            try { return JSON.parse(localStorage.getItem(key) || '[]'); }
-            catch(e) { return []; }
-        }
-        function setArr(key, arr) {
-            localStorage.setItem(key, JSON.stringify(arr));
-        }
-
-        // إذا لا توجد فيديوهات
-        if (!shortsData || shortsData.length === 0) {
-            container.innerHTML = `
-                <div class="empty-shorts">
-                    <div class="icon">🎬</div>
-                    <h2>لا توجد مقاطع بعد</h2>
-                    <p>ترقبوا قريبًا بإذن الله، سيتم إضافة المقاطع الدعوية القصيرة.</p>
-                </div>
-            `;
-            container.style.overflow = 'hidden';
-        }
-
-        // بناء البطاقات
-        shortsData.forEach((item, index) => {
-            const shortItem = document.createElement('div');
-            shortItem.className = 'short-item';
-            shortItem.dataset.index = index;
-
-            const isLiked = getArr(LIKES_KEY).includes(index);
-            const isSaved = getArr(SAVES_KEY).includes(index);
-
-            shortItem.innerHTML = `
-                ${item.poster ? `<div class="short-bg" style="background-image: url('${item.poster}')"></div>` : ''}
-                <div class="short-overlay"></div>
-
-                <video
-                    class="short-video"
-                    src="${item.video}"
-                    ${item.poster ? `poster="${item.poster}"` : ''}
-                    preload="metadata"
-                    playsinline
-                    webkit-playsinline
-                    muted
-                    loop
-                    controls
-                ></video>
-
-                <div class="short-content">
-                    <span class="short-tag">🏷️ ${item.tag}</span>
-                    <h3 class="short-title">${item.title}</h3>
-                    ${item.desc ? `<p class="short-desc">${item.desc}</p>` : ''}
-                    <span class="short-author">${item.author}</span>
-                </div>
-
-                <div class="short-actions">
-                    <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" data-index="${index}">
-                        <div class="icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                        </div>
-                        <span class="count like-count">${isLiked ? 1 : 0}</span>
-                    </button>
-
-                    <button class="action-btn save-btn ${isSaved ? 'saved' : ''}" data-index="${index}">
-                        <div class="icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <span class="count">حفظ</span>
-                    </button>
-
-                    <button class="action-btn share-btn" data-index="${index}">
-                        <div class="icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="18" cy="5" r="3"/>
-                                <circle cx="6" cy="12" r="3"/>
-                                <circle cx="18" cy="19" r="3"/>
-                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-                            </svg>
-                        </div>
-                        <span class="count">مشاركة</span>
-                    </button>
-                </div>
-            `;
-
-            container.appendChild(shortItem);
-        });
-
-        // ═══ التشغيل التلقائي للفيديو المرئي ═══
-        const videos = document.querySelectorAll('.short-video');
-        const items = document.querySelectorAll('.short-item');
-
-        const observerOptions = {
-            root: container,
-            threshold: 0.6
-        };
-
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                const video = entry.target.querySelector('.short-video');
-                if (!video) return;
-
-                if (entry.isInters
+</body>
+</html>
