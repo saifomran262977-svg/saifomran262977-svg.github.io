@@ -184,5 +184,69 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('ميزة البحث قادمة قريبًا إن شاء الله.');
         });
     }
+// ==========================================
+// تسجيل Service Worker + زر التحديث
+// ==========================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('✅ [PWA] تم تفعيل العمل بدون إنترنت');
 
+                // فحص التحديثات كل دقيقة
+                setInterval(() => {
+                    registration.update();
+                }, 60000);
+
+                // عند وجود تحديث جديد
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    console.log('🔄 [PWA] يوجد تحديث جديد');
+
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // إظهار زر التحديث
+                            showUpdateButton();
+                        }
+                    });
+                });
+            })
+            .catch((err) => console.log('⚠️ [PWA] فشل التسجيل:', err));
+
+        // إعادة تحميل الصفحة عند تحديث Service Worker
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!refreshing) {
+                refreshing = true;
+                window.location.reload();
+            }
+        });
+    });
+}
+
+// زر التحديث العائم
+function showUpdateButton() {
+    // التحقق إن كان الزر موجودًا
+    if (document.getElementById('pwaUpdateBtn')) return;
+
+    const btn = document.createElement('button');
+    btn.id = 'pwaUpdateBtn';
+    btn.className = 'pwa-update-btn';
+    btn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/>
+            <polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+        <span>تحديث جديد</span>
+    `;
+    btn.addEventListener('click', () => {
+        const sw = navigator.serviceWorker.controller;
+        if (sw) sw.postMessage('SKIP_WAITING');
+        btn.innerHTML = '⏳ جارٍ التحديث...';
+        setTimeout(() => window.location.reload(), 1000);
+    });
+
+    document.body.appendChild(btn);
+}
 });
